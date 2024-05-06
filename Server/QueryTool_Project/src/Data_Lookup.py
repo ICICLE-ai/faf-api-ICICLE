@@ -37,17 +37,33 @@ class QueryTool:
     def query(self, string):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
-            
-            table = []
+            #string = self._mapped_tables(string)
+            print(string)
             r = con.execute(text(string))
-            
-            #seralize to get all data from each entry
-            index = 0
-            for unit in r:
-                for spot in range(len(unit)):
-                    try: table[index].append(unit[spot])
-                    except: table.append([unit[spot]])
-                index +=1
+            return self._seralize(r)
 
-            return table
-        
+    def colname(self, table):
+        self.engine = create_engine(self.connection)
+        with self.engine.connect() as con:
+            tab = [key for key, value in m.table_dict.items() if value == table]
+            print(f"\n\n{tab}\n\n")
+            if(tab):
+                sql = f"DESCRIBE {tab[0]}"
+                r = con.execute(text(sql))
+                return self._seralize( r )
+            else: 
+                return "NaN"
+
+    def _seralize(self, data):
+        index = 0
+        table = []
+        for unit in data:
+            for spot in range(len(unit)):
+                print(spot)
+                try: table[index].append(unit[spot])
+                except: table.append([unit[spot]])
+            index +=1
+        return table
+
+    def _mapped_tables(self, table):
+        return [key for key, value in m.table_dict.items() if value == table][0]

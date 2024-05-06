@@ -1,4 +1,4 @@
 from rest_framework import serializers
 
 class QuerySerializer(serializers.Serializer):
-    query = serializers.CharField(max_length=1000)
+    query = serializers.CharField(max_length=100000)
