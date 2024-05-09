@@ -13,57 +13,84 @@ class QueryTool:
         self.conn   = None
 
         self.connection  = f"mysql+pymysql://{self.usr}:{self.psswrd}@localhost:3306/{self.db}"
-    def connectSQL(self):
-        self.engine = create_engine(self.connection)
-        self.conn   = self.engine.connect()
 
-    def tables(self):
-        return [x for x in m.table_dict.values()]
-
-    def show_db(self):      
+    def show_tables(self):      
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
             sql_query = "SHOW TABLES;"
 
             #seralize and map tables
             r = con.execute(text(sql_query))
-            table_mapped = []
-            for tb in r:
-                try: table_mapped.append(m.table_dict[tb[0]])
-                except: table_mapped.append(tb[0])
-
-            return table_mapped
+            return [x[0] for x in r]
 
     def query(self, string):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
             #string = self._mapped_tables(string)
-            print(string)
             r = con.execute(text(string))
             return self._seralize(r)
 
     def colname(self, table):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
-            tab = [key for key, value in m.table_dict.items() if value == table]
-            print(f"\n\n{tab}\n\n")
-            if(tab):
-                sql = f"DESCRIBE {tab[0]}"
-                r = con.execute(text(sql))
-                return self._seralize( r )
+             
+            if(table):
+                sql     = f"DESCRIBE {table}"
+                r       = con.execute(text(sql))
+                rawDesc = self._seralize( r )
+
+                desc = []
+                for line in rawDesc: desc.append(line[0])
+                return desc
             else: 
                 return "NaN"
+
+
 
     def _seralize(self, data):
         index = 0
         table = []
         for unit in data:
             for spot in range(len(unit)):
-                print(spot)
                 try: table[index].append(unit[spot])
                 except: table.append([unit[spot]])
             index +=1
         return table
+"""
+
+    def colname(self, table):
+        self.engine = create_engine(self.connection)
+        with self.engine.connect() as con:
+            #tab = [key for key, value in m.table_dict.items() if value == table]
+            tab = table
+             
+            if(tab):
+                sql     = f"DESCRIBE {tab}"
+                r       = con.execute(text(sql))
+                rawDesc = self._seralize( r )
+
+                desc = []
+                for line in rawDesc: desc.append(line[0])
+                return desc
+            else: 
+                return "NaN"
+
+    def list_commands(self):
+        cmd = {
+            'help'      : 'list commands',
+            'query'     : 'send a query to the database',
+            'column'    : 'get the fields from a table',
+            'commodity' : 'shows specific commodity from other tables',
+        }
+        return cmd
+
+    def allResources(self):
+        self.engine = create_engine(self.connection)
+        with self.engine.connect() as con:
+            r = con.execute("SELECT * FROM c")
+            return self._seralize(r)
 
     def _mapped_tables(self, table):
         return [key for key, value in m.table_dict.items() if value == table][0]
+
+"""

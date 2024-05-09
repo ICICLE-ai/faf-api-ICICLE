@@ -1,31 +1,85 @@
+#Rest_API/views.py
 from django.shortcuts import render
 
 from rest_framework.response   import Response
 from rest_framework.decorators import api_view
+from rest_framework.views      import APIView
 
 from src.Data_Lookup import QueryTool
-from .serializers import QuerySerializer
+import Rest_API.serializers as s
+from drf_spectacular.utils import extend_schema
+
+    
+class TablePayLoad(APIView):
+    @extend_schema(
+        description="Returning a list of the table names from database",
+        request=None,
+        responses=s.ListSerializer
+    )
+    def get(self, request):
+        query = QueryTool()
+        tables = query.show_tables()
+        return Response(tables)
+
+class QueryLoader(APIView):
+    @extend_schema(
+    request    =s.QuerySerializer,
+    description="Take a query and return output from mySQL server",
+    responses  =s.ListSerializer
+    )
+    def post(self, request):
+        serializer = s.QuerySerializer(data=request.data)
+        if serializer.is_valid():
+            cmd    = serializer.validated_data['query']
+            lookup = QueryTool()
+            data   = lookup.query(cmd)
+            return Response(data)
+        else:
+            return Response(serializer.errors, status=400)
+
+class TableDescripter(APIView):
+    @extend_schema(
+    request    =s.QuerySerializer,
+    description="takes in a table name and returns the column data",
+    responses  =s.ListSerializer
+    )
+    def post(self, request):
+        serializer = s.QuerySerializer(data=request.data)
+        if serializer.is_valid():
+            table = serializer.validated_data['query']
+            lookup = QueryTool()
+            return Response(lookup.colname(table))
+        else:
+            return Response(serializer.errors, status=400)
+       
+
+"""
+@api_view(['GET'])
+def getHelp(request):
+    query = QueryTool()
+    cmds  = query.list_commands()
+    return Response(cmds)
 
 @api_view(['GET'])
-def getData(request):
+def getCommodities(request):
+    print("\n\nsomething\n\n")
+    query      = QueryTool()
+    resources  = query.allResources()
+    return Response(resources) 
 
-    query  = QueryTool()
-    tables = query.show_db()
-    return Response(tables)
-
-@api_view(['POST', 'GET'])
+@api_view(['GET', 'POST'])
 def getQuery(request):
     serializer = QuerySerializer(data=request.data)
     if serializer.is_valid():
         query = serializer.validated_data['query']
-        print(query)
+        
         lookup = QueryTool()
         data = lookup.query(query)
         return Response(data)
     else:
         return Response(serializer.errors, status=400)
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 def getColumnName(request):
     serializer = QuerySerializer(data=request.data)
     if serializer.is_valid():
@@ -34,3 +88,4 @@ def getColumnName(request):
         return Response(lookup.colname(table))
     else:
         return Response(serializer.errors, status=400)
+"""
