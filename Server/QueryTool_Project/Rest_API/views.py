@@ -17,9 +17,11 @@ class TablePayLoad(APIView):
         responses=s.ListSerializer
     )
     def get(self, request):
-        query = QueryTool()
+        query  = QueryTool()
         tables = query.show_tables()
-        return Response(tables)
+        ser    = s.ListSerializer(data={'data':tables})
+        if ser.is_valid(): return Response(ser.data)
+        return Response(serializer.errors, status=400)
 
 class QueryLoader(APIView):
     @extend_schema(
@@ -33,9 +35,10 @@ class QueryLoader(APIView):
             cmd    = serializer.validated_data['query']
             lookup = QueryTool()
             data   = lookup.query(cmd)
-            return Response(data)
-        else:
+            ser    = s.ListSerializer(data={'data': data})
+            if ser.is_valid(): return Response(ser.data)
             return Response(serializer.errors, status=400)
+        return Response(serializer.errors, status=400)
 
 class TableDescripter(APIView):
     @extend_schema(
@@ -46,11 +49,13 @@ class TableDescripter(APIView):
     def post(self, request):
         serializer = s.QuerySerializer(data=request.data)
         if serializer.is_valid():
-            table = serializer.validated_data['query']
-            lookup = QueryTool()
-            return Response(lookup.colname(table))
-        else:
-            return Response(serializer.errors, status=400)
+            table   = serializer.validated_data['query']
+            lookup  = QueryTool()
+            details = lookup.colname(table)
+            ser     = s.ListSerializer(data={'data': details})
+            if ser.is_valid(): return Response(ser.data)
+            Response(serializer.errors, status=400)
+        Response(serializer.errors, status=400)
        
 
 """
