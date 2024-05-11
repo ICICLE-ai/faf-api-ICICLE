@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_spectacular',
 
-    'QueryForm',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+#    'Logs.endpoint_logging.LogEndPoints',
 ]
 
 ROOT_URLCONF = 'QueryTool_Project.urls'
@@ -130,3 +131,50 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Logging
+
+LOGGERS = {
+    "django": {
+        "handlers" : ["console_handler", "my_handler"],
+        "level"    : "INFO",
+        "propagate": False,
+    },
+    "Rest_API.views": {
+        "handlers" : ["console_handler", "my_handler"],
+        "level"    : "INFO",
+        "propagate": False, 
+    }
+}
+
+HANDLERS = {
+    "console_handler":{
+        "class"    : "logging.StreamHandler",
+        "formatter": "simple",
+    },
+    
+    "my_handler": {
+        "class"      : "logging.handlers.RotatingFileHandler",
+        "filename"   : f"{BASE_DIR}/src/logs/datalogs.log",
+        "mode"       : "a",
+        "encoding"   : "utf-8",
+        "formatter"  : "simple",
+        "backupCount": 5, 
+        "maxBytes"   : 1024 * 1024 * 5 #5MB
+    },
+}
+
+FORMATTERS = {
+    "simple": {
+        "format": "{levelname} {funcName} {asctime:s} {message}",
+        "style" : "{",
+    }
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": FORMATTERS,
+    "handlers"  : HANDLERS,
+    "loggers"   : LOGGERS,
+}

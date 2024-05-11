@@ -8,8 +8,10 @@ from rest_framework.views      import APIView
 from src.Data_Lookup import QueryTool
 import Rest_API.serializers as s
 from drf_spectacular.utils import extend_schema
-
+import logging
     
+logger = logging.getLogger('Rest_API.views')
+
 class TablePayLoad(APIView):
     @extend_schema(
         description="Returning a list of the table names from database",
@@ -33,6 +35,7 @@ class QueryLoader(APIView):
         serializer = s.QuerySerializer(data=request.data)
         if serializer.is_valid():
             cmd    = serializer.validated_data['query']
+            logger.info(f"query: {cmd}")                            #logging the commands used
             lookup = QueryTool()
             data   = lookup.query(cmd)
             ser    = s.ListSerializer(data={'data': data})
@@ -50,6 +53,7 @@ class TableDescripter(APIView):
         serializer = s.QuerySerializer(data=request.data)
         if serializer.is_valid():
             table   = serializer.validated_data['query']
+            logger.info(f"col: {table}")
             lookup  = QueryTool()
             details = lookup.colname(table)
             ser     = s.ListSerializer(data={'data': details})

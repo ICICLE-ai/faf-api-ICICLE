@@ -26,26 +26,23 @@ class QueryTool:
     def query(self, string):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
-            #string = self._mapped_tables(string)
-            r = con.execute(text(string))
-            return self._seralize(r)
+            try:    return self._seralize(con.execute(text(string)))
+            except: return ["Incorrect Query"] 
 
     def colname(self, table):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
              
             if(table):
-                sql     = f"DESCRIBE {table}"
-                r       = con.execute(text(sql))
-                rawDesc = self._seralize( r )
+                sql      = f"DESCRIBE {table}"
 
+                try: sql = con.execute(text(sql))
+                except: return ["Incorrect Table-Name"]
+
+                rawDesc = self._seralize( sql )
                 desc = []
                 for line in rawDesc: desc.append(line[0])
                 return desc
-            else: 
-                return "NaN"
-
-
 
     def _seralize(self, data):
         index = 0

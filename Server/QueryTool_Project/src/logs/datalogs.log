@@ -1,0 +1,12 @@
+INFO run_with_reloader 2024-05-11 16:12:58,128 Watching for file changes with StatReloader
+INFO log_message 2024-05-11 16:13:00,760 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-05-11 16:13:00,874 "GET /api/schema/ HTTP/1.1" 200 12059
+INFO log_message 2024-05-11 16:13:06,169 "GET /table/ HTTP/1.1" 200 359
+INFO post 2024-05-11 16:13:16,823 col: efgadgsfgsdfg
+INFO log_message 2024-05-11 16:13:16,843 "POST /coldata/ HTTP/1.1" 200 33
+INFO post 2024-05-11 16:13:24,618 col: tt
+INFO log_message 2024-05-11 16:13:24,630 "POST /coldata/ HTTP/1.1" 200 39
+INFO post 2024-05-11 16:13:46,786 query: show * of s
+INFO log_message 2024-05-11 16:13:46,795 "POST /query/ HTTP/1.1" 200 28
+INFO post 2024-05-11 16:13:57,807 query: select * from c
+INFO log_message 2024-05-11 16:13:57,818 "POST /query/ HTTP/1.1" 200 1042
