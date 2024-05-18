@@ -26,8 +26,9 @@ class QueryTool:
     def query(self, string):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
-            try:    return self._seralize(con.execute(text(string)))
-            except: return ["Incorrect Query"] 
+            #try:
+            return self._seralize(con.execute(text(string)))
+            #except: return ["Incorrect Query"] 
 
     def colname(self, table):
         self.engine = create_engine(self.connection)
