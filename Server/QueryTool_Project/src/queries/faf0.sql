@@ -1,6 +1,6 @@
 SELECT 
     f0.index,
-    of0.description AS Origion,
+    of0.description AS Origin,
     df.description AS Destination,
     c.description AS Commodity,
     m.description AS Transportation,

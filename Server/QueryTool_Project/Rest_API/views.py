@@ -7,12 +7,222 @@ from rest_framework.views      import APIView
 
 from src.Data_Lookup import QueryTool
 from src.CreateQuery import CreateQuery
+import Rest_API.examples as e
 import Rest_API.serializers as s
-from drf_spectacular.utils import extend_schema
+
+
+from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiResponse
 import logging
     
 logger = logging.getLogger('Rest_API.views')
 
+###########################################################################################
+class GatherAll(APIView):
+    @extend_schema(
+        description="Takes in either the name of a table or 'all' then joins all of the sub tables with the the main data table given before then pushing it into a data file for the user to download. If 'all,' then this is done for all 6 data tables",
+        examples=[
+            OpenApiExample(
+                'Example',
+                value = e.tableModel_example,
+                media_type="application/json",
+            )
+        ],
+        request=s.TableSerializer(),
+        responses={
+            '200': OpenApiResponse(
+                description= "CSV download of joined data table",
+                examples=[
+                    OpenApiExample(
+                        'CSV Example',
+                        value=e.table_CSVExample,
+                        media_type='text/csv'
+                    )
+                ],
+            )
+        }
+    )
+    def post(self, request):
+        return Response("It worked")
+
+###########################################################################################
+class PointtoPoint(APIView):
+    @extend_schema(
+        description="Takes a specific commodity, or all of them, and shows the amount traded between two states in a specific year or time frame",
+        examples=[
+            OpenApiExample(
+                'Single Year Example',
+                value=e.PointToPointExample1,
+                media_type="application/json",
+            ),
+            OpenApiExample(
+                'Year Range Example',
+                value=e.PointToPointExample2,
+                media_type="application/json",
+            ),
+            OpenApiExample(
+                'Response Example',
+                value=e.PtoPReturnExample,
+                media_type="application/json",
+            )
+        ],
+        request=s.PointToPointSerializer(),
+        responses={
+            '200':s.PtoPReturnSerializer(many=True),
+        },
+        #response=s.PtoPReturnSerializer
+    )
+
+    def post(self, request):
+        return Response("ptop is up!")
+
+##########################################################################################
+class Exports(APIView):
+    @extend_schema(
+        description="Shows all of the exports from a region/state based on year or time frame. The destination, transport type and the time also are supplied",
+        examples=[
+            OpenApiExample(
+                'Single Year Example',
+                value=e.exportSingleExample1,
+                media_type="application/json",
+            ), 
+            OpenApiExample(
+                'Year Window Example',
+                value=e.exportMultiExample2,
+                media_type="application/json",
+            ),
+           OpenApiExample(
+                'Return Example',
+                value=e.exportReturnExample,
+                media_type="application/json",
+            )
+
+        ],
+        request=s.ExportsSerializer(),
+        responses={
+            '200':s.ExportsReturnSerializer(many=True)
+        }
+    )
+
+    def post(self, request):
+        return Response("Exports is up!")
+##########################################################################################
+class Imports(APIView):
+    @extend_schema(
+        description="Shows all of the imports from a region/state based on year or time frame. The origin, transport type, commodity, ton amount, and year are also supplied.",
+        examples=[
+            OpenApiExample(
+                'Single Year Example',
+                value=e.exportSingleExample1,
+                media_type="application/json",
+            ), 
+            OpenApiExample(
+                'Year Window Example',
+                value=e.exportMultiExample2,
+                media_type="application/json",
+            ),
+           OpenApiExample(
+                'Return Example',
+                value=e.importReturnExample,
+                media_type="application/json",
+            )
+
+        ],
+        request=s.ImportsSerializer(),
+        responses={
+            '200':s.ImportsReturnSerializer(many=True)
+        }
+    )
+
+    def post(self, request):
+        return Response("Import is up!")
+##########################################################################################
+class RawResource(APIView):
+    @extend_schema(
+        description="Adds up total tons per commodity based on year or year frame and orders based on ton. It has options for imports and/or exports",
+        examples=[
+            OpenApiExample(
+                'Example Year',
+                value=e.rawExample1,
+                media_type="application/json",
+            ), 
+            OpenApiExample(
+                'Example Year Frame',
+                value=e.rawExample2,
+                media_type="application/json",
+            ),
+            OpenApiExample(
+                'Return Example',
+                value=e.rawExampleReturn,
+                media_type="application/json",
+            ),
+        ],
+        request=s.RawResourceSerializer(),
+        responses={
+            '200':s.RawResourceReturnSerializer(many=True)
+        }
+    )
+    def post(self, request):
+        return Response("Raw is up!")
+##########################################################################################
+class Commodity_total(APIView):
+    @extend_schema(
+        description="Takes the commodities in each state and adds up their total based on import, export or both and sorts the return based on ton amount. The time frame is based on year or year frame, and the return will give the location of the ranked commodity and if it was imported or exported",
+        examples=[
+            OpenApiExample(
+                'Example Year',
+                value=e.commtotalExample1,
+                media_type="application/json",
+            ), 
+            OpenApiExample(
+                'Example TimeFrame',
+                value=e.commtotalExample2,
+                media_type="application/json",
+            ),
+           OpenApiExample(
+                'Return Example',
+                value=e.commtotalReturnExample,
+                media_type="application/json",
+            ),
+
+        ],
+        request=s.CommodityTotalSerializer(),
+        responses={
+            '200':s.CommodityTotalReturnSerializer(many=True)
+        }
+    )
+    def post(self, request):
+        return Response("Commodity total is up!")
+##########################################################################################
+class Ratio_ie(APIView):
+    @extend_schema(
+        description="gives a ratio of commodities imported/exported in stated ordered by resource",
+        examples=[
+            OpenApiExample(
+                'Ratio Example Year',
+                value=e.ratioExample1,
+                media_type="application/json",
+            ), 
+            OpenApiExample(
+                'Ratio Example TimeFrame',
+                value=e.ratioExample2,
+                media_type="application/json",
+            ),
+           OpenApiExample(
+                'Ratio Return Example',
+                value=e.ratioReturnExample,
+                media_type="application/json",
+            ),
+
+        ],
+        request=s.RatioSerializer(),
+        responses={
+            '200':s.RatioReturnSerializer()
+        }
+    )
+   
+    def post(self, request):
+        return Response("Ratio is ratioing!")
+##########################################################################################
 class TablePayLoad(APIView):
     @extend_schema(
         description="Returning a list of the table names from database",
@@ -102,71 +312,3 @@ class GetTable(APIView):
             return Response(serializer.errors, status=400)
         return Response(serializer.errors, status=400)
 
-
-
-class GetTableA(APIView):
-    @extend_schema(
-        request    = s.QuerySerializer,
-        description="Takes in one of the faf or state tables and gives full data back",
-        responses  =s.ListSerializer
-    )
-    def get(self, request, table_id):
-        tab_dict = {
-            "_faf551_faf_0": "faf0",
-            "_faf551_faf_1": "faf1",
-            "_faf551_faf_2": "faf2",
-            "_faf551_faf_3": "faf3",
-            "_faf551_state_0": "state0",
-            "_faf551_state_1": "state1",
-            "_faf551_state_2": "state2",
-            "_faf551_state_3": "state3"
-        }
-        query = ""
-        try:
-            with open(f'src/queries/{tab_dict[table_id]}.sql', 'r') as fp:
-                query = "".join(sentence for sentence in fp)
-            lookup = QueryTool()
-            data   = lookup.query(query)
-            ser    = s.ListSerializer(data={'data': data})
-            if ser.is_valid(): return Response(ser.data)
-            return Response(serializer.errors, status=400)
-        except:
-            return Response(status=400)
-
-
-"""
-@api_view(['GET'])
-def getHelp(request):
-    query = QueryTool()
-    cmds  = query.list_commands()
-    return Response(cmds)
-
-@api_view(['GET'])
-def getCommodities(request):
-    print("\n\nsomething\n\n")
-    query      = QueryTool()
-    resources  = query.allResources()
-    return Response(resources) 
-
-@api_view(['GET', 'POST'])
-def getQuery(request):
-    serializer = QuerySerializer(data=request.data)
-    if serializer.is_valid():
-        query = serializer.validated_data['query']
-        
-        lookup = QueryTool()
-        data = lookup.query(query)
-        return Response(data)
-    else:
-        return Response(serializer.errors, status=400)
-
-@api_view(['GET', 'POST'])
-def getColumnName(request):
-    serializer = QuerySerializer(data=request.data)
-    if serializer.is_valid():
-        table = serializer.validated_data['query']
-        lookup = QueryTool()
-        return Response(lookup.colname(table))
-    else:
-        return Response(serializer.errors, status=400)
-"""

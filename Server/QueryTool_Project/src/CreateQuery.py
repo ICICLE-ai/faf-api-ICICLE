@@ -42,8 +42,39 @@ class CreateQuery:
         if self.commodity == True: cols.append(metrics.faf0["sctg2"][0])
         if self.tport     == True: cols.append(metrics.faf0["dms_mode"][0])
         if self.dist      == True: cols.append(metrics.faf0["dist_band"][0])
-        
-        if self._columnsfaf(): cols.append(self._columnsfaf())
+    
+        for year in self.ton_y:
+            try: cols.append(metrics.tons[year.strip()])
+            except: continue
+
+        for year in self.val_y:
+            try: cols.append(metrics.value[year.strip()])
+            except: continue
+
+        for year in self.curVal_y:
+            try: cols.append(metrics.current_value[year.strip()])
+            except: continue
+
+        for year in self.tmile:
+            try: cols.append(metrics.tmiles[year.strip()])
+            except: continue
+
+        for year in self.tonHigh_y:
+            try: cols.append(metrics.tons_high[year.strip()])
+            except: continue
+
+        for year in self.tonLow_y:
+            try: cols.append(metrics.tons_low[year.strip()])
+            except: continue
+
+        for year in self.valHigh_y:
+            try: cols.append(metrics.value_high[year.strip()])
+            except: continue
+
+        for year in self.valLow_y:
+            try: cols.append(metrics.value_low[year.strip()])
+            except: continue
+          
         self.query += ", ".join(cols) + " "
 
         self._table()
