@@ -2,7 +2,7 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('all/'            ,  GatherAll.as_view()),
+    path('get_table_data/' , GatherAll.as_view()),
     path('ptop/'           , PointtoPoint.as_view()),
     path('exports/'        , Exports.as_view()),
     path('imports/'        , Imports.as_view()),

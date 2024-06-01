@@ -1,5 +1,5 @@
-import src.queries.faf0 as metrics
-class CreateQuery:
+import src.queries.Mapping as metrics
+class GrabTable:
     def __init__(self,
             table     = "_faf551_faf_0",
             origin    = 1, 
@@ -15,16 +15,16 @@ class CreateQuery:
             tonLow_y  = [],
             valHigh_y = [],
             valLow_y  = [],
-            limit     = 0,
+            limit     = 30,
     ):
         self.query = "SELECT "
         self.table     = table
-        self.origin    = origin
-        self.dest      = dest
-        self.commodity = commodity
-        self.tport     = tport
-        self.dist      = dist
-        self.ton_y     = ton_y
+        self.origin    = 1
+        self.dest      = 1
+        self.commodity = 1
+        self.tport     = 1
+        self.dist      = 1
+        self.ton_y     = [x for x in metrics.tons.keys()]
         self.val_y     = val_y 
         self.curVal_y  = curVal_y 
         self.tmile     = tmile 

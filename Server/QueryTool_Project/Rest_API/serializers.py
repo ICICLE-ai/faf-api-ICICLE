@@ -5,9 +5,9 @@ class TableSerializer(serializers.Serializer):
     table = serializers.CharField(max_length=6)
 
 class PointToPointSerializer(serializers.Serializer):
-    commodity   = serializers.CharField(max_length=10)
-    origin      = serializers.CharField(max_length=10)
-    destination = serializers.CharField(max_length=10)
+    commodity   = serializers.CharField(max_length=40)
+    origin      = serializers.CharField(max_length=40)
+    destination = serializers.CharField(max_length=40)
     timeframe   = serializers.ListField(max_length=2, child=serializers.IntegerField())
 
 class PtoPReturnSerializer(serializers.Serializer): 
@@ -73,7 +73,7 @@ class RatioReturnSerializer(serializers.Serializer):
     ton_import = serializers.FloatField()    
     ton_export = serializers.FloatField()
 
-
+##################
 
 class QuerySerializer(serializers.Serializer):
     query = serializers.CharField(max_length=1000000)

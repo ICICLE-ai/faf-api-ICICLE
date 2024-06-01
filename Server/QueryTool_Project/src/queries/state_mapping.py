@@ -1,9 +1,20 @@
-faf0 = {
-    "dms_orig" : ["of0.description AS Origion",     "JOIN o_faf of0 ON dms_orig = of0.code"],
-    "dms_dest" : ["df.description AS Destination",  "JOIN d_faf df  ON dms_dest = df.code"],
-    "sctg2"    : ["c.description AS Commodity",     "JOIN c on sctg2 = c.code"],
-    "dms_mode" : ["m.description AS Transportation","JOIN m on dms_mode = m.code"],
-    "dist_band": ["db.description AS Distance",     "JOIN db on dist_band = db.code"],
+#state
+
+state0 = {
+    "dms_orig" : ["os.description AS Domestic_Origion",    "JOIN o_state os ON dms_orig = os.code"],
+    "dms_dest" : ["ds.description AS Domestic_Destination", "JOIN d_state ds ON dms_dest = ds.code"],
+    "sctg2"    : ["c.description AS Commodity",             "JOIN c ON sctg2 = c.code"],
+    "dms_mode" : ["m.description AS Transportation",        "JOIN m ON dms_mode = m.code"],
+}
+
+state2 = {
+    "fr_orig"  : ["fo.description AS Foreign_Origion",   "JOIN fo ON fr_orig = fo.code"],
+    "fr_inmode": ["fom.description AS Foreign_Transport","JOIN fom ON fr_inmode = fom.code"],
+}
+
+state3 = {
+    "fr_dest"   :["fd.description AS Foreign_Destination",    "JOIN fd ON fr_dest = fd.code"],
+    "fr_outmode":["fdm.description AS Foreign_Transportation","JOIN fdm ON fr_outmode = fdm.code"],
 }
 
 table = {
@@ -17,7 +28,11 @@ table = {
     "state3":"_faf551_state_3",
 }
 
-tons = {
+tons = { 
+    "1997":"tons_1997",
+    "2002":"tons_2002", 
+    "2007":"tons_2007",
+    "2012":"tons_2012",
     "2017":"tons_2017",
     "2018":"tons_2018",
     "2019":"tons_2019",
@@ -34,6 +49,10 @@ tons = {
 }
 
 value = {
+    "1997":"value_1997",
+    "2002":"value_2002", 
+    "2007":"value_2007",
+    "2012":"value_2012",
     "2017":"value_2017",
     "2018":"value_2018",
     "2019":"value_2019",
@@ -50,6 +69,10 @@ value = {
 }
 
 current_value = {
+    "1997":"current_value_1997",
+    "2002":"current_value_2002",
+    "2007":"current_value_2007",
+    "2012":"current_value_2012",
     "2017":"current_value_2017",
     "2018":"current_value_2018",
     "2019":"current_value_2019",
@@ -59,6 +82,10 @@ current_value = {
 }
 
 tmiles = {
+    "1997":"tmiles_1997",
+    "2002":"tmiles_2002",
+    "2007":"tmiles_2007",
+    "2012":"tmiles_2012",
     "2017":"tmiles_2017",
     "2018":"tmiles_2018",
     "2019":"tmiles_2019",
@@ -113,3 +140,4 @@ value_low = {
     "2045":"value_2045_low",
     "2050":"value_2050_low",
 }
+

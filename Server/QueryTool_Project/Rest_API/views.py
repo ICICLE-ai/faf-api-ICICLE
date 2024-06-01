@@ -1,12 +1,17 @@
 #Rest_API/views.py
 from django.shortcuts import render
+from django.http      import HttpResponse
+import pandas as pd
+from io import StringIO
+
 
 from rest_framework.response   import Response
 from rest_framework.decorators import api_view
 from rest_framework.views      import APIView
 
 from src.Data_Lookup import QueryTool
-from src.CreateQuery import CreateQuery
+from src.GrabTable import GrabTable
+from src.PointToPoint import PointToPoint
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
@@ -19,7 +24,7 @@ logger = logging.getLogger('Rest_API.views')
 ###########################################################################################
 class GatherAll(APIView):
     @extend_schema(
-        description="Takes in either the name of a table or 'all' then joins all of the sub tables with the the main data table given before then pushing it into a data file for the user to download. If 'all,' then this is done for all 6 data tables",
+        description="This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.",
         examples=[
             OpenApiExample(
                 'Example',
@@ -42,7 +47,25 @@ class GatherAll(APIView):
         }
     )
     def post(self, request):
-        return Response("It worked")
+        serializer = s.TableSerializer(data=request.data)
+        if serializer.is_valid():
+            table  = serializer.validated_data['table']
+            gt   = GrabTable(table)
+            if gt.fail == 1: return Response("ERROR: Wrong Table")
+            query = gt.setup()
+             
+            logger.info(f"Grab Table Query: {query}")
+            
+            lookup = QueryTool()
+            data = lookup.query(query)
+            try:
+                csv_data = data.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = f'attachment; filename={request.data["table"]}.csv'
+                return response
+            except:
+                return Reponse("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
 
 ###########################################################################################
 class PointtoPoint(APIView):
@@ -73,7 +96,40 @@ class PointtoPoint(APIView):
     )
 
     def post(self, request):
-        return Response("ptop is up!")
+        serializer = s.PointToPointSerializer(data=request.data)
+        if serializer.is_valid():
+            data = PointToPoint(
+                serializer.validated_data['commodity'],
+                serializer.validated_data['origin'],
+                serializer.validated_data['destination'],
+                serializer.validated_data['timeframe']
+            )
+            query = data.setup()
+            logger.info(f"PointToPoint: {query}")
+            return Response(query)
+        return Response(serializer.errors, status=400)
+
+    def merp(self, request):
+        serializer = s.TableSerializer(data=request.data)
+        if serializer.is_valid():
+            table  = serializer.validated_data['table']
+            gt   = GrabTable(table)
+            if gt.fail == 1: return Response("ERROR: Wrong Table")
+            query = gt.setup()
+             
+            logger.info(f"Grab Table Query: {query}")
+            
+            lookup = QueryTool()
+            data = lookup.query(query)
+            try:
+                csv_data = data.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = f'attachment; filename={request.data["table"]}.csv'
+                return response
+            except:
+                return Reponse("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
+
 
 ##########################################################################################
 class Exports(APIView):
