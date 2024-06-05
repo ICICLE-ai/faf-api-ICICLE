@@ -19,7 +19,7 @@ class PtoPReturnSerializer(serializers.Serializer):
 
 class ExportsSerializer(serializers.Serializer):
     origin     = serializers.CharField(max_length=15)
-    timeframe = serializers.ListField(max_length=2, child=serializers.IntegerField())
+    timeframe  = serializers.ListField(max_length=2, child=serializers.IntegerField())
 
 class ExportsReturnSerializer(serializers.Serializer):
     destination = serializers.CharField(max_length=15)

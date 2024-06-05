@@ -9,9 +9,10 @@ from rest_framework.response   import Response
 from rest_framework.decorators import api_view
 from rest_framework.views      import APIView
 
-from src.Data_Lookup import QueryTool
-from src.GrabTable import GrabTable
+from src.Data_Lookup  import QueryTool
+from src.GrabTable    import GrabTable
 from src.PointToPoint import PointToPoint
+from src.Exports      import Exports
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
@@ -92,7 +93,6 @@ class PointtoPoint(APIView):
         responses={
             '200':s.PtoPReturnSerializer(many=True),
         },
-        #response=s.PtoPReturnSerializer
     )
 
     def post(self, request):
@@ -119,7 +119,7 @@ class PointtoPoint(APIView):
         return Response(serializer.errors, status=400)
 
 ##########################################################################################
-class Exports(APIView):
+class Export_endpoint(APIView):
     @extend_schema(
         description="Shows all of the exports from a region/state based on year or time frame. The destination, transport type and the time also are supplied",
         examples=[
@@ -143,13 +143,34 @@ class Exports(APIView):
         request=s.ExportsSerializer(),
         responses={
             '200':s.ExportsReturnSerializer(many=True)
-        }
+        },
     )
 
     def post(self, request):
-        return Response("Exports is up!")
+        serializer = s.ExportsSerializer(data=request.data)
+        if serializer.is_valid():
+            data = Exports(
+                serializer.validated_data['origin'],
+                serializer.validated_data['timeframe']
+            )
+            query = data.setup()
+
+            if query == False: return Response("Error: Check Data", 400)
+            logger.info(f"Export Endpoint:{query}")
+            lookup = QueryTool()
+            data = lookup.query(query)
+            try:
+                csv_data = data.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = f'attachment; filename=exports_{serializer.validated_data["origin"]}.csv'
+                return response
+            except:
+                return Response("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
+
+ 
 ##########################################################################################
-class Imports(APIView):
+class Import_endpoint(APIView):
     @extend_schema(
         description="Shows all of the imports from a region/state based on year or time frame. The origin, transport type, commodity, ton amount, and year are also supplied.",
         examples=[
@@ -177,7 +198,28 @@ class Imports(APIView):
     )
 
     def post(self, request):
-        return Response("Import is up!")
+        serializer = s.ImportsSerializer(data=request.data)
+        if serializer.is_valid():
+            data = Exports(
+                serializer.validated_data['origin'],
+                serializer.validated_data['timeframe']
+            )
+            query = data.setup()
+
+            if query == False: return Response("Error: Check Data", 400)
+            logger.info(f"Export Endpoint:{query}")
+            lookup = QueryTool()
+            data = lookup.query(query)
+            try:
+                csv_data = data.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = f'attachment; filename=Imports_{serializer.validated_data["origin"]}.csv'
+                return response
+            except:
+                return Response("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
+
+
 ##########################################################################################
 class RawResource(APIView):
     @extend_schema(

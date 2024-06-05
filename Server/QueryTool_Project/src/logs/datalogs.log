@@ -7259,3 +7259,1122 @@ INFO trigger_reload 2024-06-05 16:17:52,489 /u/cj124/faf-api-dev/Server/QueryToo
 INFO run_with_reloader 2024-06-05 16:17:53,176 Watching for file changes with StatReloader
 INFO log_message 2024-06-05 16:18:05,951 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
 INFO log_message 2024-06-05 16:18:06,109 "GET /api/schema/ HTTP/1.1" 200 52759
+INFO run_with_reloader 2024-06-05 20:19:22,334 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 20:26:41,472 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:26:42,149 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:26:57,829 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = something(
+NameError: name 'something' is not defined
+ERROR log_message 2024-06-05 20:26:57,831 "POST /exports/ HTTP/1.1" 500 17684
+INFO trigger_reload 2024-06-05 20:34:56,470 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:34:57,175 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:35:00,599 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:35:00,600 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:35:52,146 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:35:52,628 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:35:56,152 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:35:56,153 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:41:04,963 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:41:05,664 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:41:07,076 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 154, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:41:07,079 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:42:13,273 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:42:13,924 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 20:43:01,106 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:43:01,580 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 20:43:08,333 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-05 20:43:08,677 "GET /api/schema/ HTTP/1.1" 200 52759
+ERROR log_response 2024-06-05 20:43:17,669 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 154, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:43:17,671 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:48:07,745 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:48:08,473 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:48:12,153 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:48:12,154 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:48:32,150 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:48:32,645 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:48:33,900 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:48:33,901 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:48:58,095 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:48:58,574 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 20:50:24,110 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:50:24,757 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 20:50:34,387 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:50:34,868 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:50:37,513 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 2 were given
+ERROR log_message 2024-06-05 20:50:37,515 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:50:50,776 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:50:51,244 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:50:52,329 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 158, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 20:50:52,330 "POST /exports/ HTTP/1.1" 500 17739
+INFO run_with_reloader 2024-06-05 20:51:31,166 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 20:51:39,672 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:51:40,165 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:51:44,022 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:51:44,023 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:52:23,891 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:52:24,365 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:52:25,765 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:52:25,766 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 20:55:20,001 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 20:55:20,664 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 20:55:24,583 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 20:55:24,584 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:04:45,702 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:04:46,375 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:06:47,624 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:06:48,325 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:06:55,809 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:06:55,810 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:07:37,693 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:07:38,230 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:07:40,733 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 157, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 21:07:40,735 "POST /exports/ HTTP/1.1" 500 17739
+INFO trigger_reload 2024-06-05 21:09:51,265 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:09:51,974 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:10:42,411 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:10:42,903 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:10:46,666 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 157, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 21:10:46,668 "POST /exports/ HTTP/1.1" 500 17739
+INFO trigger_reload 2024-06-05 21:11:43,978 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:11:44,487 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:11:46,296 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 158, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 21:11:46,299 "POST /exports/ HTTP/1.1" 500 17739
+INFO trigger_reload 2024-06-05 21:12:45,576 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:12:46,087 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:13:11,944 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:13:12,332 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 21:13:15,280 "POST /exports/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-05 21:13:26,104 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:13:26,573 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 21:13:29,571 "POST /exports/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-05 21:13:59,805 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:14:00,292 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 21:14:01,717 "POST /exports/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-05 21:14:46,176 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:14:46,672 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:14:49,914 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 157, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 21:14:49,916 "POST /exports/ HTTP/1.1" 500 17739
+INFO trigger_reload 2024-06-05 21:15:20,895 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:15:21,376 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:15:24,354 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:15:24,356 "POST /exports/ HTTP/1.1" 500 17730
+INFO post 2024-06-05 21:15:57,247 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-05 21:15:57,807 "POST /point_to_point/ HTTP/1.1" 200 237
+INFO trigger_reload 2024-06-05 21:22:24,677 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:22:25,356 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:22:29,302 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:22:29,303 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:22:51,308 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:22:51,771 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:23:56,929 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:23:57,464 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:24:00,094 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:24:00,096 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:24:25,122 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:24:25,597 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:25:08,234 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:25:08,731 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:25:11,506 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:25:11,507 "POST /exports/ HTTP/1.1" 500 17730
+INFO run_with_reloader 2024-06-05 21:26:07,614 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:30:16,547 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:30:17,261 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:30:20,519 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:30:20,520 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:31:04,622 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:31:05,117 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 21:31:07,444 "POST /exports/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-05 21:32:04,022 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:32:04,542 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:35:07,742 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:35:08,385 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:35:11,509 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:35:11,510 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:51:30,744 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:51:31,422 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 21:51:59,255 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:51:59,755 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:52:04,507 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:52:04,509 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:52:27,498 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:52:27,972 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:52:30,119 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:52:30,120 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:54:02,417 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:54:02,940 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:54:05,701 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:54:05,703 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:54:20,957 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:54:21,430 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:54:22,822 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:54:22,824 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 21:58:38,584 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 21:58:39,291 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 21:58:40,254 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 152, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 21:58:40,256 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 22:00:03,023 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:00:03,539 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 22:00:06,218 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 22:00:06,220 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 22:01:13,226 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:01:13,744 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 22:01:15,926 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 153, in post
+    data = Exports(
+TypeError: __init__() takes 1 positional argument but 3 were given
+ERROR log_message 2024-06-05 22:01:15,928 "POST /exports/ HTTP/1.1" 500 17730
+INFO trigger_reload 2024-06-05 22:01:27,820 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:01:28,294 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:03:00,280 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:03:00,778 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 22:03:03,816 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 156, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 22:03:03,818 "POST /exports/ HTTP/1.1" 500 17739
+ERROR log_response 2024-06-05 22:03:07,162 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 156, in post
+    query = data.setup()
+TypeError: setup() missing 1 required positional argument: 'request'
+ERROR log_message 2024-06-05 22:03:07,163 "POST /exports/ HTTP/1.1" 500 17739
+INFO trigger_reload 2024-06-05 22:03:21,042 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:03:21,497 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 22:03:22,170 "POST /exports/ HTTP/1.1" 200 5
+INFO log_message 2024-06-05 22:03:24,945 "POST /exports/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-05 22:03:43,621 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:03:44,113 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:03:45,805 Export Endpoiont:None
+ERROR log_response 2024-06-05 22:03:45,919 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 161, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/_elements_constructors.py", line 1644, in text
+    return TextClause(text)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 2296, in __init__
+    self.text = self._bind_params_regex.sub(repl, text)
+TypeError: expected string or bytes-like object
+ERROR log_message 2024-06-05 22:03:45,924 "POST /exports/ HTTP/1.1" 500 18138
+INFO trigger_reload 2024-06-05 22:04:37,544 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:04:38,010 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:05:09,867 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:05:10,350 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:05:11,402 Export Endpoint:None
+ERROR log_response 2024-06-05 22:05:11,475 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 161, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/_elements_constructors.py", line 1644, in text
+    return TextClause(text)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 2296, in __init__
+    self.text = self._bind_params_regex.sub(repl, text)
+TypeError: expected string or bytes-like object
+ERROR log_message 2024-06-05 22:05:11,479 "POST /exports/ HTTP/1.1" 500 18138
+INFO trigger_reload 2024-06-05 22:06:01,522 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:06:02,015 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:06:04,507 Export Endpoint:None
+ERROR log_response 2024-06-05 22:06:04,633 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 161, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/_elements_constructors.py", line 1644, in text
+    return TextClause(text)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 2296, in __init__
+    self.text = self._bind_params_regex.sub(repl, text)
+TypeError: expected string or bytes-like object
+ERROR log_message 2024-06-05 22:06:04,636 "POST /exports/ HTTP/1.1" 500 18138
+INFO trigger_reload 2024-06-05 22:06:28,578 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:06:29,041 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:06:30,477 Export Endpoint:None
+ERROR log_response 2024-06-05 22:06:30,535 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 161, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/_elements_constructors.py", line 1644, in text
+    return TextClause(text)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 2296, in __init__
+    self.text = self._bind_params_regex.sub(repl, text)
+TypeError: expected string or bytes-like object
+ERROR log_message 2024-06-05 22:06:30,538 "POST /exports/ HTTP/1.1" 500 18138
+INFO trigger_reload 2024-06-05 22:08:13,956 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:08:14,479 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:08:17,580 Export Endpoint:None
+ERROR log_response 2024-06-05 22:08:17,708 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 161, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/_elements_constructors.py", line 1644, in text
+    return TextClause(text)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 2296, in __init__
+    self.text = self._bind_params_regex.sub(repl, text)
+TypeError: expected string or bytes-like object
+ERROR log_message 2024-06-05 22:08:17,711 "POST /exports/ HTTP/1.1" 500 18138
+INFO trigger_reload 2024-06-05 22:10:39,336 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:10:39,991 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 22:10:47,677 "POST /exports/ HTTP/1.1" 200 12
+INFO trigger_reload 2024-06-05 22:11:53,090 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:11:53,605 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:12:11,605 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:12:12,102 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:12:21,416 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:12:21,921 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 22:12:27,312 "POST /exports/ HTTP/1.1" 200 12
+INFO trigger_reload 2024-06-05 22:14:21,988 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:14:22,618 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 22:14:30,817 "POST /exports/ HTTP/1.1" 200 12
+INFO trigger_reload 2024-06-05 22:14:43,057 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:14:43,529 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:14:47,525 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:14:47,967 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 22:14:51,807 "POST /exports/ HTTP/1.1" 200 12
+INFO trigger_reload 2024-06-05 22:15:11,559 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:15:12,035 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 22:15:12,973 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 156, in post
+    query = data.setup(request)
+TypeError: setup() takes 1 positional argument but 2 were given
+ERROR log_message 2024-06-05 22:15:12,975 "POST /exports/ HTTP/1.1" 500 17744
+INFO trigger_reload 2024-06-05 22:15:26,725 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:15:27,240 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 22:15:29,620 Internal Server Error: /exports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 156, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py", line 78, in setup
+    self.query += f"{where} ds.description = '{self.dest}' "
+AttributeError: 'Exports' object has no attribute 'dest'
+ERROR log_message 2024-06-05 22:15:29,623 "POST /exports/ HTTP/1.1" 500 17873
+INFO trigger_reload 2024-06-05 22:16:07,954 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:16:08,411 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:16:11,199 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-05 22:16:12,188 "POST /exports/ HTTP/1.1" 200 432933
+INFO post 2024-06-05 22:16:43,809 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-05 22:16:45,370 "POST /exports/ HTTP/1.1" 200 1493162
+INFO post 2024-06-05 22:17:24,471 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+INFO log_message 2024-06-05 22:17:26,223 "POST /exports/ HTTP/1.1" 200 2138627
+INFO trigger_reload 2024-06-05 22:32:48,974 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:32:49,655 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:34:12,295 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:34:12,777 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:34:31,700 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:34:32,205 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 22:34:47,921 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:34:48,415 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 22:37:53,189 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-05 22:37:53,516 "GET /api/schema/ HTTP/1.1" 200 52759
+ERROR log_response 2024-06-05 22:38:02,351 Internal Server Error: /imports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 201, in post
+    serializer = s.IxportsSerializer(data=request.data)
+AttributeError: module 'Rest_API.serializers' has no attribute 'IxportsSerializer'
+ERROR log_message 2024-06-05 22:38:02,353 "POST /imports/ HTTP/1.1" 500 17806
+INFO trigger_reload 2024-06-05 22:38:29,584 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:38:30,255 Watching for file changes with StatReloader
+ERROR log_response 2024-06-05 22:38:33,134 Internal Server Error: /imports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 204, in post
+    serializer.validated_data['dest'],
+KeyError: 'dest'
+ERROR log_message 2024-06-05 22:38:33,136 "POST /imports/ HTTP/1.1" 500 17657
+INFO trigger_reload 2024-06-05 22:39:26,039 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:39:26,510 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:40:27,132 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-05 22:40:28,089 "POST /imports/ HTTP/1.1" 200 432933
+INFO trigger_reload 2024-06-05 22:42:12,962 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 22:42:13,656 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:42:22,441 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-05 22:42:23,470 "POST /imports/ HTTP/1.1" 200 432933
+INFO run_with_reloader 2024-06-05 22:54:31,156 Watching for file changes with StatReloader
+INFO post 2024-06-05 22:54:34,938 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-05 22:54:35,776 "POST /point_to_point/ HTTP/1.1" 200 30460
+INFO post 2024-06-05 22:58:28,075 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE os.description = 'Texas' AND fd.description = 'Mexico' ;
+INFO log_message 2024-06-05 22:58:30,731 "POST /point_to_point/ HTTP/1.1" 200 441204
+INFO post 2024-06-05 23:00:31,071 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-05 23:00:32,369 "POST /exports/ HTTP/1.1" 200 979170
+INFO run_with_reloader 2024-06-05 23:16:30,646 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 23:17:05,866 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-05 23:17:06,210 "GET /api/schema/ HTTP/1.1" 200 52759
+INFO log_message 2024-06-05 23:17:08,856 "GET /api/schema/ HTTP/1.1" 200 23508
