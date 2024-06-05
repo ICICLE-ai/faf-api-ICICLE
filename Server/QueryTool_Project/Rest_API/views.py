@@ -64,13 +64,13 @@ class GatherAll(APIView):
                 response['Content-Disposition'] = f'attachment; filename={request.data["table"]}.csv'
                 return response
             except:
-                return Reponse("ERROR: Cannot return csv_data")
+                return Response("ERROR: Cannot return csv_data")
         return Response(serializer.errors, status=400)
 
 ###########################################################################################
 class PointtoPoint(APIView):
     @extend_schema(
-        description="Takes a specific commodity, or all of them, and shows the amount traded between two states in a specific year or time frame",
+        description="This endpoint takes in a specific commodity, or writing “all” gives all the commodities traded between two areas. This endpoint works for both the FAF and state databases and will return the value and quantity per ton of the resource traded between the origin and destination based on year or timeframe if given two years. This endpoint also returns the method of transportation, and if either the origin or destination is foreign, it returns the foreign transit and any other states the commodity moved to before the final destination.",
         examples=[
             OpenApiExample(
                 'Single Year Example',
@@ -105,31 +105,18 @@ class PointtoPoint(APIView):
                 serializer.validated_data['timeframe']
             )
             query = data.setup()
+            if query == False: return Response("ERROR: Check data") 
             logger.info(f"PointToPoint: {query}")
-            return Response(query)
-        return Response(serializer.errors, status=400)
-
-    def merp(self, request):
-        serializer = s.TableSerializer(data=request.data)
-        if serializer.is_valid():
-            table  = serializer.validated_data['table']
-            gt   = GrabTable(table)
-            if gt.fail == 1: return Response("ERROR: Wrong Table")
-            query = gt.setup()
-             
-            logger.info(f"Grab Table Query: {query}")
-            
             lookup = QueryTool()
             data = lookup.query(query)
             try:
                 csv_data = data.to_csv(index=False)
                 response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = f'attachment; filename={request.data["table"]}.csv'
+                response['Content-Disposition'] = 'attachment; filename=PointToPoint.csv'
                 return response
             except:
-                return Reponse("ERROR: Cannot return csv_data")
+                return Response("ERROR: Cannot return csv_data")
         return Response(serializer.errors, status=400)
-
 
 ##########################################################################################
 class Exports(APIView):

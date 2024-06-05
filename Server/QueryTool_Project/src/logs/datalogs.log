@@ -5778,3 +5778,1484 @@ INFO trigger_reload 2024-06-01 16:58:52,819 /u/cj124/faf-api-dev/Server/QueryToo
 INFO run_with_reloader 2024-06-01 16:58:53,496 Watching for file changes with StatReloader
 INFO trigger_reload 2024-06-01 17:03:24,940 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
 INFO run_with_reloader 2024-06-01 17:03:25,621 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-04 12:37:57,508 Watching for file changes with StatReloader
+INFO log_message 2024-06-04 12:38:27,189 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-04 12:38:27,594 "GET /api/schema/ HTTP/1.1" 200 52312
+INFO post 2024-06-04 12:38:59,843 PointToPoint: True
+INFO log_message 2024-06-04 12:38:59,845 "POST /ptop/ HTTP/1.1" 200 4
+INFO trigger_reload 2024-06-04 12:44:54,062 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:44:54,769 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 12:44:58,516 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 26, in setup
+    return self._check_locations()
+AttributeError: 'PointToPoint' object has no attribute '_check_locations'
+ERROR log_message 2024-06-04 12:44:58,518 "POST /ptop/ HTTP/1.1" 500 17879
+INFO trigger_reload 2024-06-04 12:45:21,552 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:45:22,018 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 12:45:27,571 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 26, in setup
+    return self._checkLocations()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 107, in _checkLocations
+    print(d['description'])
+NameError: name 'd' is not defined
+ERROR log_message 2024-06-04 12:45:27,573 "POST /ptop/ HTTP/1.1" 500 17933
+INFO trigger_reload 2024-06-04 12:45:45,439 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:45:45,915 Watching for file changes with StatReloader
+INFO log_message 2024-06-04 12:45:49,728 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-04 12:45:50,050 "GET /api/schema/ HTTP/1.1" 200 52312
+INFO post 2024-06-04 12:45:54,757 PointToPoint: yay
+INFO log_message 2024-06-04 12:45:54,757 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 12:47:20,247 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:47:20,896 Watching for file changes with StatReloader
+INFO post 2024-06-04 12:47:23,127 PointToPoint: yay
+INFO log_message 2024-06-04 12:47:23,128 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 12:48:47,663 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:48:48,175 Watching for file changes with StatReloader
+INFO post 2024-06-04 12:48:51,884 PointToPoint: yay
+INFO log_message 2024-06-04 12:48:51,885 "POST /ptop/ HTTP/1.1" 200 5
+INFO post 2024-06-04 12:49:01,330 PointToPoint: yay
+INFO log_message 2024-06-04 12:49:01,331 "POST /ptop/ HTTP/1.1" 200 5
+INFO post 2024-06-04 12:49:20,345 PointToPoint: yay
+INFO log_message 2024-06-04 12:49:20,345 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 12:50:28,391 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:50:29,071 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 12:50:32,852 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 26, in setup
+    return self._checkLocations()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 107, in _checkLocations
+    print(dstate['description'].isin(self.dest))
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/series.py", line 5406, in isin
+    result = algorithms.isin(self._values, values)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/algorithms.py", line 463, in isin
+    raise TypeError(
+TypeError: only list-like objects are allowed to be passed to isin(), you passed a [str]
+ERROR log_message 2024-06-04 12:50:32,855 "POST /ptop/ HTTP/1.1" 500 18327
+INFO trigger_reload 2024-06-04 12:52:21,388 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:52:22,060 Watching for file changes with StatReloader
+INFO post 2024-06-04 12:52:24,590 PointToPoint: yay
+INFO log_message 2024-06-04 12:52:24,592 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 12:52:34,875 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:52:35,322 Watching for file changes with StatReloader
+INFO post 2024-06-04 12:52:36,853 PointToPoint: yay
+INFO log_message 2024-06-04 12:52:36,854 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 12:55:35,706 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:55:36,340 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 12:55:39,222 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 26, in setup
+    return self._checkLocations()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 107, in _checkLocations
+    if self.origin in ostate['description']:
+AttributeError: 'PointToPoint' object has no attribute 'origin'
+ERROR log_message 2024-06-04 12:55:39,224 "POST /ptop/ HTTP/1.1" 500 18008
+INFO trigger_reload 2024-06-04 12:56:20,201 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:56:20,705 Watching for file changes with StatReloader
+INFO post 2024-06-04 12:56:24,512 PointToPoint: yay
+INFO log_message 2024-06-04 12:56:24,514 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 12:57:34,420 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 12:57:34,934 Watching for file changes with StatReloader
+INFO post 2024-06-04 12:57:37,777 PointToPoint: True
+INFO log_message 2024-06-04 12:57:37,778 "POST /ptop/ HTTP/1.1" 200 4
+INFO trigger_reload 2024-06-04 13:03:05,246 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:03:05,897 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 13:03:17,449 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:03:17,935 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:03:21,174 PointToPoint: state1
+INFO log_message 2024-06-04 13:03:21,176 "POST /ptop/ HTTP/1.1" 200 8
+INFO trigger_reload 2024-06-04 13:05:11,222 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:05:11,730 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 13:06:16,678 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:06:17,199 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:07:21,162 PointToPoint: state3
+INFO log_message 2024-06-04 13:07:21,163 "POST /ptop/ HTTP/1.1" 200 8
+INFO trigger_reload 2024-06-04 13:09:43,373 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:09:44,010 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:09:46,489 PointToPoint: state3
+INFO log_message 2024-06-04 13:09:46,491 "POST /ptop/ HTTP/1.1" 200 8
+INFO post 2024-06-04 13:10:13,859 PointToPoint: faf3
+INFO log_message 2024-06-04 13:10:13,860 "POST /ptop/ HTTP/1.1" 200 6
+INFO post 2024-06-04 13:10:31,222 PointToPoint: faf1
+INFO log_message 2024-06-04 13:10:31,222 "POST /ptop/ HTTP/1.1" 200 6
+INFO post 2024-06-04 13:10:38,488 PointToPoint: False
+INFO log_message 2024-06-04 13:10:38,488 "POST /ptop/ HTTP/1.1" 200 5
+INFO trigger_reload 2024-06-04 13:12:50,068 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:12:50,754 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:12:53,274 PointToPoint: Incorrect origin and/or destination
+INFO log_message 2024-06-04 13:12:53,275 "POST /ptop/ HTTP/1.1" 200 37
+ERROR log_response 2024-06-04 13:12:59,617 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 35, in setup
+    if self.dist      == True: cols.append(metrics.faf0["dist_band"][0])
+AttributeError: 'PointToPoint' object has no attribute 'dist'
+ERROR log_message 2024-06-04 13:12:59,620 "POST /ptop/ HTTP/1.1" 500 17893
+INFO trigger_reload 2024-06-04 13:27:07,544 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:27:08,197 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 13:29:05,321 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:29:06,069 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 13:29:12,257 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 29, in setup
+    return self._checkYear()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 128, in _checkYear
+    print(self.year)
+AttributeError: 'PointToPoint' object has no attribute 'year'
+ERROR log_message 2024-06-04 13:29:12,259 "POST /ptop/ HTTP/1.1" 500 17970
+INFO trigger_reload 2024-06-04 13:32:00,397 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:32:01,066 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:32:04,017 PointToPoint: True
+INFO log_message 2024-06-04 13:32:04,018 "POST /ptop/ HTTP/1.1" 200 4
+INFO post 2024-06-04 13:32:12,554 PointToPoint: True
+INFO log_message 2024-06-04 13:32:12,554 "POST /ptop/ HTTP/1.1" 200 4
+INFO post 2024-06-04 13:32:34,520 PointToPoint: False
+INFO log_message 2024-06-04 13:32:34,521 "POST /ptop/ HTTP/1.1" 200 5
+INFO post 2024-06-04 13:32:43,568 PointToPoint: True
+INFO log_message 2024-06-04 13:32:43,568 "POST /ptop/ HTTP/1.1" 200 4
+INFO trigger_reload 2024-06-04 13:33:21,775 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:33:22,299 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:33:25,071 PointToPoint: True
+INFO log_message 2024-06-04 13:33:25,072 "POST /ptop/ HTTP/1.1" 200 4
+INFO trigger_reload 2024-06-04 13:41:28,696 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:41:29,339 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 13:41:45,256 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:41:45,736 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:41:49,598 PointToPoint: True
+INFO log_message 2024-06-04 13:41:49,600 "POST /ptop/ HTTP/1.1" 200 4
+INFO trigger_reload 2024-06-04 13:43:09,856 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:43:10,349 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 13:43:12,962 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 49, in setup
+    if self.tport     == True: self.query += metrics.faf0["dms_mode"][1] + " "
+AttributeError: 'PointToPoint' object has no attribute 'tport'
+ERROR log_message 2024-06-04 13:43:12,964 "POST /ptop/ HTTP/1.1" 500 17901
+INFO trigger_reload 2024-06-04 13:44:37,868 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:44:38,381 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 13:44:51,864 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:44:52,368 Watching for file changes with StatReloader
+INFO post 2024-06-04 13:44:55,107 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code LIMIT 30;
+INFO log_message 2024-06-04 13:44:55,108 "POST /ptop/ HTTP/1.1" 200 302
+INFO trigger_reload 2024-06-04 13:49:32,283 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 13:49:32,968 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 14:01:30,626 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:01:31,248 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 14:01:34,716 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 54, in setup
+    if len(self.commodities == 1):
+AttributeError: 'PointToPoint' object has no attribute 'commodities'
+ERROR log_message 2024-06-04 14:01:34,718 "POST /ptop/ HTTP/1.1" 500 17869
+INFO trigger_reload 2024-06-04 14:02:44,035 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:02:44,467 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 14:02:47,468 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 55, in setup
+    self.query += f"{where} c.description = '{self.commodities}' "
+AttributeError: 'PointToPoint' object has no attribute 'commodities'
+ERROR log_message 2024-06-04 14:02:47,472 "POST /ptop/ HTTP/1.1" 500 17901
+INFO trigger_reload 2024-06-04 14:03:02,536 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:03:03,035 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:03:07,922 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' LIMIT 30;
+INFO log_message 2024-06-04 14:03:07,923 "POST /ptop/ HTTP/1.1" 200 344
+INFO trigger_reload 2024-06-04 14:09:29,763 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:09:30,446 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:09:38,154 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' LIMIT 30;
+ERROR log_response 2024-06-04 14:09:39,800 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 115, in post
+    response['Content-Disposition'] = f'attachment; filename={request.data["table"]}.csv'
+KeyError: 'table'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 118, in post
+    return Reponse("ERROR: Cannot return csv_data")
+NameError: name 'Reponse' is not defined
+ERROR log_message 2024-06-04 14:09:39,802 "POST /ptop/ HTTP/1.1" 500 17972
+INFO trigger_reload 2024-06-04 14:10:16,662 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:10:17,153 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:10:21,211 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' LIMIT 30;
+INFO log_message 2024-06-04 14:10:22,767 "POST /ptop/ HTTP/1.1" 200 31
+INFO trigger_reload 2024-06-04 14:11:17,007 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:11:17,459 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:11:19,912 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' LIMIT 30;
+WARNING log_response 2024-06-04 14:11:21,463 Bad Request: /ptop/
+WARNING log_message 2024-06-04 14:11:21,464 "POST /ptop/ HTTP/1.1" 400 2
+ERROR log_response 2024-06-04 14:11:57,202 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 55, in post
+    query = gt.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py", line 67, in setup
+    self._table()
+AttributeError: 'GrabTable' object has no attribute '_table'
+ERROR log_message 2024-06-04 14:11:57,204 "POST /get_table_data/ HTTP/1.1" 500 97516
+INFO trigger_reload 2024-06-04 14:14:58,839 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:14:59,485 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:15:04,536 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-06-04 14:22:07,424 "POST /get_table_data/ HTTP/1.1" 200 722557733
+INFO post 2024-06-04 14:22:41,893 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_3 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code JOIN db ON dist_band = db.code ;
+INFO trigger_reload 2024-06-04 14:27:52,235 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:27:52,990 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 14:28:44,078 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:28:44,560 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:28:47,057 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_3 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-06-04 14:34:59,298 "POST /get_table_data/ HTTP/1.1" 200 583625878
+INFO post 2024-06-04 14:38:41,904 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-06-04 14:45:46,012 "POST /get_table_data/ HTTP/1.1" 200 722557733
+INFO post 2024-06-04 14:48:52,041 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.discription = 'Rest of VA' AND df.discription = 'Rest of SC' LIMIT 30;
+ERROR log_response 2024-06-04 14:48:52,116 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'of0.discription' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'of0.discription' in 'where clause'")
+[SQL: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.discription = 'Rest of VA' AND df.discription = 'Rest of SC' LIMIT 30;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-04 14:48:52,125 "POST /ptop/ HTTP/1.1" 500 23141
+INFO trigger_reload 2024-06-04 14:49:36,476 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:49:37,291 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:49:43,392 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Rest of VA' AND df.description = 'Rest of SC' LIMIT 30;
+WARNING log_response 2024-06-04 14:49:44,328 Bad Request: /ptop/
+WARNING log_message 2024-06-04 14:49:44,329 "POST /ptop/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-04 14:51:05,109 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 14:51:05,608 Watching for file changes with StatReloader
+INFO post 2024-06-04 14:51:11,174 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Rest of VA' AND df.description = 'Rest of SC' LIMIT 30;
+WARNING log_response 2024-06-04 14:51:12,098 Bad Request: /ptop/
+WARNING log_message 2024-06-04 14:51:12,099 "POST /ptop/ HTTP/1.1" 400 2
+INFO post 2024-06-04 14:53:07,045 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 14:53:07,962 Bad Request: /ptop/
+WARNING log_message 2024-06-04 14:53:07,963 "POST /ptop/ HTTP/1.1" 400 2
+INFO post 2024-06-04 14:53:21,766 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 14:53:22,694 Bad Request: /ptop/
+WARNING log_message 2024-06-04 14:53:22,695 "POST /ptop/ HTTP/1.1" 400 2
+INFO post 2024-06-04 14:55:22,014 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 14:55:22,927 Bad Request: /ptop/
+WARNING log_message 2024-06-04 14:55:22,927 "POST /ptop/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-04 15:00:37,663 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:00:38,307 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:00:46,698 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 15:00:47,584 Bad Request: /ptop/
+WARNING log_message 2024-06-04 15:00:47,585 "POST /ptop/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-04 15:01:30,872 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:01:31,369 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:01:34,490 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 15:01:35,555 Bad Request: /ptop/
+WARNING log_message 2024-06-04 15:01:35,555 "POST /ptop/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-04 15:02:00,137 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:02:00,599 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:02:06,821 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 15:02:07,868 Bad Request: /ptop/
+WARNING log_message 2024-06-04 15:02:07,869 "POST /ptop/ HTTP/1.1" 400 2
+ERROR log_response 2024-06-04 15:04:27,927 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 28, in setup
+    if self.table[:3] == "faf":
+TypeError: 'NoneType' object is not subscriptable
+ERROR log_message 2024-06-04 15:04:27,930 "POST /ptop/ HTTP/1.1" 500 17828
+INFO post 2024-06-04 15:04:34,849 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 15:04:35,888 Bad Request: /ptop/
+WARNING log_message 2024-06-04 15:04:35,889 "POST /ptop/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-04 15:06:53,833 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:06:54,492 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 15:07:00,858 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 28, in setup
+    if self.table[:3] == "faf":
+TypeError: 'NoneType' object is not subscriptable
+ERROR log_message 2024-06-04 15:07:00,861 "POST /ptop/ HTTP/1.1" 500 17828
+INFO trigger_reload 2024-06-04 15:08:41,682 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:08:42,340 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 15:08:44,428 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 108, in post
+    if query[:8] == False: return Response("ERROR: Check data")
+TypeError: 'bool' object is not subscriptable
+ERROR log_message 2024-06-04 15:08:44,432 "POST /ptop/ HTTP/1.1" 500 17733
+INFO trigger_reload 2024-06-04 15:09:02,763 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:09:03,223 Watching for file changes with StatReloader
+INFO log_message 2024-06-04 15:09:05,050 "POST /ptop/ HTTP/1.1" 200 19
+INFO post 2024-06-04 15:09:09,748 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+WARNING log_response 2024-06-04 15:09:10,776 Bad Request: /ptop/
+WARNING log_message 2024-06-04 15:09:10,777 "POST /ptop/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-04 15:09:24,568 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:09:25,028 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:09:27,685 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+INFO log_message 2024-06-04 15:09:28,728 "POST /ptop/ HTTP/1.1" 200 31
+INFO trigger_reload 2024-06-04 15:10:41,029 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:10:41,638 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:10:44,987 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+INFO log_message 2024-06-04 15:10:45,999 "POST /ptop/ HTTP/1.1" 200 31
+INFO trigger_reload 2024-06-04 15:11:06,328 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:11:06,792 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-04 15:11:15,093 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:11:15,597 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:11:17,014 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+INFO log_message 2024-06-04 15:11:18,023 "POST /ptop/ HTTP/1.1" 200 4002
+INFO trigger_reload 2024-06-04 15:12:32,446 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:12:32,924 Watching for file changes with StatReloader
+ERROR log_response 2024-06-04 15:12:34,789 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 100, in post
+    if serializer.is_valid():
+NameError: name 'serializer' is not defined
+ERROR log_message 2024-06-04 15:12:34,791 "POST /ptop/ HTTP/1.1" 500 17695
+INFO trigger_reload 2024-06-04 15:15:46,420 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-04 15:15:47,118 Watching for file changes with StatReloader
+INFO post 2024-06-04 15:15:53,521 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Birmingham AL' AND df.description = 'Rest of AL' LIMIT 30;
+INFO log_message 2024-06-04 15:15:54,533 "POST /ptop/ HTTP/1.1" 200 3969
+INFO run_with_reloader 2024-06-05 15:17:51,329 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 15:18:26,676 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-05 15:18:27,075 "GET /api/schema/ HTTP/1.1" 200 52312
+INFO post 2024-06-05 15:18:40,259 PointToPoint: SELECT tons_2023, value_2023 FROM _faf551_state_1 WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' LIMIT 30;
+ERROR log_response 2024-06-05 15:18:40,421 Internal Server Error: /ptop/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'c.description' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'c.description' in 'where clause'")
+[SQL: SELECT tons_2023, value_2023 FROM _faf551_state_1 WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' LIMIT 30;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-05 15:18:40,427 "POST /ptop/ HTTP/1.1" 500 22639
+INFO trigger_reload 2024-06-05 15:19:42,717 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:19:43,368 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 15:19:44,814 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-05 15:19:45,098 "GET /api/schema/ HTTP/1.1" 200 52342
+INFO trigger_reload 2024-06-05 15:20:15,538 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:20:16,009 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-05 15:20:42,270 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-05 15:20:50,606 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 15:31:57,004 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:31:57,760 Watching for file changes with StatReloader
+INFO post 2024-06-05 15:33:05,637 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code LIMIT 30WHERE c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.description = 'Austin TX' LIMIT 30;
+ERROR log_response 2024-06-05 15:33:05,689 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.d' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.d' at line 1")
+[SQL: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code LIMIT 30WHERE c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.description = 'Austin TX' LIMIT 30;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+ERROR log_message 2024-06-05 15:33:05,694 "POST /point_to_point/ HTTP/1.1" 500 23771
+INFO trigger_reload 2024-06-05 15:35:51,939 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:35:52,647 Watching for file changes with StatReloader
+INFO post 2024-06-05 15:35:57,755 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code LIMIT 30WHERE c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.description = 'Austin TX' LIMIT 30;
+ERROR log_response 2024-06-05 15:35:57,802 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.d' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.d' at line 1")
+[SQL: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code LIMIT 30WHERE c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.description = 'Austin TX' LIMIT 30;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+ERROR log_message 2024-06-05 15:35:57,808 "POST /point_to_point/ HTTP/1.1" 500 23771
+INFO trigger_reload 2024-06-05 15:37:12,190 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:37:12,718 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 15:37:25,380 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:37:25,872 Watching for file changes with StatReloader
+INFO post 2024-06-05 15:37:27,304 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Beaumont TX' AND df.description = 'Austin TX' LIMIT 30;
+INFO log_message 2024-06-05 15:37:28,252 "POST /point_to_point/ HTTP/1.1" 200 84
+INFO post 2024-06-05 15:38:51,062 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2023, value_2023 FROM _faf551_faf_3 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Mexico' AND fd.description = 'Austin TX' LIMIT 30;
+INFO log_message 2024-06-05 15:38:53,040 "POST /point_to_point/ HTTP/1.1" 200 127
+ERROR log_response 2024-06-05 15:39:50,441 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 107, in post
+    query = data.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 57, in setup
+    [cols.append(metrics.tons[str(year)])  for year in self.timeframe]
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py", line 57, in <listcomp>
+    [cols.append(metrics.tons[str(year)])  for year in self.timeframe]
+KeyError: '2002'
+ERROR log_message 2024-06-05 15:39:50,443 "POST /point_to_point/ HTTP/1.1" 500 18011
+INFO trigger_reload 2024-06-05 15:41:43,797 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:41:44,512 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-05 15:41:55,294 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:41:55,775 Watching for file changes with StatReloader
+INFO post 2024-06-05 15:41:58,885 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_faf_3 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE c.description = 'Live animals/fish' AND of0.description = 'Mexico' AND fd.description = 'Austin TX' LIMIT 30;
+INFO log_message 2024-06-05 15:42:01,158 "POST /point_to_point/ HTTP/1.1" 200 253
+INFO post 2024-06-05 15:42:40,732 PointToPoint: SELECT fo.description AS Origion, of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_faf_2 JOIN fo ON fr_orig = fo.code JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND fo.description = 'Austin TX' AND df.description = 'Mexico' LIMIT 30;
+INFO log_message 2024-06-05 15:42:43,098 "POST /point_to_point/ HTTP/1.1" 200 236
+INFO post 2024-06-05 15:46:48,944 PointToPoint: SELECT fo.description AS Origion, of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_faf_2 JOIN fo ON fr_orig = fo.code JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'Austin TX' AND df.description = 'Mexico' LIMIT 30;
+INFO log_message 2024-06-05 15:46:51,293 "POST /point_to_point/ HTTP/1.1" 200 236
+INFO post 2024-06-05 15:47:25,422 PointToPoint: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'California' AND df.description = 'Mexico' LIMIT 30;
+ERROR log_response 2024-06-05 15:47:25,481 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'df.description' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'df.description' in 'where clause'")
+[SQL: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'California' AND df.description = 'Mexico' LIMIT 30;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-05 15:47:25,487 "POST /point_to_point/ HTTP/1.1" 500 23822
+INFO trigger_reload 2024-06-05 15:48:26,982 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:48:27,704 Watching for file changes with StatReloader
+INFO post 2024-06-05 15:48:30,365 PointToPoint: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'California' AND df.description = 'Mexico' ;
+ERROR log_response 2024-06-05 15:48:30,411 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'df.description' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'df.description' in 'where clause'")
+[SQL: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'California' AND df.description = 'Mexico' ;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-05 15:48:30,417 "POST /point_to_point/ HTTP/1.1" 500 23806
+INFO trigger_reload 2024-06-05 15:51:29,312 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 15:51:29,973 Watching for file changes with StatReloader
+INFO post 2024-06-05 15:51:32,830 PointToPoint: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'California' AND ds.description = 'Mexico' ;
+INFO log_message 2024-06-05 15:51:34,626 "POST /point_to_point/ HTTP/1.1" 200 307
+INFO post 2024-06-05 16:00:09,065 PointToPoint: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'California' AND ds.description = 'Mexico' ;
+INFO log_message 2024-06-05 16:00:10,960 "POST /point_to_point/ HTTP/1.1" 200 307
+INFO trigger_reload 2024-06-05 16:02:08,651 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 16:02:09,393 Watching for file changes with StatReloader
+INFO post 2024-06-05 16:02:12,042 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE of0.description = 'California' AND fd.description = 'Mexico' ;
+ERROR log_response 2024-06-05 16:02:12,089 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'of0.description' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'of0.description' in 'where clause'")
+[SQL: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE of0.description = 'California' AND fd.description = 'Mexico' ;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-05 16:02:12,095 "POST /point_to_point/ HTTP/1.1" 500 23831
+INFO trigger_reload 2024-06-05 16:02:57,726 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 16:02:58,217 Watching for file changes with StatReloader
+INFO post 2024-06-05 16:03:01,196 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE fo.description = 'California' AND ds.description = 'Mexico' ;
+ERROR log_response 2024-06-05 16:03:01,249 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'fo.description' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'fo.description' in 'where clause'")
+[SQL: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE fo.description = 'California' AND ds.description = 'Mexico' ;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-05 16:03:01,256 "POST /point_to_point/ HTTP/1.1" 500 23826
+INFO trigger_reload 2024-06-05 16:03:35,575 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 16:03:36,066 Watching for file changes with StatReloader
+INFO post 2024-06-05 16:03:37,538 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE of0.description = 'California' AND fd.description = 'Mexico' ;
+ERROR log_response 2024-06-05 16:03:37,586 Internal Server Error: /point_to_point/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'of0.description' in 'where clause'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 111, in post
+    data = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 22, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'of0.description' in 'where clause'")
+[SQL: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE of0.description = 'California' AND fd.description = 'Mexico' ;]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+ERROR log_message 2024-06-05 16:03:37,591 "POST /point_to_point/ HTTP/1.1" 500 23831
+INFO trigger_reload 2024-06-05 16:05:31,736 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-05 16:05:32,421 Watching for file changes with StatReloader
+INFO post 2024-06-05 16:05:33,605 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_3 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE os.description = 'California' AND fd.description = 'Mexico' ;
+INFO log_message 2024-06-05 16:05:36,107 "POST /point_to_point/ HTTP/1.1" 200 412044
+INFO post 2024-06-05 16:06:47,547 PointToPoint: SELECT fo.description AS Foreign_Origion, os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'Mexico' AND ds.description = 'California' ;
+INFO log_message 2024-06-05 16:06:50,291 "POST /point_to_point/ HTTP/1.1" 200 445743
+INFO post 2024-06-05 16:07:58,861 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Nevada' AND ds.description = 'California' ;
+INFO log_message 2024-06-05 16:07:59,780 "POST /point_to_point/ HTTP/1.1" 200 25200
+INFO post 2024-06-05 16:09:04,564 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, fd.description AS Foreign_Destination, c.description AS Commodity, m.description AS Transportation, fdm.description AS Foreign_Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_faf_3 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN fd ON fr_dest = fd.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN fdm ON fr_outmode = fdm.code WHERE of0.description = 'Austin TX' AND fd.description = 'Mexico' ;
+INFO log_message 2024-06-05 16:09:07,856 "POST /point_to_point/ HTTP/1.1" 200 187619
+INFO post 2024-06-05 16:09:45,361 PointToPoint: SELECT fo.description AS Origion, of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_faf_2 JOIN fo ON fr_orig = fo.code JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE fo.description = 'Mexico' AND df.description = 'Austin TX' ;
+INFO log_message 2024-06-05 16:09:49,004 "POST /point_to_point/ HTTP/1.1" 200 188226
+INFO post 2024-06-05 16:10:15,728 PointToPoint: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023 FROM _faf551_faf_1 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE of0.description = 'Houston TX' AND df.description = 'Austin TX' ;
+INFO log_message 2024-06-05 16:10:17,283 "POST /point_to_point/ HTTP/1.1" 200 10510
+INFO trigger_reload 2024-06-05 16:17:52,489 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-05 16:17:53,176 Watching for file changes with StatReloader
+INFO log_message 2024-06-05 16:18:05,951 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-05 16:18:06,109 "GET /api/schema/ HTTP/1.1" 200 52759

@@ -94,3 +94,5 @@ class GrabTable:
 
         return self.query
 
+    def _table(self):
+        self.query += f"FROM {metrics.table[self.table]} "

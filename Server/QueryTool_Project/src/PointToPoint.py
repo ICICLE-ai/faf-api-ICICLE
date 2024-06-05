@@ -7,76 +7,125 @@ class PointToPoint:
             origin    = "",
             dest      = "",
             timeframe = [],
-            limit     = 30,
     ):
         self.query = "SELECT "
 
         self.commodity = commodity
         self.dest      = dest
+        self.origin    = origin
         self.table     = None
-        self.tport     = 1
-        self.ton_y     = timeframe
-        self.val_y     = timeframe 
-        self.limit     = limit 
-        
-        table          = ""
+        self.timeframe = timeframe
+
 
     def setup(self):
-        return self._checkCommodity()
-        
-
+        if not self._checkCommodity(): return False #incorrect commodity type
+        self.table = self._checkLocations()
+        if self.table == False: return False        #incorrect origin destination match
+        if not self._checkTimeframe(): return False #incorrect times 
         cols = []
-        if self.origin    == True: cols.append(metrics.faf0["dms_orig"][0])
-        if self.dest      == True: cols.append(metrics.faf0["dms_dest"][0])
-        if self.commodity == True: cols.append(metrics.faf0["sctg2"][0])
-        if self.tport     == True: cols.append(metrics.faf0["dms_mode"][0])
-        if self.dist      == True: cols.append(metrics.faf0["dist_band"][0])
-    
-        for year in self.ton_y:
-            try: cols.append(metrics.tons[year.strip()])
-            except: continue
 
-        for year in self.val_y:
-            try: cols.append(metrics.value[year.strip()])
-            except: continue
 
-        for year in self.curVal_y:
-            try: cols.append(metrics.current_value[year.strip()])
-            except: continue
+        if self.table[:3] == "faf":
+            if self.table == "faf2" :cols.append(metrics.faf2["fr_orig"][0])
+            cols.append(metrics.faf0["dms_orig"][0])
+            cols.append(metrics.faf0["dms_dest"][0])
+            if self.table == "faf3" :cols.append(metrics.faf3["fr_dest"][0])
+            cols.append(metrics.faf0["sctg2"][0])
+            if self.table == "faf2" :cols.append(metrics.faf2["fr_inmode"][0])
+            cols.append(metrics.faf0["dms_mode"][0])
+            if self.table == "faf3" :cols.append(metrics.faf3["fr_outmode"][0])
 
-        for year in self.tmile:
-            try: cols.append(metrics.tmiles[year.strip()])
-            except: continue
+        else:
+            if self.table == "state2" :cols.append(sm.state2["fr_orig"][0])
+            cols.append(sm.state0["dms_orig"][0])
+            cols.append(sm.state0["dms_dest"][0])
+            if self.table == "state3" :cols.append(sm.state3["fr_dest"][0])
+            cols.append(sm.state0["sctg2"][0])
+            if self.table == "state2" :cols.append(sm.state2["fr_inmode"][0])
+            cols.append(sm.state0["dms_mode"][0])
+            if self.table == "state3" :cols.append(sm.state3["fr_outmode"][0])   
+ 
+        if self.table[:3] == "faf":
+            for year in self.timeframe:
+                try: cols.append(metrics.tons[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.value[str(year)])
+                except: continue
+        else:
+             for year in self.timeframe:
+                try: cols.append(sm.tons[str(year)])
+                except: continue
+             for year in self.timeframe:
+                try: cols.append(sm.value[str(year)])
+                except: continue
 
-        for year in self.tonHigh_y:
-            try: cols.append(metrics.tons_high[year.strip()])
-            except: continue
-
-        for year in self.tonLow_y:
-            try: cols.append(metrics.tons_low[year.strip()])
-            except: continue
-
-        for year in self.valHigh_y:
-            try: cols.append(metrics.value_high[year.strip()])
-            except: continue
-
-        for year in self.valLow_y:
-            try: cols.append(metrics.value_low[year.strip()])
-            except: continue
-          
         self.query += ", ".join(cols) + " "
 
         self._table()
 
-        if self.origin    == True: self.query += metrics.faf0["dms_orig"][1] + " "
-        if self.dest      == True: self.query += metrics.faf0["dms_dest"][1] + " "
-        if self.commodity == True: self.query += metrics.faf0["sctg2"][1] + " "
-        if self.tport     == True: self.query += metrics.faf0["dms_mode"][1] + " "
-        if self.dist      == True: self.query += metrics.faf0["dist_band"][1] + " "
-        if self.limit > 0: self.query += f"LIMIT {self.limit}"
-        self.query += ";"
+        if self.table[:3] == "faf":
+            if self.table == "faf2" :self.query += metrics.faf2["fr_orig"][1] + " "
+            self.query += metrics.faf0["dms_orig"][1] + " "
+            self.query += metrics.faf0["dms_dest"][1] + " "
+            if self.table == "faf3" :self.query += metrics.faf3["fr_dest"][1] + " "
+            self.query += metrics.faf0["sctg2"][1] + " "
+            if self.table == "faf2" :self.query += metrics.faf2["fr_inmode"][1] + " "
+            self.query += metrics.faf0["dms_mode"][1] + " "
+            if self.table == "faf3" :self.query += metrics.faf3["fr_outmode"][1] + " "
 
+        else:
+            if self.table == "state2" :self.query += sm.state2["fr_orig"][1] + " "
+            self.query += sm.state0["dms_orig"][1] + " "
+            self.query += sm.state0["dms_dest"][1] + " "
+            if self.table == "state3" :self.query += sm.state3["fr_dest"][1] + " "
+            self.query += sm.state0["sctg2"][1] + " "
+            if self.table == "state2" :self.query += sm.state2["fr_inmode"][1] + " "
+            self.query += sm.state0["dms_mode"][1] + " "
+            if self.table == "state3" :self.query += sm.state3["fr_outmode"][1] + " "
+
+
+        #Checks for where statements
+        where = "WHERE"
+        if self.commodity != 'all': 
+            self.query += f"{where} c.description = '{self.commodity}' "
+            where = "AND"
+        
+        if self.table == "faf0" or self.table == "faf1":
+            self.query += f"{where} of0.description = '{self.origin}' "
+            where = "AND"
+            self.query += f"{where} df.description = '{self.dest}' "        
+
+        if self.table == "faf2":
+            self.query += f"{where} fo.description = '{self.origin}' "
+            where = "AND"
+            self.query += f"{where} df.description = '{self.dest}' "        
+
+        if self.table == "faf3":
+            self.query += f"{where} of0.description = '{self.origin}' "
+            where = "AND"
+            self.query += f"{where} fd.description = '{self.dest}' "        
+
+        if self.table == "state0" or self.table == "state1":
+            self.query += f"{where} os.description = '{self.origin}' "
+            where = "AND"
+            self.query += f"{where} ds.description = '{self.dest}' "        
+
+        if self.table == "state2":
+            self.query += f"{where} fo.description = '{self.origin}' "
+            where = "AND"
+            self.query += f"{where} ds.description = '{self.dest}' "        
+
+        if self.table == "state3":
+            self.query += f"{where} os.description = '{self.origin}' "
+            where = "AND"
+            self.query += f"{where} fd.description = '{self.dest}' "        
+
+
+        self.query += ";"
         return self.query
+
+
 
     def _table(self):
         self.query += f"FROM {metrics.table[self.table]} "
@@ -98,7 +147,34 @@ class PointToPoint:
         dfaf   = tool.query("SELECT description FROM d_faf;")
         ostate = tool.query("SELECT description FROM o_state;")
         ofaf   = tool.query("SELECT description FROM o_faf;")        
-        fdstate = tool.query("SELECT description FROM fd;")
-        fdfaf   = tool.query("SELECT description FROM fd;")
-        fostate = tool.query("SELECT description FROM fo;")
-        fofaf   = tool.query("SELECT description FROM fo;")
+        fd = tool.query("SELECT description FROM fd;")
+        fo = tool.query("SELECT description FROM fo;")
+
+        for state in ostate['description']:
+            if state == self.origin:
+                for snd in dstate['description']:
+                    if snd == self.dest: return "state1"
+                for snd in fd['description']:
+                    if snd == self.dest: return "state3"
+
+        for faf in ofaf['description']:
+            if faf == self.origin:
+                for snd in dfaf['description']:
+                    if snd == self.dest: return "faf1"
+                for snd in fd['description']:
+                    if snd == self.dest: return "faf3"
+
+        for area in fo['description']:
+            if area == self.origin:
+                for snd in dstate['description']:
+                    if snd == self.dest: return "state2"
+                for snd in dfaf['description']:
+                    if snd == self.dest: return "faf2"
+        return False
+
+    def _checkTimeframe(self):
+        tf = self.timeframe
+        if   len(tf) > 2:  return False
+        elif len(tf) == 0: return False
+        elif len(tf) == 2: self.timeframe = [x for x in range(tf[0], tf[1]+1)]
+        return True
