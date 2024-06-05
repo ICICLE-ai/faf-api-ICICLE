@@ -75,7 +75,7 @@ def post(self, request):
 Where s is just the name I gave the imported file serializers.py.
 
 In serializers.py, the parent class serializers from rest_framework was used just to simply the process. All that is needed to make a serializer is the child class name and whatever data you want to give the endpoint. The following is an example from the point_to_point/ endpoint:
-```
+```python
 class PointToPointSerializer(serializers.Serializer):
     commodity   = serializers.CharField(max_length=40)
     origin      = serializers.CharField(max_length=40)
