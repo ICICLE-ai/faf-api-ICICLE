@@ -39,4 +39,3 @@ class QueryTool:
             index +=1
         return table
 """
-
