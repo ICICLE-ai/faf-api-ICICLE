@@ -23,7 +23,7 @@ This should start the server. To test, go to http://127.0.0.1:8000/api/schema/sw
 ####urls.py
 The process of implementing new endpoints is mainly done in the Rest_API application. A resource path needs to be created in the urls.py file and needs to follow the following guidlines:
 
-```
+```python
 path('endpoint/', name_of_class_in_views.as_view()),
 ```
 
@@ -37,7 +37,7 @@ In views.py, all of the classes are implemented with the parent calss APIView wh
 
 The @extend_schema is built from the drf_spectacular library which is needed to produce a swagger hub ui that is above version 3. The general setup is as follows:
 
-```
+```python
 @extend_schema(
     description="",
     examples=[],
@@ -46,7 +46,7 @@ The @extend_schema is built from the drf_spectacular library which is needed to 
 )
 ```
 Description is mainly just for writing a description about the endpoint. Examples are just the examples you want to show, but I implemented them with OpenApiExample() which just simplified the process as it standardized the process as follows:
-```
+```python
 OpenApiExample(
     'Name of Example',
     value = Example,
@@ -59,7 +59,7 @@ From here the methods are built using the common http protocols. The method name
 
 The default next step I've been doing is converting data to a csv file before shipping it with response:
 
-```
+```python
 csv_data = data.to_csv(index=False)
 response = HttpResponse(csv_data, content_type="text/csv")
 response['Content-Disposition'] = f'attachment; filename=name_of_file.csv'
@@ -67,7 +67,7 @@ response['Content-Disposition'] = f'attachment; filename=name_of_file.csv'
 
 ####serializers.py
 As noted above in views, serializers are needed to recive (and potentially send non_downloadable data). To recieve the data in views.py, someSerializer(data=request.data) needs to be given a variable which then looks at the request data. Then the method .is_valid() is checked to make sure that the serializer was filled out which can be seen in the following example from views.py:
-```
+```python
 def post(self, request):
     serializer = s.TableSerializer(data=request.data)
     if serializer.is_valid():
