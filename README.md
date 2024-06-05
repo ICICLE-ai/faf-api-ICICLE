@@ -16,7 +16,7 @@ Currently the server is not containerized, so the python envionment needs to be 
 2. Go to Server/QueryTool_Project/ directory
 3. Run "python3 manage.py runserver" or if you want to run on a specific port "python3 manage.py runserver #.#.#.#:port_number"
 
-This should start the server. To test, go to http://127.0.0.1:8000/api/schema/swagger-ui/#/where you should see the current endpoints.
+This should start the server. To test, go to http://127.0.0.1:8000/api/schema/swagger-ui/#/ where you should see the current endpoints.
 
 ## Working on the Project
 ### Implementing New Endpoints
