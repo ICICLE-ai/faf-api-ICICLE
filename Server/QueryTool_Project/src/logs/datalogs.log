@@ -8378,3 +8378,906 @@ INFO run_with_reloader 2024-06-05 23:16:30,646 Watching for file changes with St
 INFO log_message 2024-06-05 23:17:05,866 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
 INFO log_message 2024-06-05 23:17:06,210 "GET /api/schema/ HTTP/1.1" 200 52759
 INFO log_message 2024-06-05 23:17:08,856 "GET /api/schema/ HTTP/1.1" 200 23508
+INFO run_with_reloader 2024-06-07 11:34:30,108 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 11:34:34,913 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-07 11:34:36,782 "GET /api/schema/ HTTP/1.1" 200 52759
+INFO post 2024-06-07 11:35:10,806 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-07 11:35:11,713 "POST /point_to_point/ HTTP/1.1" 200 952
+INFO post 2024-06-07 11:36:30,395 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-07 11:36:31,382 "POST /exports/ HTTP/1.1" 200 432933
+INFO post 2024-06-07 11:37:09,132 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-07 11:37:10,120 "POST /imports/ HTTP/1.1" 200 432933
+INFO trigger_reload 2024-06-07 11:41:38,918 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 11:41:39,750 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 11:41:48,114 Internal Server Error: /imports/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 203, in post
+    data = Imports(
+NameError: name 'Imports' is not defined
+ERROR log_message 2024-06-07 11:41:48,116 "POST /imports/ HTTP/1.1" 500 17693
+INFO trigger_reload 2024-06-07 11:42:35,876 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 11:42:36,369 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 11:43:06,096 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Imports.py changed, reloading.
+INFO run_with_reloader 2024-06-07 11:43:06,605 Watching for file changes with StatReloader
+INFO post 2024-06-07 11:43:12,221 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+INFO log_message 2024-06-07 11:43:13,482 "POST /imports/ HTTP/1.1" 200 412834
+INFO trigger_reload 2024-06-07 11:52:46,803 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-07 11:52:47,481 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 11:58:45,933 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 11:58:46,649 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 11:58:50,724 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-07 11:58:51,298 "GET /api/schema/ HTTP/1.1" 200 53113
+INFO trigger_reload 2024-06-07 12:28:49,745 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:28:50,435 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 12:29:38,685 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:29:39,089 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 12:29:49,691 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 281, in post
+    for col in data:
+TypeError: 'Imports' object is not iterable
+ERROR log_message 2024-06-07 12:29:49,693 "POST /raw/ HTTP/1.1" 500 17680
+INFO trigger_reload 2024-06-07 12:30:17,841 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:30:18,365 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 12:30:20,856 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 284, in post
+    return Response(serializer.erros, status=400)
+AttributeError: 'RawResourceSerializer' object has no attribute 'erros'
+ERROR log_message 2024-06-07 12:30:20,858 "POST /raw/ HTTP/1.1" 500 17765
+INFO trigger_reload 2024-06-07 12:31:53,817 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:31:54,345 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 12:31:59,244 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 287, in post
+    return Response(serializer.erros, status=400)
+AttributeError: 'RawResourceSerializer' object has no attribute 'erros'
+ERROR log_message 2024-06-07 12:31:59,246 "POST /raw/ HTTP/1.1" 500 17765
+INFO trigger_reload 2024-06-07 12:32:46,869 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:32:47,349 Watching for file changes with StatReloader
+WARNING log_response 2024-06-07 12:32:51,463 Bad Request: /raw/
+WARNING log_message 2024-06-07 12:32:51,464 "POST /raw/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-07 12:33:10,719 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:33:11,218 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 12:33:14,064 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 284, in post
+    for col in data[1]:
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+ERROR log_message 2024-06-07 12:33:14,067 "POST /raw/ HTTP/1.1" 500 18645
+INFO trigger_reload 2024-06-07 12:36:04,088 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:36:04,789 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 12:36:07,876 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 285, in post
+    print(col)
+NameError: name 'col' is not defined
+ERROR log_message 2024-06-07 12:36:07,878 "POST /raw/ HTTP/1.1" 500 17660
+INFO trigger_reload 2024-06-07 12:36:17,733 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:36:18,232 Watching for file changes with StatReloader
+WARNING log_response 2024-06-07 12:36:24,134 Bad Request: /raw/
+WARNING log_message 2024-06-07 12:36:24,135 "POST /raw/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-07 12:37:32,305 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:37:32,796 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 12:37:37,195 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 285, in post
+    print(row['tons_2017'])
+TypeError: string indices must be integers
+ERROR log_message 2024-06-07 12:37:37,197 "POST /raw/ HTTP/1.1" 500 17685
+INFO trigger_reload 2024-06-07 12:39:07,556 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:39:08,087 Watching for file changes with StatReloader
+WARNING log_response 2024-06-07 12:39:13,478 Bad Request: /raw/
+WARNING log_message 2024-06-07 12:39:13,478 "POST /raw/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-07 12:49:58,693 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 12:49:59,389 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 13:06:22,152 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:06:22,738 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:06:30,007 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    for col in data:
+TypeError: 'Imports' object is not iterable
+ERROR log_message 2024-06-07 13:06:30,009 "POST /raw/ HTTP/1.1" 500 17680
+INFO trigger_reload 2024-06-07 13:10:36,461 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:10:37,239 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:10:41,553 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    print(_quickSum('Live animals/fish', 2017))
+NameError: name '_quickSum' is not defined
+ERROR log_message 2024-06-07 13:10:41,555 "POST /raw/ HTTP/1.1" 500 17705
+INFO trigger_reload 2024-06-07 13:10:58,843 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:10:59,341 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:11:02,592 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    print(self.quickSum('Live animals/fish', 2017))
+AttributeError: 'RawResource' object has no attribute 'quickSum'
+ERROR log_message 2024-06-07 13:11:02,595 "POST /raw/ HTTP/1.1" 500 17753
+INFO trigger_reload 2024-06-07 13:11:40,362 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:11:40,871 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:11:43,683 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    print(self._quickSum('Live animals/fish', 2017))
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 315, in _quickSum
+    filtered_df = self.df[self.df['commodity'] == check]
+AttributeError: 'RawResource' object has no attribute 'df'
+ERROR log_message 2024-06-07 13:11:43,684 "POST /raw/ HTTP/1.1" 500 17896
+INFO trigger_reload 2024-06-07 13:11:59,997 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:12:00,449 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:12:03,440 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'commodity'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    print(self._quickSum('Live animals/fish', 2017))
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 315, in _quickSum
+    filtered_df = self.df[self.df['commodity'] == check]
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 'commodity'
+ERROR log_message 2024-06-07 13:12:03,444 "POST /raw/ HTTP/1.1" 500 18858
+INFO trigger_reload 2024-06-07 13:12:38,979 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:12:39,447 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:12:43,121 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 2017
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    print(self._quickSum('Live animals/fish', 2017))
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 316, in _quickSum
+    return filtered_df[sumcol].sum()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 2017
+ERROR log_message 2024-06-07 13:12:43,125 "POST /raw/ HTTP/1.1" 500 18817
+INFO trigger_reload 2024-06-07 13:13:05,009 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:13:05,510 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:13:08,861 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: '2017'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 286, in post
+    print(self._quickSum('Live animals/fish', '2017'))
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 316, in _quickSum
+    return filtered_df[sumcol].sum()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: '2017'
+ERROR log_message 2024-06-07 13:13:08,864 "POST /raw/ HTTP/1.1" 500 18825
+INFO trigger_reload 2024-06-07 13:13:36,516 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:13:37,055 Watching for file changes with StatReloader
+WARNING log_response 2024-06-07 13:13:40,003 Bad Request: /raw/
+WARNING log_message 2024-06-07 13:13:40,004 "POST /raw/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-07 13:14:35,767 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:14:36,299 Watching for file changes with StatReloader
+WARNING log_response 2024-06-07 13:14:39,615 Bad Request: /raw/
+WARNING log_message 2024-06-07 13:14:39,616 "POST /raw/ HTTP/1.1" 400 2
+INFO trigger_reload 2024-06-07 13:15:59,114 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:15:59,770 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:16:05,810 "POST /raw/ HTTP/1.1" 200 9
+INFO log_message 2024-06-07 13:16:22,406 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 13:16:55,792 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:16:56,284 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:17:00,741 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 13:17:12,140 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:17:12,617 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:17:15,432 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 13:19:31,930 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:19:32,652 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:19:40,168 "POST /raw/ HTTP/1.1" 200 9
+INFO run_with_reloader 2024-06-07 13:20:17,289 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 13:29:48,043 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:29:48,772 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:29:58,039 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 289, in post
+    print(commodity.set())
+AttributeError: 'str' object has no attribute 'set'
+ERROR log_message 2024-06-07 13:29:58,040 "POST /raw/ HTTP/1.1" 500 17702
+INFO trigger_reload 2024-06-07 13:30:44,895 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:30:45,427 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:30:52,759 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 288, in post
+    print(self.df['Commodity'].set())
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 5989, in __getattr__
+    return object.__getattribute__(self, name)
+AttributeError: 'Series' object has no attribute 'set'
+ERROR log_message 2024-06-07 13:30:52,761 "POST /raw/ HTTP/1.1" 500 17869
+INFO trigger_reload 2024-06-07 13:33:05,929 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:33:06,622 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:33:11,312 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 13:33:37,284 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:33:37,776 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:33:41,526 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 1
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 284, in post
+    commodities = lookup.query("SELECT description FROM c")[1]
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 1
+ERROR log_message 2024-06-07 13:33:41,529 "POST /raw/ HTTP/1.1" 500 18684
+INFO trigger_reload 2024-06-07 13:34:00,404 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:34:00,853 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:34:04,213 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 13:37:03,055 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:37:03,770 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 13:37:11,756 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 289, in post
+    output.append([self._quickSum(x, col) for x in commodities])
+NameError: name 'output' is not defined
+ERROR log_message 2024-06-07 13:37:11,757 "POST /raw/ HTTP/1.1" 500 17716
+INFO trigger_reload 2024-06-07 13:37:37,628 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:37:38,127 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 13:37:41,831 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 13:39:43,491 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:39:44,189 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 13:44:49,156 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 13:44:49,747 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:02:39,425 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:02:40,012 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:03:33,510 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:03:33,918 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 14:03:39,316 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 14:04:49,116 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:04:49,631 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 14:04:57,930 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 297, in post
+    new_df = pd.DataFrame(output)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 655, in _extract_index
+    raise ValueError("All arrays must be of the same length")
+ValueError: All arrays must be of the same length
+ERROR log_message 2024-06-07 14:04:57,932 "POST /raw/ HTTP/1.1" 500 18425
+INFO trigger_reload 2024-06-07 14:11:13,888 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:11:14,566 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 14:11:17,729 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 291, in post
+    for col,c  in chain(self.df, commodities):
+ValueError: too many values to unpack (expected 2)
+ERROR log_message 2024-06-07 14:11:17,730 "POST /raw/ HTTP/1.1" 500 17720
+INFO trigger_reload 2024-06-07 14:14:21,542 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:14:22,206 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 14:14:25,282 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 298, in post
+    output[col].append(self._quickSum(c, col))
+KeyError: 'Domestic_Origion'
+ERROR log_message 2024-06-07 14:14:25,283 "POST /raw/ HTTP/1.1" 500 17676
+INFO trigger_reload 2024-06-07 14:15:13,836 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:15:14,310 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 14:15:17,815 "POST /raw/ HTTP/1.1" 200 9
+INFO trigger_reload 2024-06-07 14:21:11,116 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:21:11,826 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:21:22,749 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:21:23,137 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:21:26,822 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+INFO log_message 2024-06-07 14:21:28,858 "POST /raw/ HTTP/1.1" 200 5647
+INFO trigger_reload 2024-06-07 14:25:48,787 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:25:49,494 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:26:16,419 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:26:16,825 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:26:21,724 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+INFO log_message 2024-06-07 14:26:23,715 "POST /raw/ HTTP/1.1" 200 5893
+INFO trigger_reload 2024-06-07 14:29:29,630 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:29:30,329 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:29:40,710 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+INFO log_message 2024-06-07 14:29:42,810 "POST /raw/ HTTP/1.1" 200 5885
+INFO post 2024-06-07 14:30:17,616 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+INFO log_message 2024-06-07 14:30:19,185 "POST /raw/ HTTP/1.1" 200 5944
+INFO trigger_reload 2024-06-07 14:31:06,440 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:31:07,177 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:31:29,216 SumRaw:False
+WARNING log_response 2024-06-07 14:31:29,216 Bad Request: /raw/
+WARNING log_message 2024-06-07 14:31:29,217 "POST /raw/ HTTP/1.1" 400 19
+INFO trigger_reload 2024-06-07 14:32:41,683 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:32:42,185 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:32:51,387 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-07 14:32:52,796 "POST /raw/ HTTP/1.1" 200 5709
+INFO trigger_reload 2024-06-07 14:40:46,461 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:40:47,282 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:41:21,733 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:41:22,129 Watching for file changes with StatReloader
+ERROR log_response 2024-06-07 14:41:26,329 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 282, in post
+    query2 = gen_query2.setup()
+UnboundLocalError: local variable 'gen_query2' referenced before assignment
+ERROR log_message 2024-06-07 14:41:26,331 "POST /raw/ HTTP/1.1" 500 17755
+INFO post 2024-06-07 14:41:43,414 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+ERROR log_response 2024-06-07 14:41:46,290 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 296, in post
+    for col  in self.df:
+AttributeError: 'RawResource' object has no attribute 'df'
+ERROR log_message 2024-06-07 14:41:46,291 "POST /raw/ HTTP/1.1" 500 17714
+INFO trigger_reload 2024-06-07 14:42:17,018 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:42:17,558 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:42:19,409 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+ERROR log_response 2024-06-07 14:42:22,299 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 305, in post
+    output[col].append(self._quickSum(c, col))
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 331, in _quickSum
+    filtered_df = self.df[self.df['Commodity'] == check]
+AttributeError: 'RawResource' object has no attribute 'df'
+ERROR log_message 2024-06-07 14:42:22,300 "POST /raw/ HTTP/1.1" 500 17890
+INFO trigger_reload 2024-06-07 14:44:56,330 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:44:57,027 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:45:00,931 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+ERROR log_response 2024-06-07 14:45:03,902 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 305, in post
+    output[col].append(self._quickSum(1, c, col))
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 331, in _quickSum
+    if n: filtered_df1 = self.df[self.df['Commodity'] == check]
+AttributeError: 'RawResource' object has no attribute 'df'
+ERROR log_message 2024-06-07 14:45:03,904 "POST /raw/ HTTP/1.1" 500 17900
+INFO trigger_reload 2024-06-07 14:45:34,133 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:45:34,598 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:45:37,735 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-07 14:45:40,979 "POST /raw/ HTTP/1.1" 200 5748
+INFO trigger_reload 2024-06-07 14:52:25,084 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:52:25,818 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:52:40,798 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:52:41,287 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:52:46,227 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+ERROR log_response 2024-06-07 14:52:49,531 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 324, in post
+    new_df2 = pd.DataFrame(output)
+NameError: name 'output' is not defined
+ERROR log_message 2024-06-07 14:52:49,533 "POST /raw/ HTTP/1.1" 500 17686
+INFO trigger_reload 2024-06-07 14:53:08,104 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:53:08,574 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:53:10,337 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-06-07 14:53:13,591 "POST /raw/ HTTP/1.1" 200 11568
+INFO trigger_reload 2024-06-07 14:57:05,975 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:57:06,774 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 14:57:31,540 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:57:32,038 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 14:57:48,967 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-07 14:57:49,758 "GET /api/schema/ HTTP/1.1" 200 52695
+ERROR log_response 2024-06-07 14:58:04,876 Internal Server Error: /raw/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 257, in post
+    if    serializer.validated_data['option'].lower() == 'import':
+KeyError: 'option'
+ERROR log_message 2024-06-07 14:58:04,878 "POST /raw/ HTTP/1.1" 500 17676
+INFO trigger_reload 2024-06-07 14:58:50,365 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 14:58:50,871 Watching for file changes with StatReloader
+INFO post 2024-06-07 14:58:54,360 SumRaw:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+INFO log_message 2024-06-07 14:58:56,552 "POST /raw/ HTTP/1.1" 200 3896
+INFO trigger_reload 2024-06-07 15:01:06,252 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:01:06,946 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:09:15,069 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:09:15,855 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:15:06,833 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:15:07,528 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:15:59,033 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:15:59,526 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:32:45,481 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:32:46,292 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:33:03,322 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/urls.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:33:03,802 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:34:19,624 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:34:20,155 Watching for file changes with StatReloader
+INFO log_message 2024-06-07 15:35:57,365 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-07 15:35:57,791 "GET /api/schema/ HTTP/1.1" 200 46493
+INFO trigger_reload 2024-06-07 15:36:48,526 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:36:49,269 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:37:10,783 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:37:11,183 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-07 15:38:17,726 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-07 15:38:18,228 Watching for file changes with StatReloader

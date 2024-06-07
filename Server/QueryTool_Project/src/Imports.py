@@ -1,7 +1,7 @@
 from src.Data_Lookup import QueryTool
 import src.queries.faf_mapping   as metrics
 import src.queries.state_mapping as sm
-class Exports:
+class Imports:
     def __init__(
             self,
             origin    = "",

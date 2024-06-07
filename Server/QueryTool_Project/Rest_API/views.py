@@ -13,6 +13,7 @@ from src.Data_Lookup  import QueryTool
 from src.GrabTable    import GrabTable
 from src.PointToPoint import PointToPoint
 from src.Exports      import Exports
+from src.Imports      import Imports
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
@@ -37,14 +38,7 @@ class GatherAll(APIView):
         responses={
             '200': OpenApiResponse(
                 description= "CSV download of joined data table",
-                examples=[
-                    OpenApiExample(
-                        'CSV Example',
-                        value=e.table_CSVExample,
-                        media_type='text/csv'
                     )
-                ],
-            )
         }
     )
     def post(self, request):
@@ -121,7 +115,7 @@ class PointtoPoint(APIView):
 ##########################################################################################
 class Export_endpoint(APIView):
     @extend_schema(
-        description="Shows all of the exports from a region/state based on year or time frame. The destination, transport type and the time also are supplied",
+        description="This endpoint takes in a region or state with a year or year frame and returns all exported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.",
         examples=[
             OpenApiExample(
                 'Single Year Example',
@@ -172,7 +166,7 @@ class Export_endpoint(APIView):
 ##########################################################################################
 class Import_endpoint(APIView):
     @extend_schema(
-        description="Shows all of the imports from a region/state based on year or time frame. The origin, transport type, commodity, ton amount, and year are also supplied.",
+        description="This endpoint takes in a region or state with a year or year frame and returns all imported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.",
         examples=[
             OpenApiExample(
                 'Single Year Example',
@@ -200,7 +194,7 @@ class Import_endpoint(APIView):
     def post(self, request):
         serializer = s.ImportsSerializer(data=request.data)
         if serializer.is_valid():
-            data = Exports(
+            data = Imports(
                 serializer.validated_data['origin'],
                 serializer.validated_data['timeframe']
             )
@@ -221,9 +215,12 @@ class Import_endpoint(APIView):
 
 
 ##########################################################################################
+#fr_import
+#fr_export
+##########################################################################################
 class RawResource(APIView):
     @extend_schema(
-        description="Adds up total tons per commodity based on year or year frame and orders based on ton. It has options for imports and/or exports",
+        description="This endpoint takes in an origin named and a year/year frame and calculates the sum of each resource imported and exported from the said area. It returns data by giving the area’s name, the resource, whether it was imported or exported, and the summation of said resource based on year. Currently this only works for domestic imports and outports",
         examples=[
             OpenApiExample(
                 'Example Year',
@@ -247,7 +244,82 @@ class RawResource(APIView):
         }
     )
     def post(self, request):
-        return Response("Raw is up!")
+        serializer = s.RawResourceSerializer(data=request.data)
+        if serializer.is_valid():
+            #Send data to class and return data as pandas framework
+            gen_query = Imports(
+                serializer.validated_data['origin'],
+                serializer.validated_data['timeframe']
+            )
+ 
+            gen_query2 = Exports(
+                serializer.validated_data['origin'],
+                serializer.validated_data['timeframe']
+            )
+            
+            #Add ton value based on column and commodity type
+            query  = gen_query.setup()
+            query2 = gen_query2.setup()
+            logger.info(f"SumRaw:{query}\n{query2}")
+            if query == False: return  Response("Error: Check Data", 400)
+            if query2 == False: return Response("Error: Check Data2", 400)
+            lookup = QueryTool()
+            self.df1 = lookup.query(query)
+            self.df2 = lookup.query(query2)
+            commodities = lookup.query("SELECT description FROM c")["description"]
+            
+            #splitting proccess between 1 and 2, will join both dataframes in end
+            output1 = {
+                "origin"   : [],
+                "commodity": [],
+                "option":    [],
+            }
+            output2 = {
+                "origin"   : [],
+                "commodity": [],
+                "option":    [],
+            }
+ 
+            for col  in self.df1:
+                if col[:4] == 'tons':
+                    output1[col] = []
+                
+                    for c in commodities:
+                        if c not in output1['commodity']:
+                            output1['origin'].append(serializer.validated_data['origin'])
+                            output1['commodity'].append(c)
+                            output1['option'].append("Imports")
+                        output1[col].append(self._quickSum(1, c, col))
+            for col  in self.df2:
+                if col[:4] == 'tons':
+                    output2[col] = []
+                
+                    for c in commodities:
+                        if c not in output2['commodity']:
+                            output2['origin'].append(serializer.validated_data['origin'])
+                            output2['commodity'].append(c)
+                            output2['option'].append("Exports")
+                        output2[col].append(self._quickSum(0, c, col))
+            
+            new_df1 = pd.DataFrame(output1)
+            new_df2 = pd.DataFrame(output2)
+            #joined dataframe
+            complete_df = pd.concat([new_df1, new_df2])
+            try:
+                csv_data = complete_df.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["origin"]}.csv'
+                return response
+            except:
+                return Response("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
+
+
+
+    def _quickSum(self, n, check, sumcol):
+        if n: filtered_df = self.df1[self.df1['Commodity'] == check]
+        else: filtered_df = self.df2[self.df2['Commodity'] == check]
+        return filtered_df[sumcol].sum()
 ##########################################################################################
 class Commodity_total(APIView):
     @extend_schema(
@@ -278,122 +350,3 @@ class Commodity_total(APIView):
     def post(self, request):
         return Response("Commodity total is up!")
 ##########################################################################################
-class Ratio_ie(APIView):
-    @extend_schema(
-        description="gives a ratio of commodities imported/exported in stated ordered by resource",
-        examples=[
-            OpenApiExample(
-                'Ratio Example Year',
-                value=e.ratioExample1,
-                media_type="application/json",
-            ), 
-            OpenApiExample(
-                'Ratio Example TimeFrame',
-                value=e.ratioExample2,
-                media_type="application/json",
-            ),
-           OpenApiExample(
-                'Ratio Return Example',
-                value=e.ratioReturnExample,
-                media_type="application/json",
-            ),
-
-        ],
-        request=s.RatioSerializer(),
-        responses={
-            '200':s.RatioReturnSerializer()
-        }
-    )
-   
-    def post(self, request):
-        return Response("Ratio is ratioing!")
-##########################################################################################
-class TablePayLoad(APIView):
-    @extend_schema(
-        description="Returning a list of the table names from database",
-        request=None,
-        responses=s.ListSerializer
-    )
-    def get(self, request):
-        query  = QueryTool()
-        tables = query.show_tables()
-        ser    = s.ListSerializer(data={'data':tables})
-        if ser.is_valid(): return Response(ser.data)
-        return Response(serializer.errors, status=400)
-
-class QueryLoader(APIView):
-    @extend_schema(
-        request    =s.QuerySerializer,
-        description="Take a query and return output from mySQL server",
-        responses  =s.ListSerializer
-    )
-    def post(self, request):
-        serializer = s.QuerySerializer(data=request.data)
-        if serializer.is_valid():
-            cmd    = serializer.validated_data['query']
-            logger.info(f"query: {cmd}")                            #logging the commands used
-            lookup = QueryTool()
-            data   = lookup.query(cmd)
-            ser    = s.ListSerializer(data={'data': data})
-            if ser.is_valid(): return Response(ser.data)
-            return Response(serializer.errors, status=400)
-        return Response(serializer.errors, status=400)
-
-class TableDescripter(APIView):
-    @extend_schema(
-        request    =s.QuerySerializer,
-        description="takes in a table name and returns the column data",
-        responses  =s.ListSerializer
-    )
-    def post(self, request):
-        serializer = s.QuerySerializer(data=request.data)
-        if serializer.is_valid():
-            table   = serializer.validated_data['query']
-            logger.info(f"col: {table}")
-            lookup  = QueryTool()
-            details = lookup.colname(table)
-            ser     = s.ListSerializer(data={'data': details})
-            if ser.is_valid(): return Response(ser.data)
-            return Response(serializer.errors, status=400)
-        return Response(serializer.errors, status=400)
-       
-####################################User End#########################################
-class GetTable(APIView):
-    @extend_schema(
-        request    = s.DataQuerySerializer,
-        description="Takes multiple attributes and returns data that fits",
-        responses  = s.ListSerializer
-    )
-
-    def post(self, request):
-        serializer = s.DataQuerySerializer(data=request.data)
-        if serializer.is_valid():
-            query = CreateQuery(
-                serializer.validated_data['table'],
-                serializer.validated_data['origin'],
-                serializer.validated_data['destination'],
-                serializer.validated_data['commodity'],
-                serializer.validated_data['transport'],
-                serializer.validated_data['distance'],
-                serializer.validated_data['ton_year'],
-                serializer.validated_data['val_year'],
-                serializer.validated_data['currVal_year'],
-                serializer.validated_data['tmile'],
-                serializer.validated_data['tonHigh_year'],
-                serializer.validated_data['tonLow_year'],
-                serializer.validated_data['valHigh_year'],
-                serializer.validated_data['valLow_year'],
-                serializer.validated_data['limit']
-            )
-            if query.help(): return Response(query.help())
-            query = query.setup()
-            logger.info(f"Query Build: {query}")
-
-            lookup = QueryTool()
-            data = lookup.query(query)
-
-            ser = s.ListSerializer(data={'data':data})
-            if ser.is_valid(): return Response(ser.data)
-            return Response(serializer.errors, status=400)
-        return Response(serializer.errors, status=400)
-
