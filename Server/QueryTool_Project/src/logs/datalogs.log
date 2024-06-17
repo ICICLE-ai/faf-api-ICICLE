@@ -9281,3 +9281,1834 @@ INFO trigger_reload 2024-06-07 15:37:10,783 /u/cj124/faf-api-dev/Server/QueryToo
 INFO run_with_reloader 2024-06-07 15:37:11,183 Watching for file changes with StatReloader
 INFO trigger_reload 2024-06-07 15:38:17,726 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
 INFO run_with_reloader 2024-06-07 15:38:18,228 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-12 20:52:53,215 Watching for file changes with StatReloader
+INFO log_message 2024-06-12 20:53:46,275 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-12 20:53:46,632 "GET /api/schema/ HTTP/1.1" 200 46493
+INFO post 2024-06-12 20:54:07,779 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-12 20:54:08,434 "POST /point_to_point/ HTTP/1.1" 200 237
+INFO trigger_reload 2024-06-12 21:06:24,856 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:06:25,680 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-12 21:07:06,443 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:07:06,941 Watching for file changes with StatReloader
+INFO post 2024-06-12 21:07:38,806 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-12 21:07:39,302 "POST /point_to_point/ HTTP/1.1" 200 182
+INFO trigger_reload 2024-06-12 21:23:08,615 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:23:09,417 Watching for file changes with StatReloader
+ERROR log_response 2024-06-12 21:23:45,051 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 50, in post
+    query = gt.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py", line 78, in setup
+    if self.limit > 0: self.query += f"LIMIT {self.limit}"
+AttributeError: 'GrabTable' object has no attribute 'limit'
+ERROR log_message 2024-06-12 21:23:45,053 "POST /get_table_data/ HTTP/1.1" 500 97967
+INFO trigger_reload 2024-06-12 21:24:17,251 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:24:17,730 Watching for file changes with StatReloader
+INFO post 2024-06-12 21:24:21,631 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code LIMIT 60;
+INFO log_message 2024-06-12 21:24:21,822 "POST /get_table_data/ HTTP/1.1" 200 45204
+INFO trigger_reload 2024-06-12 21:24:38,253 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:24:38,725 Watching for file changes with StatReloader
+INFO post 2024-06-12 21:24:40,472 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-06-12 21:31:48,592 "POST /get_table_data/ HTTP/1.1" 200 722557733
+INFO trigger_reload 2024-06-12 21:37:30,624 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:37:31,408 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-12 21:38:04,471 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:38:04,979 Watching for file changes with StatReloader
+INFO post 2024-06-12 21:38:30,527 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2002, current_value_2007, current_value_2012, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-12 21:38:32,022 "POST /point_to_point/ HTTP/1.1" 200 2289
+INFO post 2024-06-12 21:39:03,679 PointToPoint: SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2002, tons_2007, tons_2012, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2002, value_2007, value_2012, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2002, current_value_2007, current_value_2012, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-12 21:39:05,128 "POST /point_to_point/ HTTP/1.1" 200 81488
+INFO trigger_reload 2024-06-12 21:40:44,900 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-12 21:40:45,576 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-13 22:54:49,824 Watching for file changes with StatReloader
+INFO post 2024-06-13 22:55:55,338 Grab Table Query: SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, tons_2030, tons_2035, tons_2040, tons_2045, tons_2050, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, value_2030, value_2035, value_2040, value_2045, value_2050, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tmiles_2017, tmiles_2018, tmiles_2019, tmiles_2020, tmiles_2021, tmiles_2022, tmiles_2023, tmiles_2025, tmiles_2030, tmiles_2035, tmiles_2040, tmiles_2045, tmiles_2050, tons_2023_high, tons_2025_high, tons_2030_high, tons_2035_high, tons_2040_high, tons_2045_high, tons_2050_high, tons_2023_low, tons_2025_low, tons_2030_low, tons_2035_low, tons_2040_low, tons_2045_low, tons_2050_low, value_2023_high, value_2025_high, value_2030_high, value_2035_high, value_2040_high, value_2045_high, value_2050_high, value_2023_low, value_2025_low, value_2030_low, value_2035_low, value_2040_low, value_2045_low, value_2050_low FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-06-13 22:56:06,220 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-13 22:56:06,546 "GET /api/schema/ HTTP/1.1" 200 46493
+WARNING log_response 2024-06-13 23:02:48,362 Bad Request: /domestic_imports/
+WARNING log_message 2024-06-13 23:02:48,364 "POST /domestic_imports/ HTTP/1.1" 400 36
+INFO log_message 2024-06-13 23:03:00,962 "POST /get_table_data/ HTTP/1.1" 200 722557733
+INFO trigger_reload 2024-06-13 23:04:40,661 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-13 23:04:41,423 Watching for file changes with StatReloader
+INFO post 2024-06-13 23:04:42,461 Export Endpoint:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, value_2018 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Indiana' ;
+INFO log_message 2024-06-13 23:04:43,847 "POST /domestic_imports/ HTTP/1.1" 200 412834
+INFO run_with_reloader 2024-06-17 16:03:40,775 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:04:33,428 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:04:33,961 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:08:09,253 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:08:10,032 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:36:23,828 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:36:24,623 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:44:39,071 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:44:39,788 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:45:05,686 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:45:06,083 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:45:44,718 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:45:45,151 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:46:13,003 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:46:13,408 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:46:59,551 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:47:00,067 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:47:54,453 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:47:54,948 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:48:08,588 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:48:09,098 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:48:33,546 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:48:34,056 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:48:48,725 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:48:49,222 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:48:54,279 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:48:54,723 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:48:59,784 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:49:00,240 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:49:04,236 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:49:04,713 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:49:08,691 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:49:09,198 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:49:13,229 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:49:13,723 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:49:17,817 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:49:18,254 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:49:55,891 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:49:56,286 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:54:39,224 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:54:39,976 Watching for file changes with StatReloader
+INFO log_message 2024-06-17 16:54:56,281 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-17 16:54:56,650 "GET /api/schema/ HTTP/1.1" 200 46325
+ERROR log_response 2024-06-17 16:55:32,288 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 356, in post
+    gen_query = CommodityTotal(
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 12, in __init__
+    self.commodity = commodity
+NameError: name 'commodity' is not defined
+ERROR log_message 2024-06-17 16:55:32,290 "POST /commodity_total/ HTTP/1.1" 500 17869
+INFO trigger_reload 2024-06-17 16:56:28,736 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:56:29,310 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 16:56:31,227 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:56:31,608 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 16:56:35,162 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 19, in setup
+    self.table = self._checkLocations()
+AttributeError: 'CommodityTotal' object has no attribute '_checkLocations'
+ERROR log_message 2024-06-17 16:56:35,165 "POST /commodity_total/ HTTP/1.1" 500 17938
+INFO trigger_reload 2024-06-17 16:57:06,850 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:57:07,325 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 16:57:09,081 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 27, in setup
+    if self.table[:3] == "faf":
+TypeError: 'NoneType' object is not subscriptable
+ERROR log_message 2024-06-17 16:57:09,083 "POST /commodity_total/ HTTP/1.1" 500 17880
+INFO trigger_reload 2024-06-17 16:58:33,049 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:58:33,579 Watching for file changes with StatReloader
+INFO post 2024-06-17 16:58:36,079 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 300;
+ERROR log_response 2024-06-17 16:58:36,106 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    if query["error"]: return  Response(query) #error occured
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 16:58:36,107 "POST /commodity_total/ HTTP/1.1" 500 17769
+INFO post 2024-06-17 16:59:30,681 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 300;
+ERROR log_response 2024-06-17 16:59:30,703 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    if query["error"]: return  Response(query) #error occured
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 16:59:30,704 "POST /commodity_total/ HTTP/1.1" 500 17769
+INFO trigger_reload 2024-06-17 16:59:47,467 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 16:59:48,232 Watching for file changes with StatReloader
+INFO post 2024-06-17 16:59:50,827 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 300;
+INFO log_message 2024-06-17 16:59:51,019 "POST /commodity_total/ HTTP/1.1" 200 18996
+ERROR log_response 2024-06-17 17:00:30,941 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 20, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 114, in _error
+    errordf = pd.DataFrame(error)
+NameError: name 'pd' is not defined
+ERROR log_message 2024-06-17 17:00:30,943 "POST /commodity_total/ HTTP/1.1" 500 18001
+INFO trigger_reload 2024-06-17 17:01:26,036 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:01:26,583 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:01:29,068 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    errordf = pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:01:29,070 "POST /commodity_total/ HTTP/1.1" 500 18788
+ERROR log_response 2024-06-17 17:06:50,326 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    errordf = pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:06:50,328 "POST /commodity_total/ HTTP/1.1" 500 18788
+INFO trigger_reload 2024-06-17 17:08:15,458 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:08:16,166 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:08:19,314 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    return DataFrame(error)
+NameError: name 'DataFrame' is not defined
+ERROR log_message 2024-06-17 17:08:19,315 "POST /commodity_total/ HTTP/1.1" 500 18009
+INFO trigger_reload 2024-06-17 17:08:31,400 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:08:31,927 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:08:32,958 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    return pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:08:32,962 "POST /commodity_total/ HTTP/1.1" 500 18785
+INFO trigger_reload 2024-06-17 17:10:56,605 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:10:57,311 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:11:00,021 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    df = pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:11:00,026 "POST /commodity_total/ HTTP/1.1" 500 18783
+INFO trigger_reload 2024-06-17 17:12:20,094 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:12:20,631 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:12:23,311 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:12:23,446 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 33, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+[SQL: error
+Error: check option: state or region
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 367, in post
+    self.df = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 38, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:12:23,451 "POST /commodity_total/ HTTP/1.1" 500 23717
+INFO trigger_reload 2024-06-17 17:13:38,980 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:13:39,491 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:13:42,791 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    df = pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:13:42,795 "POST /commodity_total/ HTTP/1.1" 500 18783
+INFO trigger_reload 2024-06-17 17:14:42,676 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:14:43,198 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:14:47,299 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    df = pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:14:47,304 "POST /commodity_total/ HTTP/1.1" 500 18783
+INFO trigger_reload 2024-06-17 17:14:54,938 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:14:55,407 Watching for file changes with StatReloader
+ERROR log_response 2024-06-17 17:14:57,556 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 362, in post
+    query  = gen_query.setup()
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 21, in setup
+    if err == False: return self._error("table")
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py", line 115, in _error
+    df = pd.DataFrame(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:14:57,561 "POST /commodity_total/ HTTP/1.1" 500 18783
+INFO trigger_reload 2024-06-17 17:18:55,446 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:18:56,156 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:18:58,188 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:18:58,287 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 33, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+[SQL: error
+Error: check option: state or region
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 367, in post
+    self.df = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 38, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:18:58,293 "POST /commodity_total/ HTTP/1.1" 500 23717
+INFO trigger_reload 2024-06-17 17:27:47,136 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:27:47,881 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:27:51,091 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:27:51,224 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 33, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+[SQL: error
+Error: check option: state or region
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 367, in post
+    self.df = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 38, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:27:51,230 "POST /commodity_total/ HTTP/1.1" 500 23717
+INFO log_message 2024-06-17 17:27:53,971 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-17 17:27:54,228 "GET /api/schema/ HTTP/1.1" 200 46325
+INFO post 2024-06-17 17:28:06,546 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 300;
+INFO log_message 2024-06-17 17:28:06,595 "POST /commodity_total/ HTTP/1.1" 200 19004
+INFO post 2024-06-17 17:28:12,771 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:28:12,818 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 33, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+[SQL: error
+Error: check option: state or region
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 367, in post
+    self.df = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 38, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:28:12,819 "POST /commodity_total/ HTTP/1.1" 500 23717
+INFO trigger_reload 2024-06-17 17:30:31,304 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:30:31,968 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:30:34,966 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:30:35,114 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 33, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+[SQL: error
+Error: check option: state or region
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 367, in post
+    self.df = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 38, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:30:35,121 "POST /commodity_total/ HTTP/1.1" 500 23717
+INFO run_with_reloader 2024-06-17 17:30:55,201 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:30:57,657 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:30:57,778 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 33, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1422, in execute
+    return meth(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 514, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1644, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1850, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1990, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2357, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1971, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/.local/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 919, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 558, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 822, in _read_query_result
+    result.read()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1200, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/connections.py", line 772, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'error\nError: check option: state or region' at line 1")
+[SQL: error
+Error: check option: state or region
+]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 367, in post
+    self.df = lookup.query(query)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py", line 38, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-06-17 17:30:57,786 "POST /commodity_total/ HTTP/1.1" 500 23717
+INFO trigger_reload 2024-06-17 17:32:47,852 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:32:48,542 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:32:50,190 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:32:50,216 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 365, in post
+    if query["error"]: return  Response(query) #error occured
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:32:50,218 "POST /commodity_total/ HTTP/1.1" 500 17769
+INFO trigger_reload 2024-06-17 17:33:40,106 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:33:40,669 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:33:42,751 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:33:42,767 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 365, in post
+    if query["error"][0]: return  Response(query) #error occured
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:33:42,768 "POST /commodity_total/ HTTP/1.1" 500 17772
+INFO trigger_reload 2024-06-17 17:34:18,073 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:34:18,577 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 17:34:23,075 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:34:23,467 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-17 17:34:27,274 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:34:29,435 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:34:29,460 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 365, in post
+    if query["error"][0]: return  Response(query) #error occured
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:34:29,462 "POST /commodity_total/ HTTP/1.1" 500 17772
+INFO trigger_reload 2024-06-17 17:35:04,764 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:35:05,226 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:35:06,398 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:35:06,414 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    print("This is the query\n",query["error"])
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:35:06,416 "POST /commodity_total/ HTTP/1.1" 500 17755
+INFO run_with_reloader 2024-06-17 17:35:22,654 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:35:24,748 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:35:24,772 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    print("This is the query\n",query["error"])
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:35:24,774 "POST /commodity_total/ HTTP/1.1" 500 17755
+INFO trigger_reload 2024-06-17 17:36:23,751 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:36:24,263 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:36:25,283 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:36:25,308 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 365, in post
+    if query["error"][0]: return  Response(query) #error occured
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:36:25,311 "POST /commodity_total/ HTTP/1.1" 500 17772
+INFO trigger_reload 2024-06-17 17:36:48,822 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:36:49,303 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:36:52,051 CommodityTotal:error
+Error: check option: state or region
+
+ERROR log_response 2024-06-17 17:36:52,074 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    print("This is the query\n",query["error"][0])
+TypeError: string indices must be integers
+ERROR log_message 2024-06-17 17:36:52,076 "POST /commodity_total/ HTTP/1.1" 500 17758
+INFO trigger_reload 2024-06-17 17:38:21,456 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:38:22,120 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 17:38:41,393 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:38:41,877 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:38:43,329 CommodityTotal:error
+Error: check option: state or region
+
+INFO log_message 2024-06-17 17:38:43,331 "POST /commodity_total/ HTTP/1.1" 200 47
+INFO trigger_reload 2024-06-17 17:39:43,966 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:39:44,521 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:39:45,652 CommodityTotal:                                  error
+0  Error: check option: state or region
+INFO log_message 2024-06-17 17:39:45,657 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO trigger_reload 2024-06-17 17:40:18,707 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:40:19,207 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:40:21,522 CommodityTotal:                                  error
+0  Error: check option: state or region
+ERROR log_response 2024-06-17 17:40:21,555 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3653, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    print("This is the query\n",query[0], "\n\n")
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3655, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+ERROR log_message 2024-06-17 17:40:21,559 "POST /commodity_total/ HTTP/1.1" 500 18721
+INFO trigger_reload 2024-06-17 17:40:40,532 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:40:41,010 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:40:47,045 CommodityTotal:                                  error
+0  Error: check option: state or region
+INFO log_message 2024-06-17 17:40:47,046 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO trigger_reload 2024-06-17 17:41:22,774 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:41:23,272 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:41:26,044 CommodityTotal:                                  error
+0  Error: check option: state or region
+ERROR log_response 2024-06-17 17:41:26,081 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 364, in post
+    if query["error"]: return  Response(query) #error occured
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 1466, in __nonzero__
+    raise ValueError(
+ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().
+ERROR log_message 2024-06-17 17:41:26,086 "POST /commodity_total/ HTTP/1.1" 500 18022
+INFO trigger_reload 2024-06-17 17:43:36,288 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:43:36,996 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:43:39,692 CommodityTotal:                                  error
+0  Error: check option: state or region
+INFO log_message 2024-06-17 17:43:39,694 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO trigger_reload 2024-06-17 17:44:13,588 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:44:14,067 Watching for file changes with StatReloader
+INFO log_message 2024-06-17 17:44:14,897 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO log_message 2024-06-17 17:44:18,561 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO post 2024-06-17 17:44:22,639 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 300;
+INFO log_message 2024-06-17 17:44:22,796 "POST /commodity_total/ HTTP/1.1" 200 19004
+INFO trigger_reload 2024-06-17 17:47:55,022 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:47:55,722 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 17:48:35,393 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:48:35,894 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:48:40,480 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+INFO log_message 2024-06-17 17:48:40,630 "POST /commodity_total/ HTTP/1.1" 200 430
+INFO trigger_reload 2024-06-17 17:49:10,154 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:49:10,653 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:49:12,152 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+ERROR log_response 2024-06-17 17:49:12,236 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 379, in post
+    output1[col] = []
+NameError: name 'output1' is not defined
+ERROR log_message 2024-06-17 17:49:12,237 "POST /commodity_total/ HTTP/1.1" 500 17725
+INFO trigger_reload 2024-06-17 17:49:36,111 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:49:36,596 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:49:48,382 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+ERROR log_response 2024-06-17 17:49:48,551 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+ERROR log_message 2024-06-17 17:49:48,552 "POST /commodity_total/ HTTP/1.1" 500 17596
+INFO trigger_reload 2024-06-17 17:54:31,541 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:54:32,204 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:54:39,416 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+ERROR log_response 2024-06-17 17:54:39,662 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 375, in post
+    grouped = dfgroupby("Domestic_Origion").sum().reset_index()
+NameError: name 'dfgroupby' is not defined
+ERROR log_message 2024-06-17 17:54:39,665 "POST /commodity_total/ HTTP/1.1" 500 17771
+INFO trigger_reload 2024-06-17 17:55:08,980 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:55:09,470 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:55:12,823 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+ERROR log_response 2024-06-17 17:55:12,943 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 375, in post
+    grouped = df.groupby("Domestic_Origion").sum().reset_index()
+NameError: name 'df' is not defined
+ERROR log_message 2024-06-17 17:55:12,944 "POST /commodity_total/ HTTP/1.1" 500 17758
+INFO trigger_reload 2024-06-17 17:55:24,324 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:55:24,805 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:55:28,272 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+INFO log_message 2024-06-17 17:55:28,449 "POST /commodity_total/ HTTP/1.1" 200 343
+INFO trigger_reload 2024-06-17 17:56:22,624 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:56:23,137 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:56:24,849 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 5;
+INFO log_message 2024-06-17 17:56:24,936 "POST /commodity_total/ HTTP/1.1" 200 343
+INFO trigger_reload 2024-06-17 17:56:55,222 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:56:55,704 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 17:57:31,810 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 17:57:32,313 Watching for file changes with StatReloader
+INFO post 2024-06-17 17:57:34,339 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 17:57:34,558 "POST /commodity_total/ HTTP/1.1" 200 1083
+INFO post 2024-06-17 17:58:04,293 CommodityTotal:SELECT of0.description AS Domestic_Origion, df.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 17:58:04,352 "POST /commodity_total/ HTTP/1.1" 200 1537
+INFO post 2024-06-17 18:00:35,593 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:00:35,680 "POST /commodity_total/ HTTP/1.1" 200 1039
+INFO trigger_reload 2024-06-17 18:02:38,066 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:02:38,772 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:02:44,256 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:02:44,407 "POST /commodity_total/ HTTP/1.1" 200 835
+INFO trigger_reload 2024-06-17 18:14:02,371 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:14:03,102 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 18:14:26,828 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:14:27,215 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:14:31,816 CommodityTotal:SELECT os.description AS Domestic_Origion, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+ERROR log_response 2024-06-17 18:14:32,076 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 381, in post
+    im.drop(columns=['Domestic_Origin'])
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 5258, in drop
+    return super().drop(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 4549, in drop
+    obj = obj._drop_axis(labels, axis, level=level, errors=errors)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/generic.py", line 4591, in _drop_axis
+    new_axis = axis.drop(labels, errors=errors)
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 6699, in drop
+    raise KeyError(f"{list(labels[mask])} not found in axis")
+KeyError: "['Domestic_Origin'] not found in axis"
+ERROR log_message 2024-06-17 18:14:32,082 "POST /commodity_total/ HTTP/1.1" 500 18357
+INFO trigger_reload 2024-06-17 18:15:24,195 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/queries/faf_mapping.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:15:24,717 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 18:15:38,350 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/queries/state_mapping.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:15:38,808 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:15:46,117 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+ERROR log_response 2024-06-17 18:15:46,369 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 376, in post
+    ex = self.df.groupby(["Domestic_Origion", "Commodity"]).sum().reset_index()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 8252, in groupby
+    return DataFrameGroupBy(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py", line 931, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/groupby/grouper.py", line 985, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Domestic_Origion'
+ERROR log_message 2024-06-17 18:15:46,374 "POST /commodity_total/ HTTP/1.1" 500 18170
+INFO trigger_reload 2024-06-17 18:16:06,677 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/queries/state_mapping.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:16:07,150 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 18:16:21,938 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/queries/faf_mapping.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:16:22,427 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:16:25,761 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+ERROR log_response 2024-06-17 18:16:25,966 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 376, in post
+    ex = self.df.groupby(["Domestic_Origion", "Commodity"]).sum().reset_index()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 8252, in groupby
+    return DataFrameGroupBy(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py", line 931, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/groupby/grouper.py", line 985, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Domestic_Origion'
+ERROR log_message 2024-06-17 18:16:25,971 "POST /commodity_total/ HTTP/1.1" 500 18170
+INFO trigger_reload 2024-06-17 18:17:28,835 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/queries/faf_mapping.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:17:29,344 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:17:42,379 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+ERROR log_response 2024-06-17 18:17:42,604 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 376, in post
+    ex = self.df.groupby(["Domestic_Origion", "Commodity"]).sum().reset_index()
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/frame.py", line 8252, in groupby
+    return DataFrameGroupBy(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/groupby/groupby.py", line 931, in __init__
+    grouper, exclusions, obj = get_grouper(
+  File "/u/cj124/.local/lib/python3.8/site-packages/pandas/core/groupby/grouper.py", line 985, in get_grouper
+    raise KeyError(gpr)
+KeyError: 'Domestic_Origion'
+ERROR log_message 2024-06-17 18:17:42,608 "POST /commodity_total/ HTTP/1.1" 500 18170
+INFO trigger_reload 2024-06-17 18:18:31,485 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:18:32,011 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:18:35,069 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:18:35,223 "POST /commodity_total/ HTTP/1.1" 200 916
+INFO trigger_reload 2024-06-17 18:23:40,375 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:23:41,052 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:23:45,300 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:23:45,485 "POST /commodity_total/ HTTP/1.1" 200 576
+INFO trigger_reload 2024-06-17 18:28:12,031 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:28:12,751 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 18:32:47,505 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:32:48,070 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 18:33:13,926 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:33:14,313 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:33:19,339 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:33:19,505 "POST /commodity_total/ HTTP/1.1" 200 591
+INFO trigger_reload 2024-06-17 18:34:24,347 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:34:24,832 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:34:26,779 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:34:26,930 "POST /commodity_total/ HTTP/1.1" 200 591
+INFO trigger_reload 2024-06-17 18:37:47,572 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:37:48,286 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:37:53,100 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:37:53,228 "POST /commodity_total/ HTTP/1.1" 200 180
+INFO trigger_reload 2024-06-17 18:38:34,565 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:38:35,068 Watching for file changes with StatReloader
+INFO log_message 2024-06-17 18:38:37,503 "GET /api/schema/ HTTP/1.1" 200 46325
+INFO post 2024-06-17 18:38:59,376 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+ERROR log_response 2024-06-17 18:38:59,527 Internal Server Error: /commodity_total/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 386, in post
+    return Response(df)
+NameError: name 'df' is not defined
+ERROR log_message 2024-06-17 18:38:59,530 "POST /commodity_total/ HTTP/1.1" 500 17717
+INFO trigger_reload 2024-06-17 18:39:08,438 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:39:08,861 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:39:10,633 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code LIMIT 20;
+INFO log_message 2024-06-17 18:39:10,715 "POST /commodity_total/ HTTP/1.1" 200 1400
+INFO trigger_reload 2024-06-17 18:40:15,197 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:40:15,717 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-17 18:40:28,394 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-17 18:40:28,885 Watching for file changes with StatReloader
+INFO post 2024-06-17 18:40:30,848 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code ;
+INFO log_message 2024-06-17 18:40:36,242 "POST /commodity_total/ HTTP/1.1" 200 303241
+INFO post 2024-06-17 18:43:32,232 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tons_2023_high, tons_2025_high, tons_2023_low, tons_2025_low, value_2023_high, value_2025_high, value_2023_low, value_2025_low FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code ;
+INFO log_message 2024-06-17 18:43:49,790 "POST /commodity_total/ HTTP/1.1" 200 1825808
+INFO post 2024-06-17 18:44:40,875 CommodityTotal:SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tons_2023_high, tons_2025_high, tons_2023_low, tons_2025_low, value_2023_high, value_2025_high, value_2023_low, value_2025_low FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code ;
+INFO log_message 2024-06-17 18:45:35,127 "POST /commodity_total/ HTTP/1.1" 200 4602059
+WARNING log_response 2024-06-17 18:47:53,124 Bad Request: /commodity_total/
+WARNING log_message 2024-06-17 18:47:53,125 "POST /commodity_total/ HTTP/1.1" 400 64

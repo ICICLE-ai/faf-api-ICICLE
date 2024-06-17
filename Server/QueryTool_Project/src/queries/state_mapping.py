@@ -1,14 +1,14 @@
 #state
 
 state0 = {
-    "dms_orig" : ["os.description AS Domestic_Origion",    "JOIN o_state os ON dms_orig = os.code"],
+    "dms_orig" : ["os.description AS Domestic_Origin",    "JOIN o_state os ON dms_orig = os.code"],
     "dms_dest" : ["ds.description AS Domestic_Destination", "JOIN d_state ds ON dms_dest = ds.code"],
     "sctg2"    : ["c.description AS Commodity",             "JOIN c ON sctg2 = c.code"],
     "dms_mode" : ["m.description AS Transportation",        "JOIN m ON dms_mode = m.code"],
 }
 
 state2 = {
-    "fr_orig"  : ["fo.description AS Foreign_Origion",   "JOIN fo ON fr_orig = fo.code"],
+    "fr_orig"  : ["fo.description AS Foreign_Origin",   "JOIN fo ON fr_orig = fo.code"],
     "fr_inmode": ["fom.description AS Foreign_Transport","JOIN fom ON fr_inmode = fom.code"],
 }
 

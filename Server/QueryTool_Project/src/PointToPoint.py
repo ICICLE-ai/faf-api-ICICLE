@@ -51,15 +51,46 @@ class PointToPoint:
                 except: continue
             for year in self.timeframe:
                 try: cols.append(metrics.value[str(year)])
+                except: continue    
+            for year in self.timeframe:
+                try: cols.append(metrics.current_value[str(year)])
                 except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.tons_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.tons_low[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.value_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.value_low[str(year)])
+                except: continue
+ 
         else:
-             for year in self.timeframe:
+            for year in self.timeframe:
                 try: cols.append(sm.tons[str(year)])
                 except: continue
-             for year in self.timeframe:
+            for year in self.timeframe:
                 try: cols.append(sm.value[str(year)])
                 except: continue
-
+            for year in self.timeframe:
+                try: cols.append(sm.current_value[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.tons_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.tons_low[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.value_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.value_low[str(year)])
+                except: continue
+ 
         self.query += ", ".join(cols) + " "
 
         self._table()

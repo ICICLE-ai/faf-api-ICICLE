@@ -30,7 +30,7 @@ class ExportsReturnSerializer(serializers.Serializer):
 
 
 class ImportsSerializer(serializers.Serializer):
-    area      = serializers.CharField(max_length=15)
+    origin    = serializers.CharField(max_length=15)
     timeframe = serializers.ListField(max_length=2, child=serializers.IntegerField())
 
 class ImportsReturnSerializer(serializers.Serializer):
@@ -52,9 +52,9 @@ class RawResourceReturnSerializer(serializers.Serializer):
 
 
 class CommodityTotalSerializer(serializers.Serializer):     
-    commodity = serializers.CharField(max_length=10)
     timeframe = serializers.ListField(max_length=2, child=serializers.IntegerField())
-    option    = serializers.CharField(max_length=6)
+    option    = serializers.CharField(max_length=10)
+
 
 class CommodityTotalReturnSerializer(serializers.Serializer):
     origin    = serializers.CharField(max_length=15)

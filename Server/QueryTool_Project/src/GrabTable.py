@@ -4,9 +4,9 @@ import src.queries.state_mapping as sm
 class GrabTable:
     def __init__(self,
             table     = "faf0",
-            limit     = 0,
+            limit     = 0,       #debug purposes 0 means all, x>0 sets limit
     ):
-        self.query = "SELECT "
+        self.query    = "SELECT "
         self.table    = table
         self.limit    = limit
         

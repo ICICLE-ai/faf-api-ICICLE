@@ -9,11 +9,13 @@ from rest_framework.response   import Response
 from rest_framework.decorators import api_view
 from rest_framework.views      import APIView
 
-from src.Data_Lookup  import QueryTool
-from src.GrabTable    import GrabTable
-from src.PointToPoint import PointToPoint
-from src.Exports      import Exports
-from src.Imports      import Imports
+#files
+from src.Data_Lookup    import QueryTool
+from src.GrabTable      import GrabTable
+from src.PointToPoint   import PointToPoint
+from src.Exports        import Exports
+from src.Imports        import Imports
+from src.CommodityTotal import CommodityTotal
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
@@ -348,5 +350,46 @@ class Commodity_total(APIView):
         }
     )
     def post(self, request):
-        return Response("Commodity total is up!")
-##########################################################################################
+        serializer = s.CommodityTotalSerializer(data=request.data)
+        if serializer.is_valid():
+            #Send data to class and return data as pandas framework
+            gen_query = CommodityTotal(
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['option']
+            )
+ 
+            #Add ton value based on column and commodity type
+            query  = gen_query.setup()
+            if 'error' in query: return  Response(query) #error occured
+            logger.info(f"CommodityTotal:{query}")
+            lookup = QueryTool()
+            self.df = lookup.query(query)                #data aquired
+            
+            commodities = lookup.query("SELECT description FROM c")["description"]
+            #creating new dataframe that sorts data into sumations
+            output = {
+                "origin"   : [],
+                "commodity": [],
+                "option"   : [],
+            }
+            #exports
+            ex = self.df.groupby(["Domestic_Origin", "Commodity"]).sum().reset_index() 
+            ex = ex.drop(columns=['Domestic_Destination'])
+            ex["Trade"] = "export"
+            ex = ex.rename(columns={'Domestic_Origin': 'Area'})
+            #imports
+            im = self.df.groupby(["Domestic_Destination", "Commodity"]).sum().reset_index() 
+            im = im.drop(columns=['Domestic_Origin'])
+            im["Trade"] = "import"
+            im = im.rename(columns={'Domestic_Destination': 'Area'})
+            complete_df = pd.concat([ex, im])
+            #create a response
+            try:
+                csv_data = complete_df.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = 'attachment; filename=TotalCommodity.csv'
+                return response
+            except:
+                return Response("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
+###########################################################################################

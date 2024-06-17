@@ -1,9 +1,19 @@
 from sqlalchemy import create_engine, MetaData, Table, text
-import src.DB_Mapping as m
 import json
 import pandas as pd
+import logging
 
+logger = logging.getLogger('src.Data_Lookup')
 class QueryTool:
+    """Class takes in the information to log into MySQL
+            db     = database name
+            usr    = username
+            psswrd = password
+            host   = hostname
+
+        query() takes in a query string and returns a data frame of information
+            if error in query, returns "Incorrect Query Information" in pandas df
+    """
     def __init__(self, db='faf', usr='fafuser', psswrd='FQ^2t73Ava', host='localhost'):
         self.db     = db
         self.usr    = usr 
@@ -19,8 +29,13 @@ class QueryTool:
     def query(self, string):
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
-            df = pd.read_sql(text(string), con)
-            return df
+            try:
+                df = pd.read_sql(text(string), con)
+                return df
+            except:
+                logger.info(f"ERROR WITH QUERY: {string}")
+                error = {"ERROR": f"Something wrong with Query:{string}"}
+                return pd.DataFrame.from_dict(error)
 """
     def query(self, string):
         self.engine = create_engine(self.connection)
