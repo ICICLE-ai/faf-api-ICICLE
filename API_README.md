@@ -10,7 +10,15 @@ lookup Tables -> src/tables
 ```
 ## get_table_data/
 This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3 based on the timeframe given. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.
-``` python3
+
+### attributes:
+* table(string): name of which table to desired to get information from
+* timeframe(list of int): can either be a single year, or a range between two years
+
+### return:
+returns a csv dataframe that can be downloaded.
+    
+``` 
 urls.py -> views.py -> GrabTable.py -> views.py -> Data_Lookup.py -> views.py -> User
 #GatherAll Class in views controls this endpoint
 ```
