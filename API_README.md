@@ -20,18 +20,98 @@ returns a csv dataframe that can be downloaded.
     
 ``` 
 urls.py -> views.py -> GrabTable.py -> views.py -> Data_Lookup.py -> views.py -> User
-#GatherAll Class in views controls this endpoint
+GatherAll Class in views controls this endpoint
 ```
 The get_table_data endpoint uses GrabTable.py to build the query before sending it to Data_Lookup.py, which accesses the MySQL database and converts data into a pandas data frame. From here, the data is sent back to the user.
 
 ## point_to_point/
 This endpoint takes in a specific commodity, or writing "all" gives all the commodities traded between two areas. This endpoint works for the FAF and state databases and will return the value and quantity per ton of the resource traded between the origin and destination based on year or timeframe if given two years. This endpoint also returns the method of transportation, and if either the origin or destination is foreign, it returns the foreign transit and any other states the commodity moved to before the final destination."
 
+### attributes:
+* commodity(str): Can either be any of the commodity options or 'all' to return all of the trades from origin to destination
+* origin(str): Beginning location 
+* destination(str): Second location 
+* timeframe(list of int): can either be a single year, or a range between two years
+
+### return:
+returns a csv dataframe that can be downloaded.
+
+```
+urls.py -> views.py -> PointToPoint.py -> views.py -> Data_Lookup.py -> views.py -> User
+PointtoPoint Class in views controls this endpoint
+```
+From here on out, the classes in views and the classes in src are names roughly the same for simplicity when trying to find what connects to what. If they are named the exact same, the endpoints can fail.
+
 ## domestic_exports/
+This endpoint takes in a region or state with a year or year frame and returns all exported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.
+
+### attributess:
+* origin(str): Specific location being used
+* timeframe(list of int): can either be a single year, or a range between two years
+
+### return:
+returns a csv dataframe that can be downloaded.
+
+```
+urls.py -> views.py -> Exports.py -> views.py -> Data_Lookup.py -> views.py -> User
+Export_endpoint Class in views controls this endpoint
+```
 
 ## domestic_imports/
+This endpoint takes in a region or state with a year or year frame and returns all imported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.
+
+### attributes:
+* origin(str): Specific location being used
+* timeframe(list of int): can either be a single year, or a range between two years
+
+### return:
+returns a csv dataframe that can be downloaded.
+
+```
+urls.py -> views.py -> Imports.py -> views.py -> Data_Lookup.py -> views.py -> User
+Import_endpoint Class in views controls this endpoint
+```
 
 ## importexport_sum/
+This endpoint takes in an origin named and a year/year frame and calculates the sum of each resource imported and exported from the said area. It returns data by giving the area’s name, the resource, whether it was imported or exported, and the summation of said resource based on year. Currently, this only works for domestic imports and outports.
+
+### attributes:
+* place(str): Specific location being used
+* timeframe(list of int): can either be a single year, or a range between two years
+
+### return:
+returns a csv dataframe that can be downloaded.
+
+```
+urls.py -> views.py -> Imports.py & Exports.py -> views.py -> Data_Lookup.py -> views.py -> User
+RawResources Class in views controls this endpoint
+```
+
+Both the Imports.py and Exports.py are used in this endpoint. The manipulations to build the output csv dataframe are found in the RawResources class located in views.
 
 ## commodity_total/
+Takes the commodities in each state and adds up their total based on import, export or both and sorts the return based on ton amount. The time frame is based on year or year frame, and the return will give the location of the ranked commodity and if it was imported or exported
 
+## attributes:
+* timeframe(list of int): can either be a single year, or a range between two years
+* option(str): state or faf, used to gather information from either the faf tables or the state tables
+
+### return:
+returns a csv dataframe that can be downloaded.
+
+```
+urls.py -> views.py -> CommodityTotal.py -> views.py -> Data_Lookup.py -> views.py -> User
+Commodity_total Class in views controls this endpoint
+```
+
+
+# Server Finds
+## Importing vs Exporting
+The main six tables have some form of origin and destination. Using this, importing would consist of trade from destination to origin, and exporting would be trade from origin to destination.
+
+## Time Organized
+Time frames are organized by year and can be found in the columns. Each new year brings another order of columns, such as ton_2022 and value_2022. Anything in the future is estimated
+and subjected to change. Each recent year has additional columns for the highs and lows of each year that give room for error, unlike older years
+
+## 0 1 2 3
+Any table with a 2 relates to imports coming into the U.S, and any table with a three relates to exports leaving the U.S. 1 refers to goods traded within the borders of the U.S., and 0 includes everything from 1, but it also consists of the movement of goods from 2 and 3 inside the U.S., but before/after leaving the U.S.

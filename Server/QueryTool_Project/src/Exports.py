@@ -96,10 +96,10 @@ class Exports:
         ofaf   = tool.query("SELECT description FROM o_faf;")        
 
         for state in ostate['description']:
-            if state == self.origin: return "state0"
+            if state == self.origin: return "state1"
 
         for faf in ofaf['description']:
-            if faf == self.origin: return "faf0"
+            if faf == self.origin: return "faf1"
 
         return False
 

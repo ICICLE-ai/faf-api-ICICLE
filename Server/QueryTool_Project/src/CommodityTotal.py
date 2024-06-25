@@ -113,8 +113,8 @@ class CommodityTotal:
 
     def _checkLocations(self):
         """Checks option and sets table to faf0 or state0"""
-        if    self.option.lower() == "state": self.table = "state0"
-        elif  self.option.lower() == "region": self.table = "faf0"
+        if    self.option.lower() == "state": self.table = "state1"
+        elif  self.option.lower() == "region": self.table = "faf1"
         else: return False
 
     def _error(self, code):
