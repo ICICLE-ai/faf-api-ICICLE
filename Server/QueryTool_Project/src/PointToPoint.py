@@ -2,6 +2,14 @@ from src.Data_Lookup import QueryTool
 import src.queries.faf_mapping   as metrics
 import src.queries.state_mapping as sm
 class PointToPoint:
+    """
+    This generates a query that looks at one directional trade between two locations; the origin to the destination. 
+
+    commodity(str): type of commodity. If 'all' then all commodities are returned
+    origin(str): location 1 
+    dest(str):   location 2
+    timeframe(list of int): this attrubute gives the timeframe of data being requested
+    """
     def __init__(self,
             commodity = "all",
             origin    = "",
@@ -159,6 +167,9 @@ class PointToPoint:
 
 
     def _table(self):
+        """
+        Just impends the FROM command with the actual table name to the query
+        """
         self.query += f"FROM {metrics.table[self.table]} "
 
     def _checkCommodity(self):
@@ -203,7 +214,10 @@ class PointToPoint:
                     if snd == self.dest: return "faf2"
         return False
 
-    def _checkTimeframe(self):
+    def _checkTimeframe(self):        
+        """
+        Chcks to make sure the numbes of years in timeframe are not 0 or more than 2. Then if there are two years, this method populates the years inbetween
+        """
         tf = self.timeframe
         if   len(tf) > 2:  return False
         elif len(tf) == 0: return False

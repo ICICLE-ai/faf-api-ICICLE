@@ -28,7 +28,7 @@ logger = logging.getLogger('Rest_API.views')
 ###########################################################################################
 class GatherAll(APIView):
     @extend_schema(
-        description="This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.",
+        description="This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3 based on the timeframe given. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.",
         examples=[
             OpenApiExample(
                 'Example',
@@ -47,7 +47,8 @@ class GatherAll(APIView):
         serializer = s.TableSerializer(data=request.data)
         if serializer.is_valid():
             table  = serializer.validated_data['table']
-            gt   = GrabTable(table)
+            timef  = serializer.validated_data['timeframe']
+            gt   = GrabTable(table, timef)
             if gt.fail == 1: return Response("ERROR: Wrong Table")
             query = gt.setup()
              
@@ -250,12 +251,12 @@ class RawResource(APIView):
         if serializer.is_valid():
             #Send data to class and return data as pandas framework
             gen_query = Imports(
-                serializer.validated_data['origin'],
+                serializer.validated_data['place'],
                 serializer.validated_data['timeframe']
             )
  
             gen_query2 = Exports(
-                serializer.validated_data['origin'],
+                serializer.validated_data['place'],
                 serializer.validated_data['timeframe']
             )
             
@@ -285,10 +286,9 @@ class RawResource(APIView):
             for col  in self.df1:
                 if col[:4] == 'tons':
                     output1[col] = []
-                
                     for c in commodities:
                         if c not in output1['commodity']:
-                            output1['origin'].append(serializer.validated_data['origin'])
+                            output1['origin'].append(serializer.validated_data['place'])
                             output1['commodity'].append(c)
                             output1['option'].append("Imports")
                         output1[col].append(self._quickSum(1, c, col))
@@ -298,7 +298,7 @@ class RawResource(APIView):
                 
                     for c in commodities:
                         if c not in output2['commodity']:
-                            output2['origin'].append(serializer.validated_data['origin'])
+                            output2['origin'].append(serializer.validated_data['place'])
                             output2['commodity'].append(c)
                             output2['option'].append("Exports")
                         output2[col].append(self._quickSum(0, c, col))
@@ -310,7 +310,7 @@ class RawResource(APIView):
             try:
                 csv_data = complete_df.to_csv(index=False)
                 response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["origin"]}.csv'
+                response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["place"]}.csv'
                 return response
             except:
                 return Response("ERROR: Cannot return csv_data")
@@ -376,12 +376,12 @@ class Commodity_total(APIView):
             ex = self.df.groupby(["Domestic_Origin", "Commodity"]).sum().reset_index() 
             ex = ex.drop(columns=['Domestic_Destination'])
             ex["Trade"] = "export"
-            ex = ex.rename(columns={'Domestic_Origin': 'Area'})
+            ex = ex.rename(columns={'Domestic_Origin': 'Place'})
             #imports
             im = self.df.groupby(["Domestic_Destination", "Commodity"]).sum().reset_index() 
             im = im.drop(columns=['Domestic_Origin'])
             im["Trade"] = "import"
-            im = im.rename(columns={'Domestic_Destination': 'Area'})
+            im = im.rename(columns={'Domestic_Destination': 'Place'})
             complete_df = pd.concat([ex, im])
             #create a response
             try:

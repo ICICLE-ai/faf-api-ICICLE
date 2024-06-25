@@ -10,9 +10,7 @@ class QueryTool:
             usr    = username
             psswrd = password
             host   = hostname
-
-        query() takes in a query string and returns a data frame of information
-            if error in query, returns "Incorrect Query Information" in pandas df
+       All of which are strings
     """
     def __init__(self, db='faf', usr='fafuser', psswrd='FQ^2t73Ava', host='localhost'):
         self.db     = db
@@ -27,6 +25,10 @@ class QueryTool:
 
 
     def query(self, string):
+        """
+        Takes in a query string and returns a dataframe of information
+            - if error in query, returns "Incorrect Query Information" in pandas df
+        """
         self.engine = create_engine(self.connection)
         with self.engine.connect() as con:
             try:

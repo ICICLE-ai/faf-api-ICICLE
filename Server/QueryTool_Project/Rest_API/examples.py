@@ -1,15 +1,16 @@
 tableModel_example = {
-        "table": "faf0",
+        "table"    : "faf0",
+        "timeframe":[2013, 2018],
 }
 
-PointToPointExample1 = {
+PointToPointExample2 = {
         "commodity"  :"Live animals/fish",
         "origin"     :"Alabama",
         "destination":"Florida",
         "timeframe"  :[2023],
 }
 
-PointToPointExample2 = {
+PointToPointExample1 = {
         "commodity"  :"all",
         "origin"     :"Alaska",
         "destination":"California",
@@ -23,11 +24,11 @@ PtoPReturnExample = {
 }
 exportSingleExample1 = {
         "origin"   :"Indiana",
-        "timeframe":[2018],
+        "timeframe":[2018,2025],
 }
 exportMultiExample2 = {
         "origin":"Pennsylvania",
-        "year"  :[2020, 2023],
+        "year"  :[2020],
 }
 exportReturnExample = {
         "commodity"  :"Logs",
@@ -43,32 +44,33 @@ importReturnExample = {
         "year"     :2017,
 }
 rawExample1 = {
-        "area"     :"Texas",
-        "timeframe":[2017],
-}
-rawExample2 = {
-        "area"     :"Texas",
+        "place"     :"Texas",
         "timeframe":[2017, 2020],
 }
-rawExampleReturn = {
+rawExample2 = {
+        "place"     :"Texas",
+        "timeframe":[2017],
+}
+rawExampleReturn = { #change
         "commodity":"Logs",
         "ton"      :5721.232202,
         "option"   :"Export",
 }
 
 commtotalExample1 = {
-        "commodity":"Logs",
-        "timeframe":[2017],
-        "option"   :"Export",
+        "timeframe":[2017, 2020],
+        "option"   :"region",
 }
 
 commtotalExample2 = {
-        "commodity":"Logs",
-        "timeframe":[2017,2020],
-        "option"   :"Both",
+        "timeframe":[2017],
+        "option"   :"state",
 }
-commtotalReturnExample = {
-        "origin":"Mississippi",
-        "ton"   :72723.0121,
-        "option":"Import",
+commtotalReturnExample = { #change
+        "Place"             :"Mississippi",
+        "Commodity"         :"Alcoholic beverages",
+        "tons_2017"         :118.362666,
+        "value_2017"        :355.4254889999997,
+        "current_value_2017":355.4254889999997,
+        "Trade"             :"export",
 }

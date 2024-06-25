@@ -2,20 +2,32 @@ import src.queries.faf_mapping as metrics
 import src.queries.state_mapping as sm
 
 class GrabTable:
+    """
+    This class generates a query for MySQL by using the lookup tables imported above to populate a specific table with information.
+
+    *table(string): this attribute is the name of the table that will be used in the mysql db
+
+    *timeframe(list of int): this attrubute gives the timeframe of data being requested
+
+    *limit(int): This limits the data being sent for debugging purposes, but isn't implemented automatically. 0 means all the data, any number above zero is the number of rows being returned.
+    """ 
     def __init__(self,
             table     = "faf0",
+            timeframe = [],
             limit     = 0,       #debug purposes 0 means all, x>0 sets limit
     ):
-        self.query    = "SELECT "
-        self.table    = table
-        self.limit    = limit
+        self.query     = "SELECT "
+        self.table     = table
+        self.timeframe = timeframe
+        self.limit     = limit
         
         #checks for wrong table input
         self.fail     = 0
         try: metrics.table[table]
         except: self.fail = 1
-
-
+        
+        if not self._checkTimeframe(): return False
+    
     def setup(self):
         cols = []
 
@@ -42,25 +54,50 @@ class GrabTable:
             
         #building the query to select all of the year based data in Mapping.py
         if self.table[:3] == "faf":
-            [cols.append(year) for year in metrics.tons.values()]
-            [cols.append(year) for year in metrics.value.values()]
-            [cols.append(year) for year in metrics.current_value.values()]
-            [cols.append(year) for year in metrics.tmiles.values()]
-            [cols.append(year) for year in metrics.tons_high.values()]
-            [cols.append(year) for year in metrics.tons_low.values()]
-            [cols.append(year) for year in metrics.value_high.values()]
-            [cols.append(year) for year in metrics.value_low.values()]
-          
+            for year in self.timeframe:
+                try: cols.append(metrics.tons[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.value[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.current_value[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.tons_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.tons_low[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.value_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(metrics.value_low[str(year)])
+                except: continue
+
         else:
-            [cols.append(year) for year in sm.tons.values()]
-            [cols.append(year) for year in sm.value.values()]
-            [cols.append(year) for year in sm.current_value.values()]
-            [cols.append(year) for year in sm.tmiles.values()]
-            [cols.append(year) for year in sm.tons_high.values()]
-            [cols.append(year) for year in sm.tons_low.values()]
-            [cols.append(year) for year in sm.value_high.values()]
-            [cols.append(year) for year in sm.value_low.values()]
-        
+            for year in self.timeframe:
+                try: cols.append(sm.tons[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.value[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.current_value[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.tons_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.tons_low[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.value_high[str(year)])
+                except: continue
+            for year in self.timeframe:
+                try: cols.append(sm.value_low[str(year)])
+                except: continue        
 
         self.query += ", ".join(cols) + " "
 
@@ -95,4 +132,17 @@ class GrabTable:
         return self.query
 
     def _table(self):
+        """
+        Just impends the FROM command with the actual table name to the query
+        """
         self.query += f"FROM {metrics.table[self.table]} "
+
+    def _checkTimeframe(self):
+        """
+        Chcks to make sure the numbes of years in timeframe are not 0 or more than 2. Then if there are two years, this method populates the years inbetween
+        """
+        tf = self.timeframe
+        if   len(tf) > 2:  return False
+        elif len(tf) == 0: return False
+        elif len(tf) == 2: self.timeframe = [x for x in range(tf[0], tf[1]+1)]
+        return True

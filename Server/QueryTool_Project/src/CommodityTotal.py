@@ -3,6 +3,12 @@ import src.queries.faf_mapping as metrics
 import src.queries.state_mapping as sm
 import pandas as pd
 class CommodityTotal:
+    """
+    Generates a MySQL query that gets all of the trading in a speficic time frame based on either state or region. 
+    timeframe(list of int): this attrubute gives the timeframe of data being requested
+    option(string): either state or region - chooses which tables to build for
+    limit(int): for debugging purposes only, limits number of rows. 0 means all.
+    """
     def __init__(self,
             timeframe = [], 
             option    = "",
@@ -100,6 +106,9 @@ class CommodityTotal:
 
 
     def _table(self):
+        """
+        Just impends the FROM command with the actual table name to the query
+        """
         self.query += f"FROM {metrics.table[self.table]} "
 
     def _checkLocations(self):
@@ -109,6 +118,11 @@ class CommodityTotal:
         else: return False
 
     def _error(self, code):
+        """
+        error class that takes in a code and returns a dataframe with the error given
+        code(str): error code that is used to create an error specifying the issue
+        returns(pandas dataframe): error message
+        """
         error = {}
         if   code == "table": 
             error["error"] = ["Error: check option: state or region"]
@@ -119,6 +133,9 @@ class CommodityTotal:
         return pd.DataFrame(error)
 
     def _checkTimeframe(self):
+        """
+        Chcks to make sure the numbes of years in timeframe are not 0 or more than 2. Then if there are two years, this method populates the years inbetween
+        """
         tf = self.timeframe
         if   len(tf) > 2:  return False
         elif len(tf) == 0: return False

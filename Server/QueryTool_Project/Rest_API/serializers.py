@@ -2,7 +2,8 @@
 from rest_framework import serializers
 
 class TableSerializer(serializers.Serializer):
-    table = serializers.CharField(max_length=6)
+    table       = serializers.CharField(max_length=6)
+    timeframe   = serializers.ListField(max_length=2, child=serializers.IntegerField())
 
 class PointToPointSerializer(serializers.Serializer):
     commodity   = serializers.CharField(max_length=40)
@@ -42,7 +43,7 @@ class ImportsReturnSerializer(serializers.Serializer):
 
 
 class RawResourceSerializer(serializers.Serializer):
-    origin    = serializers.CharField(max_length=15)
+    place     = serializers.CharField(max_length=15)
     timeframe = serializers.ListField(max_length=2, child=serializers.IntegerField())
     
 class RawResourceReturnSerializer(serializers.Serializer):

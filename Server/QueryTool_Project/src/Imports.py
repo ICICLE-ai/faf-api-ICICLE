@@ -2,6 +2,11 @@ from src.Data_Lookup import QueryTool
 import src.queries.faf_mapping   as metrics
 import src.queries.state_mapping as sm
 class Imports:
+    """
+    This class generates a query for all of the imports comming out of a particular location.
+    origin(string): the location which can be in state or regional
+    timeframe(list of int): this attrubute gives the timeframe of data being requested
+    """
     def __init__(
             self,
             origin    = "",
@@ -79,6 +84,9 @@ class Imports:
 
 
     def _table(self):
+        """
+        Just impends the FROM command with the actual table name to the query
+        """
         self.query += f"FROM {metrics.table[self.table]} "
 
     def _checkLocations(self):
@@ -95,7 +103,10 @@ class Imports:
 
         return False
 
-    def _checkTimeframe(self):
+    def _checkTimeframe(self):        
+        """
+        Chcks to make sure the numbes of years in timeframe are not 0 or more than 2. Then if there are two years, this method populates the years inbetween
+        """
         tf = self.timeframe
         if   len(tf) > 2:  return False
         elif len(tf) == 0: return False

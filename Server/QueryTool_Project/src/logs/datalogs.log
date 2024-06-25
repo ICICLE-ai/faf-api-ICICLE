@@ -11112,3 +11112,229 @@ INFO post 2024-06-17 18:44:40,875 CommodityTotal:SELECT of0.description AS Domes
 INFO log_message 2024-06-17 18:45:35,127 "POST /commodity_total/ HTTP/1.1" 200 4602059
 WARNING log_response 2024-06-17 18:47:53,124 Bad Request: /commodity_total/
 WARNING log_message 2024-06-17 18:47:53,125 "POST /commodity_total/ HTTP/1.1" 400 64
+INFO run_with_reloader 2024-06-17 22:24:12,671 Watching for file changes with StatReloader
+INFO log_message 2024-06-17 22:26:36,386 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-17 22:26:36,738 "GET /api/schema/ HTTP/1.1" 200 46325
+INFO post 2024-06-17 22:28:00,491 PointToPoint: SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2023, value_2023, tons_2023_high, tons_2023_low, value_2023_high, value_2023_low FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-17 22:28:01,121 "POST /point_to_point/ HTTP/1.1" 200 364
+INFO post 2024-06-17 22:28:24,497 PointToPoint: SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tons_2023_high, tons_2023_low, value_2023_high, value_2023_low FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND os.description = 'Alabama' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-17 22:28:25,473 "POST /point_to_point/ HTTP/1.1" 200 910
+WARNING log_response 2024-06-17 22:29:43,824 Bad Request: /importexport_sum/
+WARNING log_message 2024-06-17 22:29:43,826 "POST /importexport_sum/ HTTP/1.1" 400 38
+INFO post 2024-06-17 22:29:56,396 SumRaw:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+INFO log_message 2024-06-17 22:30:00,291 "POST /importexport_sum/ HTTP/1.1" 200 13126
+INFO post 2024-06-17 22:33:37,580 PointToPoint: SELECT fo.description AS Foreign_Origin, os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, fom.description AS Foreign_Transport, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, value_2017, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021, current_value_2022, tons_2023_high, tons_2023_low, value_2023_high, value_2023_low FROM _faf551_state_2 JOIN fo ON fr_orig = fo.code JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN fom ON fr_inmode = fom.code JOIN m ON dms_mode = m.code WHERE c.description = 'Live animals/fish' AND fo.description = 'Mexico' AND ds.description = 'Florida' ;
+INFO log_message 2024-06-17 22:33:40,329 "POST /point_to_point/ HTTP/1.1" 200 8219
+INFO log_message 2024-06-17 23:00:41,874 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO post 2024-06-17 23:00:56,888 CommodityTotal:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, tons_2020, value_2020, current_value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code ;
+INFO log_message 2024-06-17 23:01:02,331 "POST /commodity_total/ HTTP/1.1" 200 305201
+INFO run_with_reloader 2024-06-17 23:09:42,405 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-06-18 13:46:04,550 Watching for file changes with StatReloader
+INFO log_message 2024-06-18 13:46:37,980 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-18 13:46:38,761 "GET /api/schema/ HTTP/1.1" 200 46325
+INFO trigger_reload 2024-06-18 13:52:32,444 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-18 13:52:33,135 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-18 13:52:38,462 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-18 13:52:38,924 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-18 13:52:42,982 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-18 13:52:43,460 Watching for file changes with StatReloader
+INFO log_message 2024-06-18 13:52:46,155 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-18 13:52:46,416 "GET /api/schema/ HTTP/1.1" 200 46067
+INFO trigger_reload 2024-06-18 13:53:48,897 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-18 13:53:49,386 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-18 13:56:20,401 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-18 13:56:21,080 Watching for file changes with StatReloader
+INFO log_message 2024-06-18 13:57:45,941 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-18 13:57:46,049 "GET /api/schema/ HTTP/1.1" 200 46065
+INFO log_message 2024-06-18 13:57:59,474 "POST /commodity_total/ HTTP/1.1" 200 50
+INFO trigger_reload 2024-06-18 13:59:51,957 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-18 13:59:52,655 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-18 14:00:08,842 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-18 14:00:09,363 Watching for file changes with StatReloader
+INFO log_message 2024-06-18 14:00:12,609 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-18 14:00:12,719 "GET /api/schema/ HTTP/1.1" 200 46069
+INFO post 2024-06-18 14:00:17,051 CommodityTotal:SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code ;
+INFO log_message 2024-06-18 14:00:33,618 "POST /commodity_total/ HTTP/1.1" 200 845522
+INFO trigger_reload 2024-06-18 14:03:01,425 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-18 14:03:02,319 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-18 14:06:26,094 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-18 14:06:26,760 Watching for file changes with StatReloader
+INFO log_message 2024-06-18 14:06:44,446 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-18 14:06:44,601 "GET /api/schema/ HTTP/1.1" 200 46561
+INFO log_message 2024-06-18 14:33:50,465 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-18 14:33:50,681 "GET /api/schema/ HTTP/1.1" 200 46561
+INFO log_message 2024-06-18 14:34:32,840 "GET /api/schema/ HTTP/1.1" 200 21163
+INFO post 2024-06-18 14:59:14,916 CommodityTotal:SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, tons_2017, value_2017, current_value_2017 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code ;
+INFO log_message 2024-06-18 14:59:31,327 "POST /commodity_total/ HTTP/1.1" 200 845299
+INFO post 2024-06-18 15:13:55,321 SumRaw:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, value_2017 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+ERROR log_response 2024-06-18 15:13:57,610 Internal Server Error: /importexport_sum/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 291, in post
+    output1['origin'].append(serializer.validated_data['origin'])
+KeyError: 'origin'
+ERROR log_message 2024-06-18 15:13:57,612 "POST /importexport_sum/ HTTP/1.1" 500 17727
+INFO log_message 2024-06-18 15:15:55,214 "POST /commodity_total/ HTTP/1.1" 200 50
+WARNING log_response 2024-06-18 15:16:13,729 Bad Request: /commodity_total/
+WARNING log_message 2024-06-18 15:16:13,730 "POST /commodity_total/ HTTP/1.1" 400 83
+INFO run_with_reloader 2024-06-25 12:14:38,208 Watching for file changes with StatReloader
+INFO log_message 2024-06-25 12:20:20,960 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-25 12:20:21,251 "GET /api/schema/ HTTP/1.1" 200 46561
+INFO log_message 2024-06-25 12:20:33,439 "POST /get_table_data/ HTTP/1.1" 200 20
+INFO trigger_reload 2024-06-25 12:23:24,573 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:23:25,331 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:24:12,383 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:24:12,848 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:25:19,384 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/examples.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:25:19,906 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:26:59,384 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:26:59,854 Watching for file changes with StatReloader
+INFO log_message 2024-06-25 12:27:03,057 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-06-25 12:27:03,342 "GET /api/schema/ HTTP/1.1" 200 47065
+ERROR log_response 2024-06-25 12:27:18,984 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 51, in post
+    gt   = GrabTable(table, timef)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py", line 19, in __init__
+    if not self._checkTimeframe(): return False
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py", line 128, in _checkTimeframe
+    tf = self.timeframe
+AttributeError: 'GrabTable' object has no attribute 'timeframe'
+ERROR log_message 2024-06-25 12:27:18,986 "POST /get_table_data/ HTTP/1.1" 500 98786
+INFO trigger_reload 2024-06-25 12:29:50,417 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:29:51,202 Watching for file changes with StatReloader
+INFO post 2024-06-25 12:29:55,882 Grab Table Query: SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-06-25 12:31:11,497 "POST /get_table_data/ HTTP/1.1" 200 130332256
+INFO trigger_reload 2024-06-25 12:32:52,955 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/serializers.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:32:53,713 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:44:07,814 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:44:08,493 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:44:53,508 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:44:53,989 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:46:01,207 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:46:01,701 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:46:29,207 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:46:29,709 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:48:42,295 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:48:42,997 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:49:21,168 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:49:21,645 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:49:47,089 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:49:47,602 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:50:08,604 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:50:09,053 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:50:29,179 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:50:29,677 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:50:52,899 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:50:53,423 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:51:24,279 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:51:24,790 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 12:55:48,643 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Data_Lookup.py changed, reloading.
+INFO run_with_reloader 2024-06-25 12:55:49,387 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 13:00:34,888 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Exports.py changed, reloading.
+INFO run_with_reloader 2024-06-25 13:00:35,650 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 13:02:14,380 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/Imports.py changed, reloading.
+INFO run_with_reloader 2024-06-25 13:02:15,060 Watching for file changes with StatReloader
+INFO post 2024-06-25 13:07:59,963 PointToPoint: SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, tons_2021, value_2017, value_2018, value_2019, value_2020, value_2021, current_value_2017, current_value_2018, current_value_2019, current_value_2020, current_value_2021 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Alaska' AND ds.description = 'California' ;
+INFO log_message 2024-06-25 13:08:00,745 "POST /point_to_point/ HTTP/1.1" 200 8740
+INFO trigger_reload 2024-06-25 13:09:48,127 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-25 13:09:48,815 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 13:10:21,731 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-25 13:10:22,230 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 14:03:04,653 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/PointToPoint.py changed, reloading.
+INFO run_with_reloader 2024-06-25 14:03:05,281 Watching for file changes with StatReloader
+INFO trigger_reload 2024-06-25 14:10:34,247 /u/cj124/faf-api-dev/Server/QueryTool_Project/src/CommodityTotal.py changed, reloading.
+INFO run_with_reloader 2024-06-25 14:10:34,967 Watching for file changes with StatReloader
+INFO post 2024-06-25 14:11:39,088 SumRaw:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+ERROR log_response 2024-06-25 14:11:41,977 Internal Server Error: /importexport_sum/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 292, in post
+    output1['origin'].append(serializer.validated_data['origin'])
+KeyError: 'origin'
+ERROR log_message 2024-06-25 14:11:41,978 "POST /importexport_sum/ HTTP/1.1" 500 17726
+INFO trigger_reload 2024-06-25 14:14:51,117 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-25 14:14:51,818 Watching for file changes with StatReloader
+INFO post 2024-06-25 14:14:54,179 SumRaw:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+ERROR log_response 2024-06-25 14:14:56,857 Internal Server Error: /importexport_sum/
+Traceback (most recent call last):
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/.local/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py", line 289, in post
+    print(serializer.validated_data['origin'])
+KeyError: 'origin'
+ERROR log_message 2024-06-25 14:14:56,859 "POST /importexport_sum/ HTTP/1.1" 500 17707
+INFO trigger_reload 2024-06-25 14:15:56,419 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-25 14:15:56,938 Watching for file changes with StatReloader
+INFO post 2024-06-25 14:16:00,434 SumRaw:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+INFO log_message 2024-06-25 14:16:03,407 "POST /importexport_sum/ HTTP/1.1" 200 31
+INFO trigger_reload 2024-06-25 14:17:59,585 /u/cj124/faf-api-dev/Server/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-06-25 14:18:00,334 Watching for file changes with StatReloader
+INFO post 2024-06-25 14:18:02,771 SumRaw:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE ds.description = 'Texas' ;
+SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2017, tons_2018, tons_2019, tons_2020, value_2017, value_2018, value_2019, value_2020 FROM _faf551_state_0 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Texas' ;
+INFO log_message 2024-06-25 14:18:05,729 "POST /importexport_sum/ HTTP/1.1" 200 7888
