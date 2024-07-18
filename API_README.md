@@ -16,7 +16,7 @@ This endpoint queries the FAF database and retrieves one of six fully populated 
 * timeframe(list of int): can either be a single year, or a range between two years
 
 ### return:
-returns a csv dataframe that can be downloaded.
+returns a csv file that can be downloaded.
     
 ``` python
 #example data input
@@ -25,7 +25,7 @@ tableModel_example = {
     "timeframe":[2013, 2018],
 }
 ```
-The get_table_data endpoint uses GrabTable.py to build the query before sending it to Data_Lookup.py, which accesses the MySQL database and converts data into a pandas data frame. From here, the data is sent back to the user.
+The get_table_data endpoint uses GrabTable.py to build the query before sending it to Data_Lookup.py, which accesses the MySQL database and converts data into a CSV file. From here, the data is sent back to the user.
 
 ## point_to_point/
 This endpoint takes in a specific commodity, or writing "all" gives all the commodities traded between two areas. This endpoint works for the FAF and state databases and will return the value and quantity per ton of the resource traded between the origin and destination based on year or timeframe if given two years. This endpoint also returns the method of transportation, and if either the origin or destination is foreign, it returns the foreign transit and any other states the commodity moved to before the final destination."
@@ -37,11 +37,11 @@ This endpoint takes in a specific commodity, or writing "all" gives all the comm
 * timeframe(list of int): can either be a single year, or a range between two years
 
 ### return:
-returns a csv dataframe that can be downloaded.
+returns a csv file that can be downloaded.
 
 ``` python
 #example data input
-PointToPointExample = {
+pointToPointExample = {
     "commodity"  :"all",
     "origin"     :"Alaska",
     "destination":"California",
@@ -58,7 +58,7 @@ This endpoint takes in a region or state with a year or year frame and returns a
 * timeframe(list of int): can either be a single year, or a range between two years
 
 ### return:
-returns a csv dataframe that can be downloaded.
+returns a csv file that can be downloaded.
 
 ``` python
 #example data input
@@ -76,7 +76,7 @@ This endpoint takes in a region or state with a year or year frame and returns a
 * timeframe(list of int): can either be a single year, or a range between two years
 
 ### return:
-returns a csv dataframe that can be downloaded.
+returns a csv file that can be downloaded.
 
 ``` python
 #example data input
@@ -94,7 +94,7 @@ This endpoint takes in an origin named and a year/year frame and calculates the 
 * timeframe(list of int): can either be a single year, or a range between two years
 
 ### return:
-returns a csv dataframe that can be downloaded.
+returns a csv file that can be downloaded.
 
 ``` python
 #example data input
@@ -104,7 +104,7 @@ imp_exp_Example = {
 }
 ```
 
-Both the Imports.py and Exports.py are used in this endpoint. The manipulations to build the output csv dataframe are found in the RawResources class located in views.
+Both the Imports.py and Exports.py are used in this endpoint. The manipulations to build the output csv file are found in the RawResources class located in views.
 
 ## commodity_total/
 Takes the commodities in each state and adds up their total based on import, export or both and sorts the return based on ton amount. The time frame is based on year or year frame, and the return will give the location of the ranked commodity and if it was imported or exported
@@ -114,13 +114,13 @@ Takes the commodities in each state and adds up their total based on import, exp
 * option(str): state or faf, used to gather information from either the faf tables or the state tables
 
 ### return:
-returns a csv dataframe that can be downloaded.
+returns a csv file that can be downloaded.
 
 ``` python
 #example data input
 commExample = {
-        "origin"    :"Texas",
         "timeframe":[2017, 2020],
+        "option": "region",
 }
 ```
 
@@ -133,5 +133,13 @@ The main six tables have some form of origin and destination. Using this, import
 Time frames are organized by year and can be found in the columns. Each new year brings another order of columns, such as ton_2022 and value_2022. Anything in the future is estimated
 and subjected to change. Each recent year has additional columns for the highs and lows of each year that give room for error, unlike older years
 
-## 0 1 2 3
-Any table with a 2 relates to imports coming into the U.S, and any table with a three relates to exports leaving the U.S. 1 refers to goods traded within the borders of the U.S., and 0 includes everything from 1, but it also consists of the movement of goods from 2 and 3 inside the U.S., but before/after leaving the U.S.
+## Directional Flow Numbers
+Any table with a 2 relates to imports coming into the U.S, and any table with a 3 relates to exports leaving the U.S. 1 refers to goods traded within the borders of the U.S., and 0 includes everything from 1, but it also consists of the movement of goods from 2 and 3 inside the U.S., but before/after leaving the U.S.
+
+#Ideas for Further Development
+
+##Table Transivity
+There was an idea for the import and export endpoints to include products traded in and out of the U.S., but it's still being determined if this is possible. Based on current knowledge, it's believed that tables with 1 don't share the same data as the tables marked 2 and 3, but this needs to be approved to prevent data duplication when querying. If table transitivity is not possible between the 1, 2, and 3 tables, separate endpoints can be made for exported goods outside the U.S. and imported goods into the U.S. It's also noted that there is no transitivity expected between the faf and state tables, only between faf1, faf2, faf3, and state1, state2, and state3.
+
+##JSON Sent for Small Queries
+An idea proposed was to send data in JSON format if the data retrieved from the query was relatively small. JSON is the standard data format for RESTful APIs and is more compatible with most programming languages. Due to its flexibility, sending data in this format would make more sense when the data quantity is small. JSON's ability to handle hierarchical data structures, maintain data types, and support nested relationships makes it an excellent choice for transmitting smaller datasets. Additionally, its human-readable format and broad compatibility with various libraries and languages enhance its suitability for efficient and effective data interchange. With all of this in mind, it would make sense to add this as an option for sending small data quantities.
