@@ -18,9 +18,12 @@ This endpoint queries the FAF database and retrieves one of six fully populated 
 ### return:
 returns a csv dataframe that can be downloaded.
     
-``` 
-urls.py -> views.py -> GrabTable.py -> views.py -> Data_Lookup.py -> views.py -> User
-GatherAll Class in views controls this endpoint
+``` python
+#example data input
+tableModel_example = {
+    "table"    : "faf0",
+    "timeframe":[2013, 2018],
+}
 ```
 The get_table_data endpoint uses GrabTable.py to build the query before sending it to Data_Lookup.py, which accesses the MySQL database and converts data into a pandas data frame. From here, the data is sent back to the user.
 
@@ -36,9 +39,14 @@ This endpoint takes in a specific commodity, or writing "all" gives all the comm
 ### return:
 returns a csv dataframe that can be downloaded.
 
-```
-urls.py -> views.py -> PointToPoint.py -> views.py -> Data_Lookup.py -> views.py -> User
-PointtoPoint Class in views controls this endpoint
+``` python
+#example data input
+PointToPointExample = {
+    "commodity"  :"all",
+    "origin"     :"Alaska",
+    "destination":"California",
+    "timeframe"  :[2017, 2021],
+}
 ```
 From here on out, the classes in views and the classes in src are names roughly the same for simplicity when trying to find what connects to what. If they are named the exact same, the endpoints can fail.
 
@@ -52,9 +60,12 @@ This endpoint takes in a region or state with a year or year frame and returns a
 ### return:
 returns a csv dataframe that can be downloaded.
 
-```
-urls.py -> views.py -> Exports.py -> views.py -> Data_Lookup.py -> views.py -> User
-Export_endpoint Class in views controls this endpoint
+``` python
+#example data input
+exportSingleExample = {
+    "origin"   :"Indiana",
+    "timeframe":[2018,2025],
+}
 ```
 
 ## domestic_imports/
@@ -67,12 +78,15 @@ This endpoint takes in a region or state with a year or year frame and returns a
 ### return:
 returns a csv dataframe that can be downloaded.
 
-```
-urls.py -> views.py -> Imports.py -> views.py -> Data_Lookup.py -> views.py -> User
-Import_endpoint Class in views controls this endpoint
+``` python
+#example data input
+importExample = {
+    "origin"   :"all",
+    "timeframe":[2018,2025],
+}
 ```
 
-## importexport_sum/
+## import_export_sum/
 This endpoint takes in an origin named and a year/year frame and calculates the sum of each resource imported and exported from the said area. It returns data by giving the area’s name, the resource, whether it was imported or exported, and the summation of said resource based on year. Currently, this only works for domestic imports and outports.
 
 ### attributes:
@@ -82,9 +96,12 @@ This endpoint takes in an origin named and a year/year frame and calculates the 
 ### return:
 returns a csv dataframe that can be downloaded.
 
-```
-urls.py -> views.py -> Imports.py & Exports.py -> views.py -> Data_Lookup.py -> views.py -> User
-RawResources Class in views controls this endpoint
+``` python
+#example data input
+imp_exp_Example = {
+    "origin"    :"Texas",
+    "timeframe":[2017, 2020],
+}
 ```
 
 Both the Imports.py and Exports.py are used in this endpoint. The manipulations to build the output csv dataframe are found in the RawResources class located in views.
@@ -99,9 +116,12 @@ Takes the commodities in each state and adds up their total based on import, exp
 ### return:
 returns a csv dataframe that can be downloaded.
 
-```
-urls.py -> views.py -> CommodityTotal.py -> views.py -> Data_Lookup.py -> views.py -> User
-Commodity_total Class in views controls this endpoint
+``` python
+#example data input
+commExample = {
+        "origin"    :"Texas",
+        "timeframe":[2017, 2020],
+}
 ```
 
 

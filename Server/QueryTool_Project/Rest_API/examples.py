@@ -44,11 +44,11 @@ importReturnExample = {
         "year"     :2017,
 }
 rawExample1 = {
-        "place"     :"Texas",
+        "origin"    :"Texas",
         "timeframe":[2017, 2020],
 }
 rawExample2 = {
-        "place"     :"Texas",
+        "origin"   :"Texas",
         "timeframe":[2017],
 }
 rawExampleReturn = { #change

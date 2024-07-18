@@ -14,21 +14,36 @@ from src.Data_Lookup    import QueryTool
 from src.GrabTable      import GrabTable
 from src.PointToPoint   import PointToPoint
 from src.Exports        import Exports
+from src.Export   import Export
 from src.Imports        import Imports
 from src.CommodityTotal import CommodityTotal
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
-
-from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiResponse
+from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiParameter
 import logging
     
 logger = logging.getLogger('Rest_API.views')
 
+#useful functions
+def readfile(file_path):
+    with open(file_path, 'r') as fp:
+        return fp.read()
+
 ###########################################################################################
 class GatherAll(APIView):
     @extend_schema(
-        description="This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3 based on the timeframe given. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.",
+        description=readfile('Rest_API/endpoint_desc/get_table_data/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='table',
+                description=readfile('Rest_API/endpoint_desc/get_table_data/table.txt'),
+            ),
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/get_table_data/timeframe.txt'),
+            ) 
+        ],    
         examples=[
             OpenApiExample(
                 'Example',
@@ -36,12 +51,7 @@ class GatherAll(APIView):
                 media_type="application/json",
             )
         ],
-        request=s.TableSerializer(),
-        responses={
-            '200': OpenApiResponse(
-                description= "CSV download of joined data table",
-                    )
-        }
+        request=s.TableSerializer()
     )
     def post(self, request):
         serializer = s.TableSerializer(data=request.data)
@@ -68,15 +78,33 @@ class GatherAll(APIView):
 ###########################################################################################
 class PointtoPoint(APIView):
     @extend_schema(
-        description="This endpoint takes in a specific commodity, or writing “all” gives all the commodities traded between two areas. This endpoint works for both the FAF and state databases and will return the value and quantity per ton of the resource traded between the origin and destination based on year or timeframe if given two years. This endpoint also returns the method of transportation, and if either the origin or destination is foreign, it returns the foreign transit and any other states the commodity moved to before the final destination.",
+        description=readfile('Rest_API/endpoint_desc/point_to_point/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='commodity',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/commodity.txt'),
+            ),
+            OpenApiParameter(
+                name='origin',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/origin.txt'),
+            ),           
+            OpenApiParameter(
+                name='destination',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/destination.txt'),
+            ),           
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/timeframe.txt'),
+            ),           
+        ], 
         examples=[
             OpenApiExample(
-                'Single Year Example',
+                'Year Range Example',
                 value=e.PointToPointExample1,
                 media_type="application/json",
             ),
             OpenApiExample(
-                'Year Range Example',
+                'Single Year Example',
                 value=e.PointToPointExample2,
                 media_type="application/json",
             ),
@@ -118,7 +146,18 @@ class PointtoPoint(APIView):
 ##########################################################################################
 class Export_endpoint(APIView):
     @extend_schema(
-        description="This endpoint takes in a region or state with a year or year frame and returns all exported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.",
+        description=readfile('Rest_API/endpoint_desc/exports/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='origin',
+                description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+            ),
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
+            ),
+ 
+        ],
         examples=[
             OpenApiExample(
                 'Single Year Example',
@@ -169,7 +208,19 @@ class Export_endpoint(APIView):
 ##########################################################################################
 class Import_endpoint(APIView):
     @extend_schema(
-        description="This endpoint takes in a region or state with a year or year frame and returns all imported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.",
+        description=readfile('Rest_API/endpoint_desc/imports/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='origin',
+                description=readfile('Rest_API/endpoint_desc/imports/origin.txt'),
+            ),
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/imports/timeframe.txt'),
+            ),
+ 
+        ],
+ 
         examples=[
             OpenApiExample(
                 'Single Year Example',
@@ -223,7 +274,18 @@ class Import_endpoint(APIView):
 ##########################################################################################
 class RawResource(APIView):
     @extend_schema(
-        description="This endpoint takes in an origin named and a year/year frame and calculates the sum of each resource imported and exported from the said area. It returns data by giving the area’s name, the resource, whether it was imported or exported, and the summation of said resource based on year. Currently this only works for domestic imports and outports",
+        description=readfile('Rest_API/endpoint_desc/import_export_sum/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='origin',
+                description=readfile('Rest_API/endpoint_desc/import_export_sum/origin.txt'),
+            ),
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/import_export_sum/timeframe.txt'),
+            ),
+ 
+        ],
         examples=[
             OpenApiExample(
                 'Example Year',
@@ -251,12 +313,12 @@ class RawResource(APIView):
         if serializer.is_valid():
             #Send data to class and return data as pandas framework
             gen_query = Imports(
-                serializer.validated_data['place'],
+                serializer.validated_data['origin'],
                 serializer.validated_data['timeframe']
             )
  
             gen_query2 = Exports(
-                serializer.validated_data['place'],
+                serializer.validated_data['origin'],
                 serializer.validated_data['timeframe']
             )
             
@@ -288,7 +350,7 @@ class RawResource(APIView):
                     output1[col] = []
                     for c in commodities:
                         if c not in output1['commodity']:
-                            output1['origin'].append(serializer.validated_data['place'])
+                            output1['origin'].append(serializer.validated_data['origin'])
                             output1['commodity'].append(c)
                             output1['option'].append("Imports")
                         output1[col].append(self._quickSum(1, c, col))
@@ -298,7 +360,7 @@ class RawResource(APIView):
                 
                     for c in commodities:
                         if c not in output2['commodity']:
-                            output2['origin'].append(serializer.validated_data['place'])
+                            output2['origin'].append(serializer.validated_data['origin'])
                             output2['commodity'].append(c)
                             output2['option'].append("Exports")
                         output2[col].append(self._quickSum(0, c, col))
@@ -310,7 +372,7 @@ class RawResource(APIView):
             try:
                 csv_data = complete_df.to_csv(index=False)
                 response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["place"]}.csv'
+                response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["origin"]}.csv'
                 return response
             except:
                 return Response("ERROR: Cannot return csv_data")
@@ -325,7 +387,18 @@ class RawResource(APIView):
 ##########################################################################################
 class Commodity_total(APIView):
     @extend_schema(
-        description="Takes the commodities in each state and adds up their total based on import, export or both and sorts the return based on ton amount. The time frame is based on year or year frame, and the return will give the location of the ranked commodity and if it was imported or exported",
+        description=readfile('Rest_API/endpoint_desc/commodity_total/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/commodity_total/timeframe.txt'),
+            ),
+            OpenApiParameter(
+                name='option',
+                description=readfile('Rest_API/endpoint_desc/commodity_total/option.txt'),
+            ),
+ 
+        ],
         examples=[
             OpenApiExample(
                 'Example Year',
@@ -393,3 +466,66 @@ class Commodity_total(APIView):
                 return Response("ERROR: Cannot return csv_data")
         return Response(serializer.errors, status=400)
 ###########################################################################################
+"""class ExportEndpoint(APIView):
+    @extend_schema(
+        description=readfile('Rest_API/endpoint_desc/exports/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='origin',
+                description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+            ),
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
+            ),
+ 
+        ],
+        examples=[
+            OpenApiExample(
+                'Single Year Example',
+                value=e.exportSingleExample1,
+                media_type="application/json",
+            ), 
+            OpenApiExample(
+                'Year Window Example',
+                value=e.exportMultiExample2,
+                media_type="application/json",
+            ),
+           OpenApiExample(
+                'Return Example',
+                value=e.exportReturnExample,
+                media_type="application/json",
+            )
+
+        ],
+        request=s.ExportsSerializer(),
+        responses={
+            '200':s.ExportsReturnSerializer(many=True)
+        },
+    )
+
+    def post(self, request):
+        serializer = s.ExportsSerializer(data=request.data)
+        if serializer.is_valid():
+            data = Export(
+                serializer.validated_data['origin'],
+                serializer.validated_data['timeframe']
+            )
+            query = data.setup()
+            print(f"\n\n{query}\n\n")
+            #sending query to server
+            if query == False: return Response("Error: Check Data", 400)
+            logger.info(f"Export Endpoint:{query}")
+            lookup = QueryTool()
+            data = lookup.query(query)
+
+            #sending data
+            try:
+                csv_data = data.to_csv(index=False)
+                response = HttpResponse(csv_data, content_type="text/csv")
+                response['Content-Disposition'] = f'attachment; filename=exports_{serializer.validated_data["origin"]}.csv'
+                return response
+            except:
+                return Response("ERROR: Cannot return csv_data")
+        return Response(serializer.errors, status=400)
+"""

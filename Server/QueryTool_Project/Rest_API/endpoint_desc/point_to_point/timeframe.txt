@@ -1,0 +1,1 @@
+The variable timeframe takes a list that can hold either one or two integer values for years, like the following [2017] or [2017,2025]. One year will give all the data stored for that year, while two years will give the value for those two years as well as each year in between the two.

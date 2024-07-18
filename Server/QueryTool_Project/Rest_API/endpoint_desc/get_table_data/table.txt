@@ -1,0 +1,11 @@
+The tables follow the naming convention of "faf" or "state" followed by 0, 1, 2, or 3, which describe the meaning of each table. FAF tables use regions, while state tables use U.S. states.
+
+* 0 indicates that the table includes all movements of commodities between states, including those entering or leaving the U.S.
+
+* 1 means the commodities are transported only within the U.S.
+
+* 2 shows imported commodities into the U.S.
+
+* 3 shows exported commodities from the U.S.
+
+Hence the options for table are: faf0, faf1, faf2, faf3, state0, state1, state2, state3

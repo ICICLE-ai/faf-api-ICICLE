@@ -1,0 +1,2 @@
+import_export_sum/ takes a region or state and a timeframe, then sums up each commodity
+imported and exported from the origin separately for each year. This endpoint returns a CSV file containing the name of the origin, the commodity type if it is imported or exported, and the tonnage per year. Currently, this endpoint only works with domestic-traded commodities.   

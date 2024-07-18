@@ -43,7 +43,7 @@ class ImportsReturnSerializer(serializers.Serializer):
 
 
 class RawResourceSerializer(serializers.Serializer):
-    place     = serializers.CharField(max_length=15)
+    origin    = serializers.CharField(max_length=15)
     timeframe = serializers.ListField(max_length=2, child=serializers.IntegerField())
     
 class RawResourceReturnSerializer(serializers.Serializer):

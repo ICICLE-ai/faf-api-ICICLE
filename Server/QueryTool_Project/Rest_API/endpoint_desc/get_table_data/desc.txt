@@ -1,0 +1,1 @@
+get_table_data/ retrieves one of six fully populated tables based on the year timeframe provided. The return is a downloadable CSV file. The data will contain the origin, destination, commodity type, transportation type, distance traveled, tonnage, and value based on the timeframe provided.
