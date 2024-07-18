@@ -1,13 +1,6 @@
 # API Endpoint Description
-This area will cover each endpoint in detail, including what it does, where the files are located, and the flow of the data points. After this, any interesting information from the databases will be shared below.
+This area will cover each endpoint in detail, including what it does, where the files are located, and the flow of the data points. After this, any interesting information from the databases will be shared below. Lastly, there is a section covering potential ideas for further development.
 
-Starting at the root of the server in QueryTool_Project:
-```
-urls.py -> Rest_API/urls.py
-views.py -> Rest_API/urls.py
-classes being used for query develompent -> src/
-lookup Tables -> src/tables
-```
 ## get_table_data/
 This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3 based on the timeframe given. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.
 
@@ -136,10 +129,10 @@ and subjected to change. Each recent year has additional columns for the highs a
 ## Directional Flow Numbers
 Any table with a 2 relates to imports coming into the U.S, and any table with a 3 relates to exports leaving the U.S. 1 refers to goods traded within the borders of the U.S., and 0 includes everything from 1, but it also consists of the movement of goods from 2 and 3 inside the U.S., but before/after leaving the U.S.
 
-#Ideas for Further Development
+# Ideas for Further Development
 
-##Table Transivity
+## Table Transivity
 There was an idea for the import and export endpoints to include products traded in and out of the U.S., but it's still being determined if this is possible. Based on current knowledge, it's believed that tables with 1 don't share the same data as the tables marked 2 and 3, but this needs to be approved to prevent data duplication when querying. If table transitivity is not possible between the 1, 2, and 3 tables, separate endpoints can be made for exported goods outside the U.S. and imported goods into the U.S. It's also noted that there is no transitivity expected between the faf and state tables, only between faf1, faf2, faf3, and state1, state2, and state3.
 
-##JSON Sent for Small Queries
+## JSON Sent for Small Queries
 An idea proposed was to send data in JSON format if the data retrieved from the query was relatively small. JSON is the standard data format for RESTful APIs and is more compatible with most programming languages. Due to its flexibility, sending data in this format would make more sense when the data quantity is small. JSON's ability to handle hierarchical data structures, maintain data types, and support nested relationships makes it an excellent choice for transmitting smaller datasets. Additionally, its human-readable format and broad compatibility with various libraries and languages enhance its suitability for efficient and effective data interchange. With all of this in mind, it would make sense to add this as an option for sending small data quantities.
