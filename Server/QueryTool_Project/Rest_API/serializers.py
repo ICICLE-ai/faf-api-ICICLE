@@ -62,3 +62,5 @@ class CommodityTotalReturnSerializer(serializers.Serializer):
     ton       = serializers.FloatField()
     option    = serializers.CharField(max_length=6)
 
+class OptionSerializer(serializers.Serializer):
+    option = serializers.CharField(max_length=15)

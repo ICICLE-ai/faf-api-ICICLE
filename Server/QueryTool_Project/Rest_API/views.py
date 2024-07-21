@@ -466,66 +466,31 @@ class Commodity_total(APIView):
                 return Response("ERROR: Cannot return csv_data")
         return Response(serializer.errors, status=400)
 ###########################################################################################
-"""class ExportEndpoint(APIView):
+class Data_Option(APIView):
     @extend_schema(
-        description=readfile('Rest_API/endpoint_desc/exports/desc.txt'),
-        parameters=[
-            OpenApiParameter(
-                name='origin',
-                description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
-            ),
-            OpenApiParameter(
-                name='timeframe',
-                description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
-            ),
- 
-        ],
-        examples=[
-            OpenApiExample(
-                'Single Year Example',
-                value=e.exportSingleExample1,
-                media_type="application/json",
-            ), 
-            OpenApiExample(
-                'Year Window Example',
-                value=e.exportMultiExample2,
-                media_type="application/json",
-            ),
-           OpenApiExample(
-                'Return Example',
-                value=e.exportReturnExample,
-                media_type="application/json",
-            )
-
-        ],
-        request=s.ExportsSerializer(),
-        responses={
-            '200':s.ExportsReturnSerializer(many=True)
-        },
+        description="Populates data choices based on keyword recieved",
+        request=s.OptionSerializer(),
     )
-
+    
     def post(self, request):
-        serializer = s.ExportsSerializer(data=request.data)
+        serializer = s.OptionSerializer(data=request.data)
         if serializer.is_valid():
-            data = Export(
-                serializer.validated_data['origin'],
-                serializer.validated_data['timeframe']
-            )
-            query = data.setup()
-            print(f"\n\n{query}\n\n")
-            #sending query to server
-            if query == False: return Response("Error: Check Data", 400)
-            logger.info(f"Export Endpoint:{query}")
+            choices = {
+                "states"     : "o_state", 
+                "regions"    : "o_faf", 
+                "commodities": "c",
+                "foreign"    : "fo",
+            }
+            if serializer.validated_data["option"] not in choices:
+                return Response({"error": f"Please choose from: {choices.keys()}"})
+            option = serializer.validated_data["option"]
             lookup = QueryTool()
-            data = lookup.query(query)
-
-            #sending data
-            try:
-                csv_data = data.to_csv(index=False)
-                response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = f'attachment; filename=exports_{serializer.validated_data["origin"]}.csv'
-                return response
-            except:
-                return Response("ERROR: Cannot return csv_data")
+            data   = lookup.query(f"SELECT description FROM {choices[option]};")
+            return Response(data)
         return Response(serializer.errors, status=400)
+"""Checklist
+*add to api_readme
+*make examples
+*confirm implementation is okay with team
+*create a better description
 """

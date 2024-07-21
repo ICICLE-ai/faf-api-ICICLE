@@ -8,5 +8,6 @@ urlpatterns = [
     path('domestic_imports/' , Import_endpoint.as_view()),
     path('import_export_sum/', RawResource.as_view()),
     path('commodity_total/'  , Commodity_total.as_view()),
+    path('data_option'       , Data_Option.as_view()),
     #path('exports/', ExportEndpoint.as_view()),
 ]
