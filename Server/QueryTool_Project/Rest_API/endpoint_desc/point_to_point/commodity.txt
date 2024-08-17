@@ -1,1 +1,0 @@
-The commodity parameter accepts a string specifying the desired commodity. If "all" is used, the endpoint will return data for all commodities sent from the origin to the destination.

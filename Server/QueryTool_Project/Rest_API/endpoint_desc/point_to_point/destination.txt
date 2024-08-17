@@ -1,3 +1,0 @@
-The destination parameter accepts a string representing either a region, state, or an area outside of the U.S. The names corresponding to these options can be obtained from the [NAME ENDPOINT].
-
-Both destination and origin need to use either region, state, or one of the two can be an out of country area.

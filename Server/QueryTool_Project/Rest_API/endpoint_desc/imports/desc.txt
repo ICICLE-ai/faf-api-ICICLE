@@ -1,1 +1,0 @@
-imports/ takes in a region or state with a year or year frame and returns all exported commodities from that area. This endpoint only applies to domestic-based trade but will be updated in the future. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.

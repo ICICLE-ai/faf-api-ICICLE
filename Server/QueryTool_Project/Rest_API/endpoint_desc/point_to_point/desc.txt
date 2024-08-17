@@ -1,9 +1,0 @@
-Returns a CAV file detailing all one-way trade between two specified locations. The data includes:
-
-* Origin to Destination: Indicates the direction of trade.
-
-* Commodity: Specity unique commodities or use "all" to include all commodities. 
-
-* Timeframe: Specify the year to filter the data accordingly.
-
-Retrieves the transportation method, the tonnage, and the value of each commodity traded.

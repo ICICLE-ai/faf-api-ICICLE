@@ -1,6 +1,0 @@
-django
-djangorestframework
-drf_spectacular
-sqlalchemy
-pandas
-mysqlclient
