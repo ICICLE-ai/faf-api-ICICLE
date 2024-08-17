@@ -36,7 +36,7 @@ faf = {
                 ],
     "sctg2"    :[
                     f"{abv['sctg']}.description AS Commodity",             
-                    f"JOIN c ON {abv['sctg']} = {abv['sctg']}.code",
+                    f"JOIN c {abv['sctg']} ON sctg2 = {abv['sctg']}.code",
                 ],
     "dms_mode" :[   
                     f"{abv['dms_mode']}.description AS Transportation",

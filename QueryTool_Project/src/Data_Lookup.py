@@ -6,11 +6,11 @@ import logging
 logger = logging.getLogger('src.Data_Lookup')
 class QueryTool:
     """Class takes in the information to log into MySQL
-            db     = database name
-            usr    = username
-            psswrd = password
-            host   = hostname
-       All of which are strings
+            db    (string) = database name
+            usr   (string) = username
+            psswrd(string) = password
+            host  (string) = hostname
+        Returns pandas dataframe
     """
     def __init__(self, db='faf', usr='fafuser', psswrd='FQ^2t73Ava', host='localhost'):
         self.db     = db

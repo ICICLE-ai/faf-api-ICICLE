@@ -1,5 +1,5 @@
-import src.queries.faf_mapping as metrics
-import src.queries.state_mapping as sm
+import src.queries.faf_map as metrics
+import src.queries.state_map as sm
 
 class GrabTable:
     """
@@ -33,23 +33,23 @@ class GrabTable:
 
         if self.table[:3] == "faf":
             if self.table == "faf2" :cols.append(metrics.faf2["fr_orig"][0]) 
-            cols.append(metrics.faf0["dms_orig"][0])
-            cols.append(metrics.faf0["dms_dest"][0])
+            cols.append(metrics.faf["dms_orig"][0])
+            cols.append(metrics.faf["dms_dest"][0])
             if self.table == "faf3" :cols.append(metrics.faf3["fr_dest"][0]) 
-            cols.append(metrics.faf0["sctg2"][0])
+            cols.append(metrics.faf["sctg2"][0])
             if self.table == "faf2" :cols.append(metrics.faf2["fr_inmode"][0]) 
-            cols.append(metrics.faf0["dms_mode"][0])
+            cols.append(metrics.faf["dms_mode"][0])
             if self.table == "faf3" :cols.append(metrics.faf3["fr_outmode"][0]) 
-            cols.append(metrics.faf0["dist_band"][0])
+            cols.append(metrics.faf["dist_band"][0])
     
         else:
             if self.table == "state2" :cols.append(sm.state2["fr_orig"][0]) 
-            cols.append(sm.state0["dms_orig"][0])
-            cols.append(sm.state0["dms_dest"][0])
+            cols.append(sm.state["dms_orig"][0])
+            cols.append(sm.state["dms_dest"][0])
             if self.table == "state3" :cols.append(sm.state3["fr_dest"][0]) 
-            cols.append(sm.state0["sctg2"][0])
+            cols.append(sm.state["sctg2"][0])
             if self.table == "state2" :cols.append(sm.state2["fr_inmode"][0]) 
-            cols.append(sm.state0["dms_mode"][0])
+            cols.append(sm.state["dms_mode"][0])
             if self.table == "state3" :cols.append(sm.state3["fr_outmode"][0]) 
             
         #building the query to select all of the year based data in Mapping.py
@@ -106,29 +106,28 @@ class GrabTable:
         #join the tables from the mapping files
         if self.table[:3] == "faf":
             if self.table == "faf2" :self.query += metrics.faf2["fr_orig"][1] + " "
-            self.query += metrics.faf0["dms_orig"][1] + " "
-            self.query += metrics.faf0["dms_dest"][1] + " "
+            self.query += metrics.faf["dms_orig"][1] + " "
+            self.query += metrics.faf["dms_dest"][1] + " "
             if self.table == "faf3" :self.query += metrics.faf3["fr_dest"][1] + " "
-            self.query += metrics.faf0["sctg2"][1] + " "
+            self.query += metrics.faf["sctg2"][1] + " "
             if self.table == "faf2" :self.query += metrics.faf2["fr_inmode"][1] + " "
-            self.query += metrics.faf0["dms_mode"][1] + " "
+            self.query += metrics.faf["dms_mode"][1] + " "
             if self.table == "faf3" :self.query += metrics.faf3["fr_outmode"][1] + " "
-            self.query += metrics.faf0["dist_band"][1] + " "
+            self.query += metrics.faf["dist_band"][1] + " "
             if self.limit > 0: self.query += f"LIMIT {self.limit}"
             self.query += ";"
 
         else:
             if self.table == "state2" :self.query += sm.state2["fr_orig"][1] + " "
-            self.query += sm.state0["dms_orig"][1] + " "
-            self.query += sm.state0["dms_dest"][1] + " "
+            self.query += sm.state["dms_orig"][1] + " "
+            self.query += sm.state["dms_dest"][1] + " "
             if self.table == "state3" :self.query += sm.state3["fr_dest"][1] + " "
-            self.query += sm.state0["sctg2"][1] + " "
+            self.query += sm.state["sctg2"][1] + " "
             if self.table == "state2" :self.query += sm.state2["fr_inmode"][1] + " "
-            self.query += sm.state0["dms_mode"][1] + " "
+            self.query += sm.state["dms_mode"][1] + " "
             if self.table == "state3" :self.query += sm.state3["fr_outmode"][1] + " "
             if self.limit > 0: self.query += f"LIMIT {self.limit}"
             self.query += ";"
-
         print("\n\n",self.query,"\n\n")
         return self.query
 
