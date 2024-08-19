@@ -6,12 +6,13 @@ The following section provides a detailed overview of each endpoint, including t
 
 # Endpoints
 
-* [get_table_data](#get_table_data/)      
-* [point_to_point](#point_to_point/)      
-* [domestic_exports](#domestic_exports/)  
-* [domestic_imports](#domestic_imports/)  
-* [import_export_sum](#import_export_sum/)
-* [commodity_total](#commodity_total/) 
+* [get_table_data](#get_table_data)      
+* [point_to_point](#point_to_point)      
+* [domestic_exports](#domestic_exports)  
+* [domestic_imports](#domestic_imports)  
+* [import_export_sum](#import_export_sum)
+* [commodity_total](#commodity_total) 
+* [data_option](#data_option)
 
 
 ## get_table_data/
@@ -115,7 +116,7 @@ Both the Imports.py and Exports.py are used in this endpoint. The manipulations 
 ## commodity_total/
 Takes the commodities in each state and adds up their total based on import, export or both and sorts the return based on ton amount. The time frame is based on year or year frame, and the return will give the location of the ranked commodity and if it was imported or exported
 
-## attributes:
+### attributes:
 * timeframe(list of int): can either be a single year, or a range between two years
 * option(str): state or faf, used to gather information from either the faf tables or the state tables
 
@@ -129,7 +130,19 @@ commExample = {
         "option": "region",
 }
 ```
+## data_option/
+The dataset provides a predefined set of options for certain tables in the FAF dataset. For instance, the 'state' table includes 50 states. This endpoint returns all possible data choices for the specified option value within the given field.
+### attributes:
+* option(str): choices are 'states', 'regions, 'commodities, 'foreign'
 
+### return:
+Returns all supported data points from the dataset in JSON format matching the option.
+``` python
+#example data input
+Example = {
+        "option": "regions",
+}
+```
 
 # Server Finds
 ## Importing vs Exporting
@@ -144,8 +157,8 @@ Any table with a 2 relates to imports coming into the U.S, and any table with a 
 
 # Ideas for Further Development
 
-## Table Transivity
-There was an idea for the import and export endpoints to include products traded in and out of the U.S., but it's still being determined if this is possible. Based on current knowledge, it's believed that tables with 1 don't share the same data as the tables marked 2 and 3, but this needs to be approved to prevent data duplication when querying. If table transitivity is not possible between the 1, 2, and 3 tables, separate endpoints can be made for exported goods outside the U.S. and imported goods into the U.S. It's also noted that there is no transitivity expected between the faf and state tables, only between faf1, faf2, faf3, and state1, state2, and state3.
+## Table Transitivity
+There was a proposal to extend the import and export endpoints to include products traded in and out of the U.S., but feasibility is still under evaluation. Current understanding suggests that tables labeled with "1" do not share data with those marked "2" and "3," although this needs formal confirmation to avoid data duplication in queries. If establishing transitivity between the tables labeled "1," "2," and "3" is not feasible, separate endpoints may be created for goods exported from and imported into the U.S. Additionally, it is noted that no transitivity is expected between the FAF and state tables, only among FAF1, FAF2, FAF3, and STATE1, STATE2, and STATE3.
 
 ## JSON Sent for Small Queries
-An idea proposed was to send data in JSON format if the data retrieved from the query was relatively small. JSON is the standard data format for RESTful APIs and is more compatible with most programming languages. Due to its flexibility, sending data in this format would make more sense when the data quantity is small. JSON's ability to handle hierarchical data structures, maintain data types, and support nested relationships makes it an excellent choice for transmitting smaller datasets. Additionally, its human-readable format and broad compatibility with various libraries and languages enhance its suitability for efficient and effective data interchange. With all of this in mind, it would make sense to add this as an option for sending small data quantities.
+One proposed idea is to use JSON format for transmitting data when the volume is relatively small. JSON is the standard data format for RESTful APIs and is highly compatible with most programming languages. Its flexibility makes it particularly suitable for small datasets due to its ability to handle hierarchical structures, preserve data types, and support nested relationships. Furthermore, JSON's human-readable format and wide compatibility with various libraries and languages enhance its effectiveness for data interchange. Given these advantages, incorporating JSON as an option for transmitting smaller data quantities would be beneficial.
