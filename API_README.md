@@ -1,5 +1,18 @@
 # API Endpoint Description
-This area will cover each endpoint in detail, including what it does, where the files are located, and the flow of the data points. After this, any interesting information from the databases will be shared below. Lastly, there is a section covering potential ideas for further development.
+
+This API is designed to retrieve information from the Freight Analysis Framework (FAF) dataset, which was created by the Federal Highway Administration (FHWA) to illustrate freight movement in the United States.
+
+The following section provides a detailed overview of each endpoint, including the required input parameters, the data returned, and a description of the endpoint's functionality. Each endpoint is accompanied by an example demonstrating the expected format of the input data. Please note that this API requires all attributes to be sent in a JSON format.
+
+# Endpoints
+
+* [get_table_data](#get_table_data/)      
+* [point_to_point](#point_to_point/)      
+* [domestic_exports](#domestic_exports/)  
+* [domestic_imports](#domestic_imports/)  
+* [import_export_sum](#import_export_sum/)
+* [commodity_total](#commodity_total/) 
+
 
 ## get_table_data/
 This endpoint queries the FAF database and retrieves one of six fully populated tables: faf0, faf1, faf2, faf3, state0, state1, state2, or state3 based on the timeframe given. Subsequently, the server generates a query to join these smaller tables with the main data tables and processes this query. The resulting data is stored in a Pandas DataFrame, converted to a CSV file, and provided to the user as a downloadable file. The file is named according to the selected table. If the user inputs incorrect information, an error message is returned detailing the issue.

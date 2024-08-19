@@ -14136,3 +14136,21 @@ ValueError: If using all scalar values, you must pass an index
 ERROR log_message 2024-08-17 22:49:37,169 "POST /get_table_data/ HTTP/1.1" 500 271720
 INFO trigger_reload 2024-08-17 22:51:17,750 /u/cj124/Server/faf-api-dev/QueryTool_Project/src/GrabTable.py changed, reloading.
 INFO run_with_reloader 2024-08-17 22:51:18,441 Watching for file changes with StatReloader
+INFO log_message 2024-08-18 00:28:54,959 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO run_with_reloader 2024-08-18 00:30:08,398 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-08-18 00:31:26,628 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-08-18 00:33:01,842 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-08-18 00:33:51,943 Watching for file changes with StatReloader
+INFO log_message 2024-08-18 00:34:32,511 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-18 00:34:41,671 "GET /api/schema/ HTTP/1.1" 200 57061
+INFO log_message 2024-08-18 00:35:09,407 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-18 00:35:10,652 "GET /api/schema/ HTTP/1.1" 200 57061
+INFO log_message 2024-08-18 00:35:49,974 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-18 00:35:53,510 "GET /api/schema/ HTTP/1.1" 200 57061
+INFO run_with_reloader 2024-08-18 00:40:39,525 Watching for file changes with StatReloader
+INFO log_message 2024-08-18 00:40:44,946 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-18 00:40:55,084 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-18 00:40:55,221 "GET /api/schema/ HTTP/1.1" 200 57061
+INFO run_with_reloader 2024-08-18 23:10:00,885 Watching for file changes with StatReloader
+INFO log_message 2024-08-18 23:10:08,107 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-18 23:10:08,438 "GET /api/schema/ HTTP/1.1" 200 57061
