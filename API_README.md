@@ -1,4 +1,5 @@
 # API Endpoint Description
+**Version: 0.0.3**
 
 This API is designed to retrieve information from the Freight Analysis Framework (FAF) dataset, which was created by the Federal Highway Administration (FHWA) to illustrate freight movement in the United States.
 
@@ -162,3 +163,7 @@ There was a proposal to extend the import and export endpoints to include produc
 
 ## JSON Sent for Small Queries
 One proposed idea is to use JSON format for transmitting data when the volume is relatively small. JSON is the standard data format for RESTful APIs and is highly compatible with most programming languages. Its flexibility makes it particularly suitable for small datasets due to its ability to handle hierarchical structures, preserve data types, and support nested relationships. Furthermore, JSON's human-readable format and wide compatibility with various libraries and languages enhance its effectiveness for data interchange. Given these advantages, incorporating JSON as an option for transmitting smaller data quantities would be beneficial.
+
+# Versioning
+### V0.0.3
+This marks the release of the first full version of the API, introducing the following endpoints: `data_option`, `domestic_exports`, `domestic_imports`, `get_table_data`, `import_export_sum`, and `point_to_point`.

@@ -1,4 +1,4 @@
-import src.queries.faf_map as metrics
+import src.queries.faf_map as fm
 import src.queries.state_map as sm
 
 class GrabTable:
@@ -23,7 +23,7 @@ class GrabTable:
         
         #checks for wrong table input
         self.fail     = 0
-        try: metrics.table[table]
+        try: fm.table[table]
         except: self.fail = 1
         
         if not self._checkTimeframe(): return False
@@ -32,15 +32,15 @@ class GrabTable:
         cols = []
 
         if self.table[:3] == "faf":
-            if self.table == "faf2" :cols.append(metrics.faf2["fr_orig"][0]) 
-            cols.append(metrics.faf["dms_orig"][0])
-            cols.append(metrics.faf["dms_dest"][0])
-            if self.table == "faf3" :cols.append(metrics.faf3["fr_dest"][0]) 
-            cols.append(metrics.faf["sctg2"][0])
-            if self.table == "faf2" :cols.append(metrics.faf2["fr_inmode"][0]) 
-            cols.append(metrics.faf["dms_mode"][0])
-            if self.table == "faf3" :cols.append(metrics.faf3["fr_outmode"][0]) 
-            cols.append(metrics.faf["dist_band"][0])
+            if self.table == "faf2" :cols.append(fm.faf2["fr_orig"][0]) 
+            cols.append(fm.faf["dms_orig"][0])
+            cols.append(fm.faf["dms_dest"][0])
+            if self.table == "faf3" :cols.append(fm.faf3["fr_dest"][0]) 
+            cols.append(fm.faf["sctg2"][0])
+            if self.table == "faf2" :cols.append(fm.faf2["fr_inmode"][0]) 
+            cols.append(fm.faf["dms_mode"][0])
+            if self.table == "faf3" :cols.append(fm.faf3["fr_outmode"][0]) 
+            cols.append(fm.faf["dist_band"][0])
     
         else:
             if self.table == "state2" :cols.append(sm.state2["fr_orig"][0]) 
@@ -55,25 +55,25 @@ class GrabTable:
         #building the query to select all of the year based data in Mapping.py
         if self.table[:3] == "faf":
             for year in self.timeframe:
-                try: cols.append(metrics.tons[str(year)])
+                try: cols.append(fm.tons[str(year)])
                 except: continue
             for year in self.timeframe:
-                try: cols.append(metrics.value[str(year)])
+                try: cols.append(fm.value[str(year)])
                 except: continue
             for year in self.timeframe:
-                try: cols.append(metrics.current_value[str(year)])
+                try: cols.append(fm.current_value[str(year)])
                 except: continue
             for year in self.timeframe:
-                try: cols.append(metrics.tons_high[str(year)])
+                try: cols.append(fm.tons_high[str(year)])
                 except: continue
             for year in self.timeframe:
-                try: cols.append(metrics.tons_low[str(year)])
+                try: cols.append(fm.tons_low[str(year)])
                 except: continue
             for year in self.timeframe:
-                try: cols.append(metrics.value_high[str(year)])
+                try: cols.append(fm.value_high[str(year)])
                 except: continue
             for year in self.timeframe:
-                try: cols.append(metrics.value_low[str(year)])
+                try: cols.append(fm.value_low[str(year)])
                 except: continue
 
         else:
@@ -105,15 +105,15 @@ class GrabTable:
 
         #join the tables from the mapping files
         if self.table[:3] == "faf":
-            if self.table == "faf2" :self.query += metrics.faf2["fr_orig"][1] + " "
-            self.query += metrics.faf["dms_orig"][1] + " "
-            self.query += metrics.faf["dms_dest"][1] + " "
-            if self.table == "faf3" :self.query += metrics.faf3["fr_dest"][1] + " "
-            self.query += metrics.faf["sctg2"][1] + " "
-            if self.table == "faf2" :self.query += metrics.faf2["fr_inmode"][1] + " "
-            self.query += metrics.faf["dms_mode"][1] + " "
-            if self.table == "faf3" :self.query += metrics.faf3["fr_outmode"][1] + " "
-            self.query += metrics.faf["dist_band"][1] + " "
+            if self.table == "faf2" :self.query += fm.faf2["fr_orig"][1] + " "
+            self.query += fm.faf["dms_orig"][1] + " "
+            self.query += fm.faf["dms_dest"][1] + " "
+            if self.table == "faf3" :self.query += fm.faf3["fr_dest"][1] + " "
+            self.query += fm.faf["sctg2"][1] + " "
+            if self.table == "faf2" :self.query += fm.faf2["fr_inmode"][1] + " "
+            self.query += fm.faf["dms_mode"][1] + " "
+            if self.table == "faf3" :self.query += fm.faf3["fr_outmode"][1] + " "
+            self.query += fm.faf["dist_band"][1] + " "
             if self.limit > 0: self.query += f"LIMIT {self.limit}"
             self.query += ";"
 
@@ -135,7 +135,7 @@ class GrabTable:
         """
         Just impends the FROM command with the actual table name to the query
         """
-        self.query += f"FROM {metrics.table[self.table]} "
+        self.query += f"FROM {fm.table[self.table]} "
 
     def _checkTimeframe(self):
         """

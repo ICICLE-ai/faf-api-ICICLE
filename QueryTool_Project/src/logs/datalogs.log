@@ -14158,3 +14158,503 @@ INFO log_message 2024-08-19 00:33:52,316 "GET /api/schema/swagger-ui/ HTTP/1.1" 
 INFO log_message 2024-08-19 00:33:55,714 "GET /api/schema/ HTTP/1.1" 200 57061
 INFO log_message 2024-08-19 00:34:10,506 "POST /data_option/ HTTP/1.1" 200 90
 INFO log_message 2024-08-19 00:45:53,051 "POST /data_option/ HTTP/1.1" 200 605
+INFO run_with_reloader 2024-08-24 21:02:30,020 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:02:35,240 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:02:35,774 "GET /api/schema/ HTTP/1.1" 200 57061
+INFO trigger_reload 2024-08-24 21:11:12,924 /u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:11:13,584 Watching for file changes with StatReloader
+INFO trigger_reload 2024-08-24 21:11:29,394 /u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:11:29,847 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:11:46,963 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:11:47,292 "GET /api/schema/ HTTP/1.1" 200 57874
+INFO trigger_reload 2024-08-24 21:12:33,897 /u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:12:34,396 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-08-24 21:12:39,832 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:12:44,087 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:12:44,240 "GET /api/schema/ HTTP/1.1" 200 58154
+INFO post 2024-08-24 21:16:56,133 Export Endpoint:SELECT os.description AS Domestic_Origin, ds.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, tons_2018, tons_2019, tons_2020, tons_2021, tons_2022, tons_2023, tons_2025, value_2018, value_2019, value_2020, value_2021, value_2022, value_2023, value_2025 FROM _faf551_state_1 JOIN o_state os ON dms_orig = os.code JOIN d_state ds ON dms_dest = ds.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code WHERE os.description = 'Indiana' ;
+INFO log_message 2024-08-24 21:16:57,177 "POST /domestic_exports/ HTTP/1.1" 200 774454
+INFO trigger_reload 2024-08-24 21:19:13,018 /u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:19:13,671 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:19:17,795 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:19:17,938 "GET /api/schema/ HTTP/1.1" 200 58154
+INFO trigger_reload 2024-08-24 21:19:54,455 /u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:19:54,918 Watching for file changes with StatReloader
+INFO trigger_reload 2024-08-24 21:35:33,271 /u/cj124/Server/faf-api-dev/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:35:33,951 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:35:44,844 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:35:45,007 "GET /api/schema/ HTTP/1.1" 200 58154
+ERROR log_response 2024-08-24 21:35:53,740 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py", line 64, in post
+    query = gt.setup()
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/GrabTable.py", line 104, in setup
+    self._table()
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/GrabTable.py", line 138, in _table
+    self.query += f"FROM {metrics.table[self.table]} "
+NameError: name 'metrics' is not defined
+ERROR log_message 2024-08-24 21:35:53,742 "POST /get_table_data/ HTTP/1.1" 500 17921
+INFO trigger_reload 2024-08-24 21:36:45,810 /u/cj124/Server/faf-api-dev/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:36:46,303 Watching for file changes with StatReloader
+INFO post 2024-08-24 21:36:48,785 Grab Table Query: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 = c.code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;
+ERROR log_response 2024-08-24 21:36:48,887 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 =' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 35, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 489, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 =' at line 1")
+[SQL: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 = c.code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py", line 69, in post
+    data = lookup.query(query)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 40, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-08-24 21:36:48,891 "POST /get_table_data/ HTTP/1.1" 500 24119
+INFO trigger_reload 2024-08-24 21:39:18,437 /u/cj124/Server/faf-api-dev/QueryTool_Project/src/queries/faf_map.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:39:19,132 Watching for file changes with StatReloader
+INFO post 2024-08-24 21:39:22,828 Grab Table Query: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, .description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c  ON sctg2 = .code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;
+ERROR log_response 2024-08-24 21:39:22,903 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.description AS Commodity, dm.description AS Transportation, db.description AS D' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 35, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 489, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.description AS Commodity, dm.description AS Transportation, db.description AS D' at line 1")
+[SQL: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, .description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c  ON sctg2 = .code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py", line 69, in post
+    data = lookup.query(query)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 40, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-08-24 21:39:22,908 "POST /get_table_data/ HTTP/1.1" 500 24116
+INFO trigger_reload 2024-08-24 21:48:43,085 /u/cj124/Server/faf-api-dev/QueryTool_Project/src/queries/faf_map.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:48:43,743 Watching for file changes with StatReloader
+INFO post 2024-08-24 21:49:13,714 Grab Table Query: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 = c.code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;
+ERROR log_response 2024-08-24 21:49:13,825 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 =' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 35, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 489, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 =' at line 1")
+[SQL: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 = c.code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py", line 69, in post
+    data = lookup.query(query)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 40, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-08-24 21:49:13,833 "POST /get_table_data/ HTTP/1.1" 500 24119
+INFO run_with_reloader 2024-08-24 21:49:31,731 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:49:35,218 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:49:35,524 "GET /api/schema/ HTTP/1.1" 200 58154
+INFO post 2024-08-24 21:49:44,520 Grab Table Query: SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-08-24 21:50:32,442 "POST /get_table_data/ HTTP/1.1" 200 130332256
+INFO trigger_reload 2024-08-24 21:52:49,154 /u/cj124/Server/faf-api-dev/QueryTool_Project/src/GrabTable.py changed, reloading.
+INFO run_with_reloader 2024-08-24 21:52:49,810 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:52:54,682 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:52:55,004 "GET /api/schema/ HTTP/1.1" 200 58154
+INFO post 2024-08-24 21:53:00,734 Grab Table Query: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 = c.code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;
+ERROR log_response 2024-08-24 21:53:00,837 Internal Server Error: /get_table_data/
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.ProgrammingError: (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 =' at line 1")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 35, in query
+    df = pd.read_sql(text(string), con)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 663, in read_sql
+    return pandas_sql.read_query(
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1738, in read_query
+    result = self.execute(sql, params)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/io/sql.py", line 1563, in execute
+    return self.con.execute(sql, *args)
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1414, in execute
+    return meth(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 489, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1842, in _execute_context
+    return self._exec_single_context(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2325, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "/u/cj124/Server/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 747, in do_execute
+    cursor.execute(statement, parameters)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 158, in execute
+    result = self._query(query)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/cursors.py", line 325, in _query
+    conn.query(q)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 549, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 779, in _read_query_result
+    result.read()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 1157, in read
+    first_packet = self.connection._read_packet()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/connections.py", line 729, in _read_packet
+    packet.raise_for_error()
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.ProgrammingError: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 =' at line 1")
+[SQL: SELECT of.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, dm.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of ON dms_orig = of.code JOIN d_faf df ON dms_dest = df.code JOIN c c ON sctg2 = c.code JOIN dm ON dms_mode = dm.code JOIN db ON dist_band = db.code ;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/django/views/generic/base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/u/cj124/Server/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/Rest_API/views.py", line 69, in post
+    data = lookup.query(query)
+  File "/u/cj124/Server/faf-api-dev/QueryTool_Project/src/Data_Lookup.py", line 40, in query
+    return pd.DataFrame.from_dict(error)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 1760, in from_dict
+    return cls(data, index=index, columns=columns, dtype=dtype)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/frame.py", line 709, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 481, in dict_to_mgr
+    return arrays_to_mgr(arrays, columns, index, dtype=dtype, typ=typ, consolidate=copy)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 115, in arrays_to_mgr
+    index = _extract_index(arrays)
+  File "/u/cj124/Server/lib/python3.8/site-packages/pandas/core/internals/construction.py", line 645, in _extract_index
+    raise ValueError("If using all scalar values, you must pass an index")
+ValueError: If using all scalar values, you must pass an index
+ERROR log_message 2024-08-24 21:53:00,842 "POST /get_table_data/ HTTP/1.1" 500 24119
+INFO run_with_reloader 2024-08-24 21:53:19,524 Watching for file changes with StatReloader
+INFO log_message 2024-08-24 21:53:21,319 "GET /api/schema/swagger-ui/ HTTP/1.1" 200 4640
+INFO log_message 2024-08-24 21:53:21,452 "GET /api/schema/ HTTP/1.1" 200 58154
+INFO post 2024-08-24 21:53:27,580 Grab Table Query: SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
+INFO log_message 2024-08-24 21:54:19,100 "POST /get_table_data/ HTTP/1.1" 200 130332256

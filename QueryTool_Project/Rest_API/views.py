@@ -14,7 +14,6 @@ from src.Data_Lookup    import QueryTool
 from src.GrabTable      import GrabTable
 from src.PointToPoint   import PointToPoint
 from src.Exports        import Exports
-from src.Export   import Export
 from src.Imports        import Imports
 from src.CommodityTotal import CommodityTotal
 import Rest_API.examples as e
@@ -32,6 +31,8 @@ def readfile(file_path):
 
 ###########################################################################################
 class GatherAll(APIView):
+    serializer_class = s.TableSerializer #just to make swagger happy
+
     @extend_schema(
         description=readfile('Rest_API/endpoint_desc/get_table_data/desc.txt'),
         parameters=[
@@ -467,6 +468,7 @@ class Commodity_total(APIView):
         return Response(serializer.errors, status=400)
 ###########################################################################################
 class Data_Option(APIView):
+    serializer_class = s.OptionSerializer #just to make swagger happy - useless line
     @extend_schema(
         description="Populates data choices based on keyword recieved",
         request=s.OptionSerializer(),
