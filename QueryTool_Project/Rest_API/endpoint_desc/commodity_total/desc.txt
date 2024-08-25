@@ -1,0 +1,1 @@
+commodity_total/ endpoint accepts a timeframe and an option specifying either state or region. It returns a CSV file detailing the difference between the tonnage of each commodity imported and exported from each area by year. Currently, this endpoint supports domestic trade only, with plans for future updates to include international import and export data related to the U.S.
