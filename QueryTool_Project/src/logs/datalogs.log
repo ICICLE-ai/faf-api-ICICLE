@@ -14658,3 +14658,5 @@ INFO log_message 2024-08-24 21:53:21,319 "GET /api/schema/swagger-ui/ HTTP/1.1" 
 INFO log_message 2024-08-24 21:53:21,452 "GET /api/schema/ HTTP/1.1" 200 58154
 INFO post 2024-08-24 21:53:27,580 Grab Table Query: SELECT of0.description AS Domestic_Origin, df.description AS Domestic_Destination, c.description AS Commodity, m.description AS Transportation, db.description AS Distance, tons_2017, tons_2018, value_2017, value_2018, current_value_2017, current_value_2018 FROM _faf551_faf_0 JOIN o_faf of0 ON dms_orig = of0.code JOIN d_faf df  ON dms_dest = df.code JOIN c ON sctg2 = c.code JOIN m ON dms_mode = m.code JOIN db ON dist_band = db.code ;
 INFO log_message 2024-08-24 21:54:19,100 "POST /get_table_data/ HTTP/1.1" 200 130332256
+INFO run_with_reloader 2024-08-25 00:56:00,050 Watching for file changes with StatReloader
+INFO run_with_reloader 2024-08-25 00:56:30,741 Watching for file changes with StatReloader
