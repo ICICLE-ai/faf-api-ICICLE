@@ -48,3 +48,6 @@ for example:
 The server should now be running. To test, go to http://127.0.0.1:8000/api/schema/swagger-ui/#/ where you should see the current endpoints. If you changed the port number, change the ```127.0.0.1:8000``` with the desired port.
 
 For more information on implementing endpoints or editing the project in general: [Here](DEV_README.md)
+
+## License
+FAF API Server is developed by Indiana University and distributed under the BSD 3-Clause License. See `LICENSE` for more details.
