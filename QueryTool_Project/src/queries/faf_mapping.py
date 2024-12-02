@@ -70,6 +70,46 @@ value = {
     "2050":"value_2050",
 }
 
+tons_sum = {
+    "1997":"SUM(tons_1997) AS Total_Tons_1997",
+    "2002":"SUM(tons_2002) AS Total_Tons_2002",
+    "2007":"SUM(tons_2007) AS Total_Tons_2007",
+    "2012":"SUM(tons_2012) AS Total_Tons_2012",
+    "2017":"SUM(tons_2017) AS Total_Tons_2017",
+    "2018":"SUM(tons_2018) AS Total_Tons_2018",
+    "2019":"SUM(tons_2019) AS Total_Tons_2019",
+    "2020":"SUM(tons_2020) AS Total_Tons_2020",
+    "2021":"SUM(tons_2021) AS Total_Tons_2021",
+    "2022":"SUM(tons_2022) AS Total_Tons_2022",
+    "2023":"SUM(tons_2023) AS Total_Tons_2023",
+    "2025":"SUM(tons_2025) AS Total_Tons_2025",
+    "2030":"SUM(tons_2030) AS Total_Tons_2030",
+    "2035":"SUM(tons_2035) AS Total_Tons_2035",
+    "2040":"SUM(tons_2040) AS Total_Tons_2040",
+    "2045":"SUM(tons_2045) AS Total_Tons_2045",
+    "2050":"SUM(tons_2050)AS Total_Tons_2050",
+}
+
+value_sum = {
+    "1997":"SUM(value_1997)  AS Total_Value_1997",
+    "2002":"SUM(value_2002)  AS Total_Value_2002",
+    "2007":"SUM(value_2007)  AS Total_Value_2007",
+    "2012":"SUM(value_2012)  AS Total_Value_2012",
+    "2017":"SUM(value_2017)  AS Total_Value_2017",
+    "2018":"SUM(value_2018)  AS Total_Value_2018",
+    "2019":"SUM(value_2019)  AS Total_Value_2019",
+    "2020":"SUM(value_2020)  AS Total_Value_2020",
+    "2021":"SUM(value_2021)  AS Total_Value_2021",
+    "2022":"SUM(value_2022)  AS Total_Value_2022",
+    "2023":"SUM(value_2023)  AS Total_Value_2023",
+    "2025":"SUM(value_2025)  AS Total_Value_2025",
+    "2030":"SUM(value_2030)  AS Total_Value_2030",
+    "2035":"SUM(value_2035)  AS Total_Value_2035",
+    "2040":"SUM(value_2040)  AS Total_Value_2040",
+    "2045":"SUM(value_2045)  AS Total_Value_2045",
+    "2050":"SUM(value_2050)  AS Total_Value_2050",
+}
+
 current_value = {
     "2017":"current_value_2017",
     "2018":"current_value_2018",

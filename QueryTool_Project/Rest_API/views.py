@@ -15,13 +15,15 @@ from src.GrabTable      import GrabTable
 from src.PointToPoint   import PointToPoint
 from src.Exports        import Exports
 from src.Imports        import Imports
+from src.Common           import Common
 from src.CommodityTotal import CommodityTotal
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
 from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiParameter
 import logging
-    
+
+
 logger = logging.getLogger('Rest_API.views')
 
 #useful functions
@@ -157,6 +159,18 @@ class Export_endpoint(APIView):
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
             ),
+            OpenApiParameter(
+                name='commodity',
+                description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+            ),
+            OpenApiParameter(
+                name='destination',
+                description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+            ),
+            OpenApiParameter(
+                name='transpotation',
+                description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+            ),
  
         ],
         examples=[
@@ -188,7 +202,10 @@ class Export_endpoint(APIView):
         if serializer.is_valid():
             data = Exports(
                 serializer.validated_data['origin'],
-                serializer.validated_data['timeframe']
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['commodity'],
+                serializer.validated_data['destination'],
+                serializer.validated_data['transpotation']
             )
             query = data.setup()
 
@@ -490,6 +507,140 @@ class Data_Option(APIView):
             data   = lookup.query(f"SELECT description FROM {choices[option]};")
             return Response(data)
         return Response(serializer.errors, status=400)
+
+
+##########################################################################################
+class Transpotation_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM m;")
+
+        if data.empty:
+            return Response({"error": "Cannot return Transpotation Details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+class Commodity_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM c;")
+
+        if data.empty:
+            return Response({"error": "Cannot return commodity details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+
+###########################################################################################
+
+class Domestic_Origin(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM d_state;")
+
+        if data.empty:
+            return Response({"error": "Cannot return domestic origin details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+class Domestic_Destination(APIView):
+    serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM d_state;")
+
+        if data.empty:
+            return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+class Export_Mode_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        # lookup = QueryTool()
+        # data = lookup.query("SELECT  m.description AS Transportation, SUM(tons_2017) AS Total_Tons_2017,  SUM(value_2017) AS Total_Value_2017m "+
+        #                     "FROM _faf551_state_1 JOIN m ON dms_mode = m.code GROUP BY m.description; ")
+        #
+        # if data.empty:
+        #     return Response({"error": "Cannot return commodity details"}, status=400)
+        #
+        # result = data
+        # return Response(result)
+
+
+        query = Common.mode_details(self)
+        if query == False: return Response("Error: Check Data", 400)
+        logger.info(f"Export Endpoint:{query}")
+        lookup = QueryTool()
+        data = lookup.query(query)
+        if data.empty:
+            return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data
+        return Response(result)
+###########################################################################################
+
+class Bar_Chart_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        # lookup = QueryTool()
+        # data = lookup.query("SELECT  m.description AS Transportation, SUM(tons_2017) AS Total_Tons_2017,  SUM(value_2017) AS Total_Value_2017m "+
+        #                     "FROM _faf551_state_1 JOIN m ON dms_mode = m.code GROUP BY m.description; ")
+        #
+        # if data.empty:
+        #     return Response({"error": "Cannot return commodity details"}, status=400)
+        #
+        # result = data
+        # return Response(result)
+        query = Common.bar_chart_details(self)
+        if query == False: return Response("Error: Check Data", 400)
+        logger.info(f"Export Endpoint:{query}")
+        lookup = QueryTool()
+        data = lookup.query(query)
+        if data.empty:
+            return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data
+        return Response(result)
+
 """Checklist
 *add to api_readme
 *make examples

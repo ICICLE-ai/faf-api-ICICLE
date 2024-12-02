@@ -24,7 +24,10 @@ PtoPReturnExample = {
 }
 exportSingleExample1 = {
         "origin"   :"Indiana",
-        "timeframe":[2018,2025],
+        "commodity": "Animal feed",
+        "destination": "Alaska",
+        "transpotation": "Truck",
+        "timeframe": [2018, 2025],
 }
 exportMultiExample2 = {
         "origin":"Pennsylvania",

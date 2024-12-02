@@ -21,6 +21,10 @@ class PtoPReturnSerializer(serializers.Serializer):
 class ExportsSerializer(serializers.Serializer):
     origin     = serializers.CharField(max_length=15)
     timeframe  = serializers.ListField(max_length=2, child=serializers.IntegerField())
+    commodity   = serializers.CharField(max_length=40)
+    destination = serializers.CharField(max_length=40)
+    transpotation = serializers.CharField(max_length=40)
+
 
 class ExportsReturnSerializer(serializers.Serializer):
     destination = serializers.CharField(max_length=15)
@@ -64,3 +68,4 @@ class CommodityTotalReturnSerializer(serializers.Serializer):
 
 class OptionSerializer(serializers.Serializer):
     option = serializers.CharField(max_length=15)
+
