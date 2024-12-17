@@ -1,4 +1,5 @@
 #Rest_API/views.py
+from django.db.models.expressions import result
 from django.shortcuts import render
 from django.http      import HttpResponse
 import pandas as pd
@@ -15,13 +16,15 @@ from src.GrabTable      import GrabTable
 from src.PointToPoint   import PointToPoint
 from src.Exports        import Exports
 from src.Imports        import Imports
+from src.Common           import Common
 from src.CommodityTotal import CommodityTotal
 import Rest_API.examples as e
 import Rest_API.serializers as s
 
 from drf_spectacular.utils import extend_schema, OpenApiExample, OpenApiParameter
 import logging
-    
+
+
 logger = logging.getLogger('Rest_API.views')
 
 #useful functions
@@ -157,6 +160,22 @@ class Export_endpoint(APIView):
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
             ),
+            OpenApiParameter(
+                name='commodity',
+                description=readfile('Rest_API/endpoint_desc/exports/commodity.txt'),
+            ),
+            OpenApiParameter(
+                name='destination',
+                description=readfile('Rest_API/endpoint_desc/exports/destination.txt'),
+            ),
+            OpenApiParameter(
+                name='transpotation',
+                description=readfile('Rest_API/endpoint_desc/exports/transpotation.txt'),
+            ),
+            OpenApiParameter(
+                name='flow',
+                description=readfile('Rest_API/endpoint_desc/exports/flow.txt'),
+            ),
  
         ],
         examples=[
@@ -188,7 +207,11 @@ class Export_endpoint(APIView):
         if serializer.is_valid():
             data = Exports(
                 serializer.validated_data['origin'],
-                serializer.validated_data['timeframe']
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['commodity'],
+                serializer.validated_data['destination'],
+                serializer.validated_data['transpotation'],
+                serializer.validated_data['flow']
             )
             query = data.setup()
 
@@ -219,7 +242,23 @@ class Import_endpoint(APIView):
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/imports/timeframe.txt'),
             ),
- 
+            OpenApiParameter(
+                name='commodity',
+                description=readfile('Rest_API/endpoint_desc/imports/commodity.txt'),
+            ),
+            OpenApiParameter(
+                name='destination',
+                description=readfile('Rest_API/endpoint_desc/imports/destination.txt'),
+            ),
+            OpenApiParameter(
+                name='transpotation',
+                description=readfile('Rest_API/endpoint_desc/imports/transpotation.txt'),
+            ),
+            OpenApiParameter(
+                name='flow',
+                description=readfile('Rest_API/endpoint_desc/imports/flow.txt'),
+            ),
+
         ],
  
         examples=[
@@ -251,7 +290,11 @@ class Import_endpoint(APIView):
         if serializer.is_valid():
             data = Imports(
                 serializer.validated_data['origin'],
-                serializer.validated_data['timeframe']
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['commodity'],
+                serializer.validated_data['destination'],
+                serializer.validated_data['transpotation'],
+                serializer.validated_data['flow']
             )
             query = data.setup()
 
@@ -285,6 +328,14 @@ class RawResource(APIView):
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/import_export_sum/timeframe.txt'),
             ),
+            OpenApiParameter(
+                name='destination',
+                description=readfile('Rest_API/endpoint_desc/import_export_sum/destination.txt'),
+            ),
+            OpenApiParameter(
+                name='flow',
+                description=readfile('Rest_API/endpoint_desc/import_export_sum/flow.txt'),
+            ),
  
         ],
         examples=[
@@ -315,12 +366,19 @@ class RawResource(APIView):
             #Send data to class and return data as pandas framework
             gen_query = Imports(
                 serializer.validated_data['origin'],
-                serializer.validated_data['timeframe']
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['commodity'],
+                serializer.validated_data['destination'],
+                serializer.validated_data['transpotation'],
+                serializer.validated_data['flow']
             )
- 
             gen_query2 = Exports(
+                serializer.validated_data['destination'],
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['commodity'],
                 serializer.validated_data['origin'],
-                serializer.validated_data['timeframe']
+                serializer.validated_data['transpotation'],
+                serializer.validated_data['flow']
             )
             
             #Add ton value based on column and commodity type
@@ -332,6 +390,8 @@ class RawResource(APIView):
             lookup = QueryTool()
             self.df1 = lookup.query(query)
             self.df2 = lookup.query(query2)
+            print("self.df1self.df1self.df1self.df1",self.df1)
+            print("self.df2",self.df2)
             commodities = lookup.query("SELECT description FROM c")["description"]
             
             #splitting proccess between 1 and 2, will join both dataframes in end
@@ -370,13 +430,47 @@ class RawResource(APIView):
             new_df2 = pd.DataFrame(output2)
             #joined dataframe
             complete_df = pd.concat([new_df1, new_df2])
-            try:
-                csv_data = complete_df.to_csv(index=False)
-                response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["origin"]}.csv'
-                return response
-            except:
-                return Response("ERROR: Cannot return csv_data")
+            print("(complete_df",complete_df)
+
+            # Calculate totals year-wise for imports and exports
+            year_columns = [col for col in new_df1.columns if col.startswith('tons')]
+            year_totals = {}
+
+            for year_column in year_columns:
+                year = year_column.split('_')[1]  # Extract year part (after 'tons_')
+                if year not in year_totals:
+                    year_totals[year] = {"Imports": 0, "Exports": 0}
+
+            # Add totals for imports
+            for _, row in new_df1.iterrows():
+                for year_column in year_columns:
+                    year = year_column.split('_')[1]
+                    year_totals[year]["Imports"] += row[year_column]
+
+            # Add totals for exports
+            for _, row in new_df2.iterrows():
+                for year_column in year_columns:
+                    year = year_column.split('_')[1]
+                    year_totals[year]["Exports"] += row[year_column]
+
+            # Prepare response data without 'year_totals' key
+            response_data = {
+                year: {
+                    "Imports": year_totals[year]["Imports"],
+                    "Exports": year_totals[year]["Exports"]
+                }
+                for year in year_totals
+            }
+
+            return Response(response_data, status=200)
+
+            # try:
+            #     csv_data = complete_df.to_csv(index=False)
+            #     response = HttpResponse(csv_data, content_type="text/csv")
+            #     response['Content-Disposition'] = f'attachment; filename=SumImportOutports{serializer.validated_data["origin"]}.csv'
+            #     return response
+            # except:
+            #     return Response("ERROR: Cannot return csv_data")
         return Response(serializer.errors, status=400)
 
 
@@ -490,6 +584,289 @@ class Data_Option(APIView):
             data   = lookup.query(f"SELECT description FROM {choices[option]};")
             return Response(data)
         return Response(serializer.errors, status=400)
+
+
+##########################################################################################
+class Transpotation_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM m;")
+
+        if data.empty:
+            return Response({"error": "Cannot return Transpotation Details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+class Commodity_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM c;")
+
+        if data.empty:
+            return Response({"error": "Cannot return commodity details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+
+###########################################################################################
+
+class Domestic_Origin(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM o_state;")
+
+        if data.empty:
+            return Response({"error": "Cannot return domestic origin details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+class Domestic_Destination(APIView):
+    serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM d_state;")
+
+        if data.empty:
+            return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+###########################################################################################
+
+class Foreign_Origin(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM o_state;")
+
+        if data.empty:
+            return Response({"error": "Cannot return domestic origin details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+class Foreign_Destination(APIView):
+    serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        lookup = QueryTool()
+        data = lookup.query("SELECT description FROM d_state;")
+
+        if data.empty:
+            return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data["description"].tolist()
+        return Response(result)
+
+###########################################################################################
+
+
+class Domestic_Flow_Tab(APIView):
+    serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        data = Common.domestic_flow_tab(self)
+
+        # if data.empty:
+        #     return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data;
+        return Response(result)
+
+###########################################################################################
+
+
+class Foreign_Export_Tab(APIView):
+    serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        data = Common.foreign_export_tab(self)
+
+        # if data.empty:
+        #     return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data;
+        return Response(result)
+###########################################################################################
+
+
+class Foreign_Import_Tab(APIView):
+    serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    @extend_schema(
+        description="Populates data choices based on keyword recieved",
+        # request=s.OptionSerializer(),
+    )
+    def get(self, request):
+        data = Common.foreign_import_tab(self)
+
+        # if data.empty:
+        #     return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+        result = data;
+        return Response(result)
+
+###########################################################################################
+
+class Export_Mode_Details(APIView):
+    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    # @extend_schema(
+    #     description="Populates data choices based on keyword recieved",
+    #     # request=s.OptionSerializer(),
+    # )
+    @extend_schema(
+        description=readfile('Rest_API/endpoint_desc/imports/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/mode_details/timeframe.txt'),
+            ),
+            OpenApiParameter(
+                name='flow',
+                description=readfile('Rest_API/endpoint_desc/mode_details/flow.txt'),
+            ),
+
+        ],
+
+        examples=[
+            OpenApiExample(
+                'Single Year Example',
+                value=e.barChartExample1,
+                media_type="application/json",
+            ),
+            OpenApiExample(
+                'Year Window Example',
+                value=e.barChartExample2,
+                media_type="application/json",
+            ),
+            # OpenApiExample(
+            #     'Return Example',
+            #     value=e.importReturnExample,
+            #     media_type="application/json",
+            # )
+
+        ],
+        request=s.BarChartSerializer(),
+        responses={
+            '200': s.ImportsReturnSerializer(many=True)
+        }
+    )
+    def post(self, request):
+        serializer = s.BarChartSerializer(data=request.data)
+        if serializer.is_valid():
+            data = Common(
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['flow']
+            )
+
+            result = data.mode_details()
+            return Response(result)
+        return Response(serializer.errors, status=400)
+###########################################################################################
+
+class Bar_Chart_Details(APIView):
+    # # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
+    # @extend_schema(
+    #     description="Populates data choices based on keyword recieved",
+    #     # request=s.OptionSerializer(),
+    # )
+    @extend_schema(
+        description=readfile('Rest_API/endpoint_desc/imports/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/imports/timeframe.txt'),
+            ),
+            OpenApiParameter(
+                name='flow',
+                description=readfile('Rest_API/endpoint_desc/imports/flow.txt'),
+            ),
+
+        ],
+
+        examples=[
+            OpenApiExample(
+                'Single Year Example',
+                value=e.barChartExample1,
+                media_type="application/json",
+            ),
+            OpenApiExample(
+                'Year Window Example',
+                value=e.barChartExample2,
+                media_type="application/json",
+            ),
+            # OpenApiExample(
+            #     'Return Example',
+            #     value=e.importReturnExample,
+            #     media_type="application/json",
+            # )
+
+        ],
+        request=s.BarChartSerializer(),
+        responses={
+            '200': s.ImportsReturnSerializer(many=True)
+        }
+    )
+    def post(self, request):
+        serializer = s.BarChartSerializer(data=request.data)
+        if serializer.is_valid():
+            data = Common(
+                serializer.validated_data['timeframe'],
+                serializer.validated_data['flow']
+            )
+            query = data.bar_chart_details()
+            if query == False: return Response("Error: Check Data", 400)
+            logger.info(f"Export Endpoint:{query}")
+            lookup = QueryTool()
+            data = lookup.query(query)
+            if data.empty:
+                return Response({"error": "Cannot return domestic destination details"}, status=400)
+
+            result = data
+            return Response(result)
+        return Response(serializer.errors, status=400)
+
 """Checklist
 *add to api_readme
 *make examples

@@ -12,7 +12,7 @@ class QueryTool:
             host  (string) = hostname
         Returns pandas dataframe
     """
-    def __init__(self, db='faf', usr='fafuser', psswrd='FQ^2t73Ava', host='localhost'):
+    def __init__(self, db='faf', usr='root', psswrd='uibi2868', host='localhost'):
         self.db     = db
         self.usr    = usr 
         self.psswrd = psswrd

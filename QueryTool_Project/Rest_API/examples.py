@@ -24,7 +24,11 @@ PtoPReturnExample = {
 }
 exportSingleExample1 = {
         "origin"   :"Indiana",
-        "timeframe":[2018,2025],
+        "commodity": "Animal feed",
+        "destination": "Alaska",
+        "transpotation": "Truck",
+        "flow":"domestic",
+        "timeframe": [2018, 2025],
 }
 exportMultiExample2 = {
         "origin":"Pennsylvania",
@@ -43,13 +47,31 @@ importReturnExample = {
         "transport":"Truck",
         "year"     :2017,
 }
+
+barChartExample1 = {
+        "flow":"foreign_import",
+        "timeframe": [2018, 2025],
+}
+
+barChartExample2 = {
+        "flow":"foreign_import",
+        "timeframe": [2017],
+}
 rawExample1 = {
-        "origin"    :"Texas",
+        "origin"    :"Indiana",
         "timeframe":[2017, 2020],
+        "commodity": "",
+        "destination": "",
+        "transpotation": "",
+        "flow":"domestic",
 }
 rawExample2 = {
-        "origin"   :"Texas",
+        "origin"   :"Indiana",
         "timeframe":[2017],
+        "commodity": "",
+        "destination": "Iowa",
+        "transpotation": "",
+        "flow":"domestic",
 }
 rawExampleReturn = { #change
         "commodity":"Logs",

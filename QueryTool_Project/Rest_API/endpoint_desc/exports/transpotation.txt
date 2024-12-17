@@ -1,0 +1,7 @@
+The variable transportation takes a string value corresponding to transport modes, like the following Truck, Air, Water
+Each string value should match an existing transport mode stored in the database.
+
+Example:
+- Truck will give details for the transport mode "Truck" only.
+
+The string value provided should correspond exactly to the transport mode names as they are stored in the database to retrieve accurate data.

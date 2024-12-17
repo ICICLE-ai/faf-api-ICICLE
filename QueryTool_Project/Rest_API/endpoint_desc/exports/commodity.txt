@@ -1,0 +1,7 @@
+The variable commodity takes a  string value corresponding to commodity names.
+Each string value should match an existing commodity name stored in the database.
+
+Example:
+- "Coal" will give details for the commodity "Coal" only.
+
+The string value provided should correspond exactly to the commodity names as they are stored in the database to retrieve accurate data.
