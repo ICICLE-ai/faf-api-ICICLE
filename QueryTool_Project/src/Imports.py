@@ -11,31 +11,67 @@ class Imports:
             self,
             origin    = "",
             timeframe = [],
+            commodity="",
+            destination="",
+            transpotation="",
+            flow="",
     ):
         self.query = "SELECT "
 
         self.origin    = origin
         self.table     = None
         self.timeframe = timeframe
+        self.transpotation = transpotation
+        self.commodity = commodity
+        self.destination = destination
+        self.flow = flow
 
     def setup(self):
         self.table = self._checkLocations()
+        print("import11111111111.........",self.table,self.flow )
+        if self.flow == "domestic":
+            self.table += "1"
+        elif self.flow == "foreign_import":
+            self.table += "2"
+        else:
+            self.table += "3"
+
         if self.table == False: return False        #incorrect origin destination match
         if not self._checkTimeframe(): return False #incorrect times 
         cols = []
 
 
-        if self.table[:3] == "faf":
+        if self.table == "faf1":
             cols.append(metrics.faf0["dms_orig"][0])
             cols.append(metrics.faf0["dms_dest"][0])
             cols.append(metrics.faf0["sctg2"][0])
             cols.append(metrics.faf0["dms_mode"][0])
 
-        else:
+        if self.table == "state1":
+
             cols.append(sm.state0["dms_orig"][0])
             cols.append(sm.state0["dms_dest"][0])
             cols.append(sm.state0["sctg2"][0])
             cols.append(sm.state0["dms_mode"][0])
+
+        if self.table == "faf2":
+            cols.append(metrics.faf2["fr_orig"][0])
+            cols.append(metrics.faf2["fr_inmode"][0])
+
+        if self.table == "faf3":
+            cols.append(metrics.faf3["fr_dest"][0])
+            cols.append(metrics.faf3["fr_outmode"][0])
+
+        if self.table == "state2":
+            cols.append(sm.state2["fr_orig"][0])
+            cols.append(sm.state2["fr_inmode"][0])
+            cols.append(sm.state0["sctg2"][0])
+            cols.append(sm.state0["dms_dest"][0])
+
+        if self.table == "state3":
+            cols.append(sm.state3["fr_dest"][0])
+            cols.append(sm.state3["fr_outmode"][0])
+
  
         if self.table[:3] == "faf":
             for year in self.timeframe:
@@ -56,27 +92,94 @@ class Imports:
 
         self._table()
 
-        if self.table[:3] == "faf":
+        if self.table == "faf1":
             self.query += metrics.faf0["dms_orig"][1] + " "
             self.query += metrics.faf0["dms_dest"][1] + " "
             self.query += metrics.faf0["sctg2"][1] + " "
             self.query += metrics.faf0["dms_mode"][1] + " "
 
-        else:
+        if self.table == "state1":
+
             self.query += sm.state0["dms_orig"][1] + " "
             self.query += sm.state0["dms_dest"][1] + " "
             self.query += sm.state0["sctg2"][1] + " "
             self.query += sm.state0["dms_mode"][1] + " "
 
 
+
+        if self.table == "faf2":
+            self.query += metrics.faf2["fr_orig"][1] + " "
+            self.query += metrics.faf2["fr_inmode"][1] + " "
+
+        if self.table == "faf3":
+            self.query += metrics.faf3["fr_dest"][1] + " "
+            self.query += metrics.faf3["fr_outmode"][1] + " "
+
+        if self.table == "state2":
+            self.query += sm.state2["fr_orig"][1] + " "
+            self.query += sm.state2["fr_inmode"][1] + " "
+            self.query += sm.state0["sctg2"][1] + " "
+            self.query += sm.state0["dms_dest"][1] + " "
+
+        if self.table== "state3":
+            self.query += sm.state3["fr_dest"][1] + " "
+            self.query += sm.state3["fr_outmode"][1] + " "
+
+
+
         #Checks for where statements
         where = "WHERE"
         
+        # if self.table == "faf0" or self.table == "faf1":
+        #     self.query += f"{where} df.description = '{self.origin}' "
+        #
+        # if self.table == "state0" or self.table == "state1":
+        #     self.query += f"{where} ds.description = '{self.origin}' "
+
         if self.table == "faf0" or self.table == "faf1":
-            self.query += f"{where} df.description = '{self.origin}' "
+            if self.origin:
+                self.query += f"{where} of0.description = '{self.origin}' "
+            if self.destination:
+                self.query += f" AND df.description = '{self.destination}' "
+            if self.transpotation:
+                self.query += f" AND m.description = '{self.transpotation}' "
 
         if self.table == "state0" or self.table == "state1":
-            self.query += f"{where} ds.description = '{self.origin}' "
+            if self.origin:
+                self.query += f"{where} os.description = '{self.origin}' "
+            if self.destination:
+                self.query += f" AND ds.description = '{self.destination}' "
+            if self.transpotation:
+                self.query += f" AND m.description = '{self.transpotation}' "
+
+        if self.table == "faf2":
+            if self.origin:
+                self.query += f"{where} fo.description = '{self.origin}' "
+            if self.destination:
+                self.query += f" AND df.description = '{self.destination}' "
+        #
+        # if self.table == "faf3" :
+        #     self.query += f"{where} fd.description = '{self.origin}' "
+        #     if self.destination:
+        #         self.query += f" AND df.description = '{self.destination}' "
+
+        if self.table == "state2":
+            if self.origin:
+                self.query += f"{where} fo.description = '{self.origin}' "
+            if self.destination:
+                self.query += f" AND ds.description = '{self.destination}' "
+            if self.transpotation:
+                self.query += f" AND fom.description = '{self.transpotation}' "
+
+        # if self.table == "state3":
+        #     self.query += f"{where} fd.description = '{self.origin}' "
+        #     if self.destination:
+        #         self.query += f" AND ds.description = '{self.destination}' "
+
+
+
+        if self.commodity:
+            self.query += f" AND c.description = '{self.commodity}' "
 
         self.query += ";"
         return self.query
@@ -96,10 +199,13 @@ class Imports:
         ofaf   = tool.query("SELECT description FROM d_faf;")        
 
         for state in ostate['description']:
-            if state == self.origin: return "state1"
+            if state == self.origin: return "state"
 
         for faf in ofaf['description']:
-            if faf == self.origin: return "faf1"
+            if faf == self.origin: return "faf"
+
+        for state in ostate['description']:
+            if state == self.destination: return "state"
 
         return False
 

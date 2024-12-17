@@ -9,12 +9,12 @@ state0 = {
 
 state2 = {
     "fr_orig"  : ["fo.description AS Foreign_Origin",   "JOIN fo ON fr_orig = fo.code"],
-    "fr_inmode": ["fom.description AS Foreign_Transport","JOIN fom ON fr_inmode = fom.code"],
+    "fr_inmode": ["fom.description AS Transportation","JOIN fom ON fr_inmode = fom.code"],
 }
 
 state3 = {
     "fr_dest"   :["fd.description AS Foreign_Destination",    "JOIN fd ON fr_dest = fd.code"],
-    "fr_outmode":["fdm.description AS Foreign_Transportation","JOIN fdm ON fr_outmode = fdm.code"],
+    "fr_outmode":["fdm.description AS Transportation","JOIN fdm ON fr_outmode = fdm.code"],
 }
 
 table = {
@@ -49,23 +49,23 @@ tons = {
 }
 
 tons_sum = {
-    "1997":"SUM(tons_1997) AS Total_Tons_1997",
-    "2002":"SUM(tons_2002) AS Total_Tons_2002",
-    "2007":"SUM(tons_2007) AS Total_Tons_2007",
-    "2012":"SUM(tons_2012) AS Total_Tons_2012",
-    "2017":"SUM(tons_2017) AS Total_Tons_2017",
-    "2018":"SUM(tons_2018) AS Total_Tons_2018",
-    "2019":"SUM(tons_2019) AS Total_Tons_2019",
-    "2020":"SUM(tons_2020) AS Total_Tons_2020",
-    "2021":"SUM(tons_2021) AS Total_Tons_2021",
-    "2022":"SUM(tons_2022) AS Total_Tons_2022",
-    "2023":"SUM(tons_2023) AS Total_Tons_2023",
-    "2025":"SUM(tons_2025) AS Total_Tons_2025",
-    "2030":"SUM(tons_2030) AS Total_Tons_2030",
-    "2035":"SUM(tons_2035) AS Total_Tons_2035",
-    "2040":"SUM(tons_2040) AS Total_Tons_2040",
-    "2045":"SUM(tons_2045) AS Total_Tons_2045",
-    "2050":"SUM(tons_2050) AS Total_Tons_2050",
+    "1997":"SUM(tons_1997) AS '1997'",
+    "2002":"SUM(tons_2002) AS '2002'",
+    "2007":"SUM(tons_2007) AS '2007'",
+    "2012":"SUM(tons_2012) AS '2012'",
+    "2017":"SUM(tons_2017) AS '2017'",
+    "2018":"SUM(tons_2018) AS '2018'",
+    "2019":"SUM(tons_2019) AS '2019'",
+    "2020":"SUM(tons_2020) AS '2020'",
+    "2021":"SUM(tons_2021) AS '2021'",
+    "2022":"SUM(tons_2022) AS '2022'",
+    "2023":"SUM(tons_2023) AS '2023'",
+    "2025":"SUM(tons_2025) AS '2025'",
+    "2030":"SUM(tons_2030) AS '2030'",
+    "2035":"SUM(tons_2035) AS '2035'",
+    "2040":"SUM(tons_2040) AS '2040'",
+    "2045":"SUM(tons_2045) AS '2045'",
+    "2050":"SUM(tons_2050) AS '2050'",
 }
 
 value = {
