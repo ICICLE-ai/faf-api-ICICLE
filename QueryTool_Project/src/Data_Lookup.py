@@ -2,6 +2,7 @@ from sqlalchemy import create_engine, MetaData, Table, text
 import json
 import pandas as pd
 import logging
+import os
 
 logger = logging.getLogger('src.Data_Lookup')
 class QueryTool:
@@ -12,11 +13,16 @@ class QueryTool:
             host  (string) = hostname
         Returns pandas dataframe
     """
-    def __init__(self, db='faf', usr='root', psswrd='uibi2868', host='localhost'):
-        self.db     = db
-        self.usr    = usr 
-        self.psswrd = psswrd
-        self.host   = host
+    # def __init__(self, db='faf', usr='root', psswrd='uibi2868', host='localhost'):
+    #     self.db     = db
+    #     self.usr    = usr
+    #     self.psswrd = psswrd
+    #     self.host   = host
+    def __init__(self, db=None, usr=None, psswrd=None, host=None):
+        self.db = db or os.getenv('DB_NAME', 'faf')
+        self.usr = usr or os.getenv('DB_USER', 'root')
+        self.psswrd = psswrd or os.getenv('DB_PASSWORD', 'uibi2868')
+        self.host = host or os.getenv('DB_HOST', 'localhost')
 
         self.engine = None 
         self.conn   = None
