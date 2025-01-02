@@ -28,7 +28,6 @@ class Imports:
 
     def setup(self):
         self.table = self._checkLocations()
-        print("import11111111111.........",self.table,self.flow )
         if self.flow == "domestic":
             self.table += "1"
         elif self.flow == "foreign_import":

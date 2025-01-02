@@ -390,8 +390,6 @@ class RawResource(APIView):
             lookup = QueryTool()
             self.df1 = lookup.query(query)
             self.df2 = lookup.query(query2)
-            print("self.df1self.df1self.df1self.df1",self.df1)
-            print("self.df2",self.df2)
             commodities = lookup.query("SELECT description FROM c")["description"]
             
             #splitting proccess between 1 and 2, will join both dataframes in end
@@ -430,7 +428,6 @@ class RawResource(APIView):
             new_df2 = pd.DataFrame(output2)
             #joined dataframe
             complete_df = pd.concat([new_df1, new_df2])
-            print("(complete_df",complete_df)
 
             # Calculate totals year-wise for imports and exports
             year_columns = [col for col in new_df1.columns if col.startswith('tons')]
