@@ -30,7 +30,6 @@ class Exports:
 
     def setup(self):
         self.table = self._checkLocations()
-        print("11111118888888888888.........",self.table,self.flow )
 
         if self.flow == "domestic":
             self.table += "1"
@@ -42,7 +41,6 @@ class Exports:
         if self.table == False: return False        #incorrect origin destination match
         if not self._checkTimeframe(): return False #incorrect times 
         cols = []
-        print("111111999999999999.........", self.table)
 
         if self.table == "faf1":
             cols.append(metrics.faf0["dms_orig"][0])

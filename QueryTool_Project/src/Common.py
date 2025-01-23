@@ -101,12 +101,10 @@ class Common:
             self.query += f" AND c.description = '{self.commodity}' "
 
         self.query += ";"
-        logger.debug("jjjjjjj", self.query)
         return self.query
 
     def mode_details(self):
         # self.timeframe = [2017,2024]
-        print("bbbbbb",self.timeframe)
         # self.table = 'state1'
         self.query = "SELECT "
         self.table = 'state'
@@ -270,9 +268,7 @@ class Common:
             #     cols.append(sm.state0["dms_dest"][0])
             #     cols.append(sm.state0["sctg2"][0])
             # cols.append(sm.state0["dms_mode"][0])
-        print("time frame1111111",self.timeframe)
         start_year, end_year = self.timeframe[0], self.timeframe[1]
-        print("time frame1111111start_yearstart_year", start_year, end_year)
         self.timeframe = list(range(start_year, end_year + 1))
         if self.table[:3] == "faf":
             for year in self.timeframe:

@@ -4,8 +4,8 @@ from .views import *
 urlpatterns = [
     path('get_table_data/'   , GatherAll.as_view()),
     path('point_to_point/'   , PointtoPoint.as_view()),
-    path('exports/' , Export_endpoint.as_view()),
-    path('imports/' , Import_endpoint.as_view()),
+    path('imports_exports_details/' , Export_endpoint.as_view()),
+    # path('imports/' , Import_endpoint.as_view()),
     path('import_export_sum/', RawResource.as_view()),
     path('commodity_total/'  , Commodity_total.as_view()),
     path('data_option/'       , Data_Option.as_view()),

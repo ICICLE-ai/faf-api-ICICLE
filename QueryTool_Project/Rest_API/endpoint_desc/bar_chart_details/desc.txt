@@ -1,0 +1,1 @@
+The endpoint provides detailed information about foreign and domestic exports and imports for the past five years
