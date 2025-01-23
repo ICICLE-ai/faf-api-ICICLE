@@ -1,0 +1,1 @@
+get_mode_details/ takes in a region or state with a year or year frame and returns all mode details.

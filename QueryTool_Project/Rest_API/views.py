@@ -753,7 +753,7 @@ class Export_Mode_Details(APIView):
     #     # request=s.OptionSerializer(),
     # )
     @extend_schema(
-        description=readfile('Rest_API/endpoint_desc/imports/desc.txt'),
+        description=readfile('Rest_API/endpoint_desc/mode_details/desc.txt'),
         parameters=[
             OpenApiParameter(
                 name='timeframe',
@@ -809,7 +809,7 @@ class Bar_Chart_Details(APIView):
     #     # request=s.OptionSerializer(),
     # )
     @extend_schema(
-        description=readfile('Rest_API/endpoint_desc/imports/desc.txt'),
+        description=readfile('Rest_API/endpoint_desc/bar_chart_details/desc.txt'),
         parameters=[
             OpenApiParameter(
                 name='timeframe',
