@@ -332,10 +332,10 @@ class Common:
 
         lookup = QueryTool()
 
-        data_state_origin = lookup.query("SELECT description FROM d_state;")
+        data_state_origin = lookup.query("SELECT description FROM d_faf;")
         result_state_origin = data_state_origin["description"].tolist()
 
-        data_state_destination = lookup.query("SELECT description FROM d_state;")
+        data_state_destination = lookup.query("SELECT description FROM d_faf;")
         result_state_destination= data_state_destination["description"].tolist()
 
         # Fetch the second query result
@@ -360,7 +360,7 @@ class Common:
 
         lookup = QueryTool()
 
-        data_domestic_origin = lookup.query("SELECT description FROM d_state;")
+        data_domestic_origin = lookup.query("SELECT description FROM d_faf;")
         result_domestic_origin = data_domestic_origin["description"].tolist()
 
         data_foreign_destination = lookup.query("SELECT description FROM fd;")
@@ -391,7 +391,7 @@ class Common:
         data_foreign_origin = lookup.query("SELECT description FROM fo;")
         result_foreign_origin = data_foreign_origin["description"].tolist()
 
-        data_domestic_destination = lookup.query("SELECT description FROM d_state;")
+        data_domestic_destination = lookup.query("SELECT description FROM d_faf;")
         result_domestic_destination= data_domestic_destination["description"].tolist()
 
         # Fetch the second query result
