@@ -10,12 +10,16 @@ faf0 = {
 
 faf2 = {
     "fr_orig"  : ["fo.description AS Origin",           "JOIN fo ON fr_orig = fo.code"],
+    "dms_dest": ["df.description AS Domestic_Destination", "JOIN d_faf df  ON dms_dest = df.code"],
     "fr_inmode": ["fom.description AS Transportation","JOIN fom ON fr_inmode = fom.code"],
+    "sctg2": ["c.description AS Commodity", "JOIN c ON sctg2 = c.code"],
 }
 
 faf3 = {
+    "dms_orig" : ["of0.description AS Domestic_Origin",    "JOIN o_faf of0 ON dms_orig = of0.code"],
     "fr_dest"   :["fd.description AS Foreign_Destination",    "JOIN fd ON fr_dest = fd.code"],
     "fr_outmode":["fdm.description AS Transportation","JOIN fdm ON fr_outmode = fdm.code"],
+    "sctg2": ["c.description AS Commodity", "JOIN c ON sctg2 = c.code"],
 }
 
 faf0_column_names = [
