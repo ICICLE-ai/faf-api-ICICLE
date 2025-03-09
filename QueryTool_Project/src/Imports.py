@@ -55,7 +55,9 @@ class Imports:
 
         if self.table == "faf2":
             cols.append(metrics.faf2["fr_orig"][0])
+            cols.append(metrics.faf2["dms_dest"][0])
             cols.append(metrics.faf2["fr_inmode"][0])
+            cols.append(metrics.faf2["sctg2"][0])
 
         if self.table == "faf3":
             cols.append(metrics.faf3["fr_dest"][0])
@@ -108,7 +110,9 @@ class Imports:
 
         if self.table == "faf2":
             self.query += metrics.faf2["fr_orig"][1] + " "
+            self.query += metrics.faf2["dms_dest"][1] + " "
             self.query += metrics.faf2["fr_inmode"][1] + " "
+            self.query += metrics.faf2["sctg2"][1] + " "
 
         if self.table == "faf3":
             self.query += metrics.faf3["fr_dest"][1] + " "
@@ -156,6 +160,8 @@ class Imports:
                 self.query += f"{where} fo.description = '{self.origin}' "
             if self.destination:
                 self.query += f" AND df.description = '{self.destination}' "
+            if self.transpotation:
+                self.query += f" AND fom.description = '{self.transpotation}' "
         #
         # if self.table == "faf3" :
         #     self.query += f"{where} fd.description = '{self.origin}' "
@@ -205,6 +211,9 @@ class Imports:
 
         for state in ostate['description']:
             if state == self.destination: return "state"
+
+        for faf in ofaf['description']:
+            if faf == self.destination: return "faf"
 
         return False
 

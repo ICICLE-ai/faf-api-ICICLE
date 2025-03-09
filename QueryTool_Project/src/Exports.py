@@ -62,6 +62,8 @@ class Exports:
         if self.table == "faf3":
             cols.append(metrics.faf3["fr_dest"][0])
             cols.append(metrics.faf3["fr_outmode"][0])
+            cols.append(metrics.faf3["dms_orig"][0])
+            cols.append(metrics.faf3["sctg2"][0])
 
         if self.table == "state2":
             cols.append(sm.state2["fr_orig"][0])
@@ -110,8 +112,10 @@ class Exports:
             self.query += metrics.faf2["fr_inmode"][1] + " "
 
         if self.table== "faf3":
+            self.query += metrics.faf3["dms_orig"][1] + " "
             self.query += metrics.faf3["fr_dest"][1] + " "
             self.query += metrics.faf3["fr_outmode"][1] + " "
+            self.query += metrics.faf3["sctg2"][1] + " "
 
         if self.table == "state2":
             self.query += sm.state2["fr_orig"][1] + " "
