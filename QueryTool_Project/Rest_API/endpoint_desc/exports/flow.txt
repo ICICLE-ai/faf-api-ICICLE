@@ -1,13 +1,13 @@
 The variable flow takes a single string value that represents the type of flow, which can be one of the following:
 
-- "Domestic" – Represents a flow within the same country.
-- "Foreign-Import" – Represents a flow of goods coming into the country from abroad.
-- "Foreign-Export" – Represents a flow of goods leaving the country to be exported abroad.
+- "domestic" – Represents a flow within the same country.
+- "foreign-Import" – Represents a flow of goods coming into the country from abroad.
+- "foreign-Export" – Represents a flow of goods leaving the country to be exported abroad.
 
 Only one of these string values should be provided at a time.
 
 Example:
-- "Domestic" will provide data related to goods or services that are within the same country.
-- "Foreign-Export" will provide data related to goods or services leaving the country.
+- "domestic" will provide data related to goods or services that are within the same country.
+- "foreign-Export" will provide data related to goods or services leaving the country.
 
 The string value provided must exactly match one of these options to retrieve the appropriate data.

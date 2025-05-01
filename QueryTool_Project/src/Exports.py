@@ -39,7 +39,7 @@ class Exports:
             self.table += "3"
 
         if self.table == False: return False        #incorrect origin destination match
-        if not self._checkTimeframe(): return False #incorrect times 
+        if not self._checkTimeframe(): return False #incorrect times
         cols = []
 
         if self.table == "faf1":

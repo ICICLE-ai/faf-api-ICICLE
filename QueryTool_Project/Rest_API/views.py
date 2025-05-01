@@ -1,4 +1,6 @@
 #Rest_API/views.py
+import ast
+
 from django.db.models.expressions import result
 from django.shortcuts import render
 from django.http      import HttpResponse
@@ -46,8 +48,8 @@ class GatherAll(APIView):
             OpenApiParameter(
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/get_table_data/timeframe.txt'),
-            ) 
-        ],    
+            )
+        ],
         examples=[
             OpenApiExample(
                 'Example',
@@ -65,9 +67,9 @@ class GatherAll(APIView):
             gt   = GrabTable(table, timef)
             if gt.fail == 1: return Response("ERROR: Wrong Table")
             query = gt.setup()
-             
+
             logger.info(f"Grab Table Query: {query}")
-            
+
             lookup = QueryTool()
             data = lookup.query(query)
             try:
@@ -81,26 +83,11 @@ class GatherAll(APIView):
 
 ###########################################################################################
 class PointtoPoint(APIView):
+
     @extend_schema(
         description=readfile('Rest_API/endpoint_desc/point_to_point/desc.txt'),
-        parameters=[
-            OpenApiParameter(
-                name='commodity',
-                description=readfile('Rest_API/endpoint_desc/point_to_point/commodity.txt'),
-            ),
-            OpenApiParameter(
-                name='origin',
-                description=readfile('Rest_API/endpoint_desc/point_to_point/origin.txt'),
-            ),           
-            OpenApiParameter(
-                name='destination',
-                description=readfile('Rest_API/endpoint_desc/point_to_point/destination.txt'),
-            ),           
-            OpenApiParameter(
-                name='timeframe',
-                description=readfile('Rest_API/endpoint_desc/point_to_point/timeframe.txt'),
-            ),           
-        ], 
+        request=s.PointToPointSerializer,
+        responses={200: s.PtoPReturnSerializer(many=True)},
         examples=[
             OpenApiExample(
                 'Year Range Example',
@@ -116,119 +103,293 @@ class PointtoPoint(APIView):
                 'Response Example',
                 value=e.PtoPReturnExample,
                 media_type="application/json",
-            )
+            ),
         ],
-        request=s.PointToPointSerializer(),
-        responses={
-            '200':s.PtoPReturnSerializer(many=True),
-        },
     )
-
     def post(self, request):
+        """POST method accepts body."""
         serializer = s.PointToPointSerializer(data=request.data)
         if serializer.is_valid():
-            data = PointToPoint(
-                serializer.validated_data['commodity'],
-                serializer.validated_data['origin'],
-                serializer.validated_data['destination'],
-                serializer.validated_data['timeframe']
-            )
-            query = data.setup()
-            if query == False: return Response("ERROR: Check data") 
-            logger.info(f"PointToPoint: {query}")
-            lookup = QueryTool()
-            data = lookup.query(query)
-            try:
-                csv_data = data.to_csv(index=False)
-                response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = 'attachment; filename=PointToPoint.csv'
-                return response
-            except:
-                return Response("ERROR: Cannot return csv_data")
+            return self._process_query(serializer.validated_data)
         return Response(serializer.errors, status=400)
+
+    @extend_schema(
+        description=readfile('Rest_API/endpoint_desc/point_to_point/desc.txt'),
+        parameters=[
+            OpenApiParameter(
+                name='commodity',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/commodity.txt'),
+                required=True,
+                type=str,
+            ),
+            OpenApiParameter(
+                name='origin',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/origin.txt'),
+                required=True,
+                type=str,
+            ),
+            OpenApiParameter(
+                name='destination',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/destination.txt'),
+                required=True,
+                type=str,
+            ),
+            OpenApiParameter(
+                name='timeframe',
+                description=readfile('Rest_API/endpoint_desc/point_to_point/timeframe.txt'),
+                required=True,
+                type=str,
+                examples=[
+                    OpenApiExample(
+                        'Timeframe Example',
+                        value='[2017, 2025]'
+                    )
+                ]
+            ),
+        ],
+        responses={200: s.PtoPReturnSerializer(many=True)},
+    )
+    def get(self, request):
+        """GET method accepts query parameters."""
+        params = {
+            "commodity": request.query_params.get('commodity'),
+            "origin": request.query_params.get('origin'),
+            "destination": request.query_params.get('destination'),
+            "timeframe": request.query_params.get('timeframe'),
+        }
+
+        # Handle timeframe parsing (from string to list)
+        if params["timeframe"]:
+            try:
+                params['timeframe'] = ast.literal_eval(params['timeframe'])
+            except Exception:
+                return Response({"error": "Invalid format for 'timeframe'. Use [year1, year2]."}, status=400)
+
+        serializer = s.PointToPointSerializer(data=params)
+        if serializer.is_valid():
+            return self._process_query(serializer.validated_data)
+        return Response(serializer.errors, status=400)
+
+    def _process_query(self, validated_data):
+        """Helper to avoid code duplication."""
+        data = PointToPoint(
+            validated_data['commodity'],
+            validated_data['origin'],
+            validated_data['destination'],
+            validated_data['timeframe']
+        )
+        query = data.setup()
+        if not query:
+            return Response("ERROR: Check data")
+
+        logger.info(f"PointToPoint: {query}")
+        lookup = QueryTool()
+        result = lookup.query(query)
+        try:
+            csv_data = result.to_csv(index=False)
+            response = HttpResponse(csv_data, content_type="text/csv")
+            response['Content-Disposition'] = 'attachment; filename=PointToPoint.csv'
+            return response
+        except Exception as e:
+            logger.error(f"Error while generating CSV: {e}")
+            return Response("ERROR: Cannot return csv_data")
+
+
+##########################################################################################
+# class Export_endpoint(APIView):
+#     @extend_schema(
+#         description=readfile('Rest_API/endpoint_desc/exports/desc.txt'),
+#         parameters=[
+#             OpenApiParameter(
+#                 name='origin',
+#                 description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+#             ),
+#             OpenApiParameter(
+#                 name='timeframe',
+#                 description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
+#             ),
+#             OpenApiParameter(
+#                 name='commodity',
+#                 description=readfile('Rest_API/endpoint_desc/exports/commodity.txt'),
+#             ),
+#             OpenApiParameter(
+#                 name='destination',
+#                 description=readfile('Rest_API/endpoint_desc/exports/destination.txt'),
+#             ),
+#             OpenApiParameter(
+#                 name='transpotation',
+#                 description=readfile('Rest_API/endpoint_desc/exports/transpotation.txt'),
+#             ),
+#             OpenApiParameter(
+#                 name='flow',
+#                 description=readfile('Rest_API/endpoint_desc/exports/flow.txt'),
+#             ),
+#
+#         ],
+#         examples=[
+#             OpenApiExample(
+#                 'Single Year Example',
+#                 value=e.exportSingleExample1,
+#                 media_type="application/json",
+#             ),
+#             OpenApiExample(
+#                 'Year Window Example',
+#                 value=e.exportMultiExample2,
+#                 media_type="application/json",
+#             ),
+#            OpenApiExample(
+#                 'Return Example',
+#                 value=e.exportReturnExample,
+#                 media_type="application/json",
+#             )
+#
+#         ],
+#         request=s.ExportsSerializer(),
+#         responses={
+#             '200':s.ExportsReturnSerializer(many=True)
+#         },
+#     )
+#
+#     def post(self, request):
+#         serializer = s.ExportsSerializer(data=request.data)
+#         if serializer.is_valid():
+#             data = Exports(
+#                 serializer.validated_data['origin'],
+#                 serializer.validated_data['timeframe'],
+#                 serializer.validated_data['commodity'],
+#                 serializer.validated_data['destination'],
+#                 serializer.validated_data['transpotation'],
+#                 serializer.validated_data['flow']
+#             )
+#             query = data.setup()
+#
+#             if query == False: return Response("Error: Check Data", 400)
+#             logger.info(f"Export Endpoint:{query}")
+#             lookup = QueryTool()
+#             data = lookup.query(query)
+#             try:
+#                 csv_data = data.to_csv(index=False)
+#                 response = HttpResponse(csv_data, content_type="text/csv")
+#                 response['Content-Disposition'] = f'attachment; filename=exports_{serializer.validated_data["origin"]}.csv'
+#                 return response
+#             except:
+#                 return Response("ERROR: Cannot return csv_data")
+#         return Response(serializer.errors, status=400)
 
 ##########################################################################################
 class Export_endpoint(APIView):
+
     @extend_schema(
         description=readfile('Rest_API/endpoint_desc/exports/desc.txt'),
         parameters=[
             OpenApiParameter(
                 name='origin',
                 description=readfile('Rest_API/endpoint_desc/exports/origin.txt'),
+                required=True,
+                type=str
             ),
             OpenApiParameter(
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/exports/timeframe.txt'),
+                required=True,
+                type=str
             ),
             OpenApiParameter(
                 name='commodity',
                 description=readfile('Rest_API/endpoint_desc/exports/commodity.txt'),
+                required=True,
+                type=str
             ),
             OpenApiParameter(
                 name='destination',
                 description=readfile('Rest_API/endpoint_desc/exports/destination.txt'),
+                required=True,
+                type=str
             ),
             OpenApiParameter(
                 name='transpotation',
                 description=readfile('Rest_API/endpoint_desc/exports/transpotation.txt'),
+                required=True,
+                type=str
             ),
             OpenApiParameter(
                 name='flow',
                 description=readfile('Rest_API/endpoint_desc/exports/flow.txt'),
+                required=True,
+                type=str
             ),
- 
         ],
         examples=[
-            OpenApiExample(
-                'Single Year Example',
-                value=e.exportSingleExample1,
-                media_type="application/json",
-            ), 
-            OpenApiExample(
-                'Year Window Example',
-                value=e.exportMultiExample2,
-                media_type="application/json",
-            ),
-           OpenApiExample(
-                'Return Example',
-                value=e.exportReturnExample,
-                media_type="application/json",
-            )
-
+            OpenApiExample('GET Example', value=e.exportReturnExample, media_type="application/json"),
         ],
-        request=s.ExportsSerializer(),
-        responses={
-            '200':s.ExportsReturnSerializer(many=True)
-        },
+        request=None,
+        responses={200: s.ExportsReturnSerializer(many=True)},
     )
-
-    def post(self, request):
-        serializer = s.ExportsSerializer(data=request.data)
-        if serializer.is_valid():
-            data = Exports(
-                serializer.validated_data['origin'],
-                serializer.validated_data['timeframe'],
-                serializer.validated_data['commodity'],
-                serializer.validated_data['destination'],
-                serializer.validated_data['transpotation'],
-                serializer.validated_data['flow']
-            )
-            query = data.setup()
-
-            if query == False: return Response("Error: Check Data", 400)
-            logger.info(f"Export Endpoint:{query}")
-            lookup = QueryTool()
-            data = lookup.query(query)
+    def get(self, request):
+        logger.info("GET method called")
+        data = {
+            'origin': request.query_params.get('origin'),
+            'timeframe': request.query_params.get('timeframe'),
+            'commodity': request.query_params.get('commodity'),
+            'destination': request.query_params.get('destination'),
+            'transpotation': request.query_params.get('transpotation'),
+            'flow': request.query_params.get('flow'),
+        }
+        if data['timeframe']:
             try:
-                csv_data = data.to_csv(index=False)
-                response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = f'attachment; filename=exports_{serializer.validated_data["origin"]}.csv'
-                return response
-            except:
-                return Response("ERROR: Cannot return csv_data")
-        return Response(serializer.errors, status=400)
+                data['timeframe'] = ast.literal_eval(data['timeframe'])
+            except Exception:
+                return Response({"error": "Invalid format for 'timeframe'. Use [year1, year2]."}, status=400)
 
- 
+        return self.handle_export(data)
+
+    @extend_schema(
+        description="Submit export request with POST body",
+        request=s.ExportsSerializer,
+        responses={200: s.ExportsReturnSerializer(many=True)},
+        examples=[
+            OpenApiExample('Single Year Example', value=e.exportSingleExample1, media_type="application/json"),
+            OpenApiExample('Year Window Example', value=e.exportMultiExample2, media_type="application/json"),
+        ],
+    )
+    def post(self, request):
+        logger.info("POST method called")
+        serializer = s.ExportsSerializer(data=request.data)
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
+        return self.handle_export(serializer.validated_data)
+
+    def handle_export(self, data):
+        if not all(data.values()):
+            return Response("Missing required parameters", status=400)
+
+        try:
+            export_obj = Exports(
+                data['origin'],
+                data['timeframe'],
+                data['commodity'],
+                data['destination'],
+                data['transpotation'],
+                data['flow']
+            )
+            query = export_obj.setup()
+            if not query:
+                return Response("Error: Check Data", status=400)
+
+            logger.info(f"Export Endpoint: {query}")
+            lookup = QueryTool()
+            result = lookup.query(query)
+
+            csv_data = result.to_csv(index=False)
+            response = HttpResponse(csv_data, content_type="text/csv")
+            response['Content-Disposition'] = f'attachment; filename=exports_{data["origin"]}.csv'
+            return response
+
+        except Exception as e:
+            logger.error(f"Error generating CSV: {e}")
+            return Response("ERROR: Cannot return csv_data", status=500)
+
+
 ##########################################################################################
 class Import_endpoint(APIView):
     @extend_schema(
@@ -336,14 +497,14 @@ class RawResource(APIView):
                 name='flow',
                 description=readfile('Rest_API/endpoint_desc/import_export_sum/flow.txt'),
             ),
- 
+
         ],
         examples=[
             OpenApiExample(
                 'Example Year',
                 value=e.rawExample1,
                 media_type="application/json",
-            ), 
+            ),
             OpenApiExample(
                 'Example Year Frame',
                 value=e.rawExample2,
@@ -380,7 +541,7 @@ class RawResource(APIView):
                 serializer.validated_data['transpotation'],
                 serializer.validated_data['flow']
             )
-            
+
             #Add ton value based on column and commodity type
             query  = gen_query.setup()
             query2 = gen_query2.setup()
@@ -391,7 +552,7 @@ class RawResource(APIView):
             self.df1 = lookup.query(query)
             self.df2 = lookup.query(query2)
             commodities = lookup.query("SELECT description FROM c")["description"]
-            
+
             #splitting proccess between 1 and 2, will join both dataframes in end
             output1 = {
                 "origin"   : [],
@@ -403,7 +564,7 @@ class RawResource(APIView):
                 "commodity": [],
                 "option":    [],
             }
- 
+
             for col  in self.df1:
                 if col[:4] == 'tons':
                     output1[col] = []
@@ -416,14 +577,14 @@ class RawResource(APIView):
             for col  in self.df2:
                 if col[:4] == 'tons':
                     output2[col] = []
-                
+
                     for c in commodities:
                         if c not in output2['commodity']:
                             output2['origin'].append(serializer.validated_data['origin'])
                             output2['commodity'].append(c)
                             output2['option'].append("Exports")
                         output2[col].append(self._quickSum(0, c, col))
-            
+
             new_df1 = pd.DataFrame(output1)
             new_df2 = pd.DataFrame(output2)
             #joined dataframe
@@ -478,109 +639,145 @@ class RawResource(APIView):
         return filtered_df[sumcol].sum()
 ##########################################################################################
 class Commodity_total(APIView):
+
     @extend_schema(
         description=readfile('Rest_API/endpoint_desc/commodity_total/desc.txt'),
         parameters=[
             OpenApiParameter(
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/commodity_total/timeframe.txt'),
+                required=True,
+                type=str
             ),
             OpenApiParameter(
                 name='option',
                 description=readfile('Rest_API/endpoint_desc/commodity_total/option.txt'),
+                required=True,
+                type=str
             ),
- 
         ],
         examples=[
-            OpenApiExample(
-                'Example Year',
-                value=e.commtotalExample1,
-                media_type="application/json",
-            ), 
-            OpenApiExample(
-                'Example TimeFrame',
-                value=e.commtotalExample2,
-                media_type="application/json",
-            ),
-           OpenApiExample(
-                'Return Example',
-                value=e.commtotalReturnExample,
-                media_type="application/json",
-            ),
-
+            OpenApiExample('Example Year', value=e.commtotalExample1, media_type="application/json"),
+            OpenApiExample('Example TimeFrame', value=e.commtotalExample2, media_type="application/json"),
+            OpenApiExample('Return Example', value=e.commtotalReturnExample, media_type="application/json"),
         ],
-        request=s.CommodityTotalSerializer(),
-        responses={
-            '200':s.CommodityTotalReturnSerializer(many=True)
+        request=None,
+        responses={200: s.CommodityTotalReturnSerializer(many=True)},
+    )
+    def get(self, request):
+        logger.info("GET method called for Commodity_total")
+        data = {
+            'timeframe': request.query_params.get('timeframe'),
+            'option': request.query_params.get('option'),
         }
+        return self.handle_commodity_total(data)
+
+    @extend_schema(
+        description="POST request for Commodity_total with timeframe and option in body.",
+        request=s.CommodityTotalSerializer,
+        responses={200: s.CommodityTotalReturnSerializer(many=True)},
+        examples=[
+            OpenApiExample('Example Year', value=e.commtotalExample1, media_type="application/json"),
+            OpenApiExample('Example TimeFrame', value=e.commtotalExample2, media_type="application/json"),
+            OpenApiExample('Return Example', value=e.commtotalReturnExample, media_type="application/json"),
+        ],
     )
     def post(self, request):
+        logger.info("POST method called for Commodity_total")
         serializer = s.CommodityTotalSerializer(data=request.data)
-        if serializer.is_valid():
-            #Send data to class and return data as pandas framework
-            gen_query = CommodityTotal(
-                serializer.validated_data['timeframe'],
-                serializer.validated_data['option']
-            )
- 
-            #Add ton value based on column and commodity type
-            query  = gen_query.setup()
-            if 'error' in query: return  Response(query) #error occured
-            logger.info(f"CommodityTotal:{query}")
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
+        return self.handle_commodity_total(serializer.validated_data)
+
+    def handle_commodity_total(self, data):
+        if not all(data.values()):
+            return Response("Missing required parameters", status=400)
+
+        try:
+            gen_query = CommodityTotal(data['timeframe'], data['option'])
+            query = gen_query.setup()
+
+            if 'error' in query:
+                return Response(query)
+
+            logger.info(f"CommodityTotal Query: {query}")
             lookup = QueryTool()
-            self.df = lookup.query(query)                #data aquired
-            
-            commodities = lookup.query("SELECT description FROM c")["description"]
-            #creating new dataframe that sorts data into sumations
-            output = {
-                "origin"   : [],
-                "commodity": [],
-                "option"   : [],
-            }
-            #exports
-            ex = self.df.groupby(["Domestic_Origin", "Commodity"]).sum().reset_index() 
+            df = lookup.query(query)
+
+            # Aggregations for import and export
+            ex = df.groupby(["Domestic_Origin", "Commodity"]).sum().reset_index()
             ex = ex.drop(columns=['Domestic_Destination'])
             ex["Trade"] = "export"
             ex = ex.rename(columns={'Domestic_Origin': 'Place'})
-            #imports
-            im = self.df.groupby(["Domestic_Destination", "Commodity"]).sum().reset_index() 
+
+            im = df.groupby(["Domestic_Destination", "Commodity"]).sum().reset_index()
             im = im.drop(columns=['Domestic_Origin'])
             im["Trade"] = "import"
             im = im.rename(columns={'Domestic_Destination': 'Place'})
+
             complete_df = pd.concat([ex, im])
-            #create a response
-            try:
-                csv_data = complete_df.to_csv(index=False)
-                response = HttpResponse(csv_data, content_type="text/csv")
-                response['Content-Disposition'] = 'attachment; filename=TotalCommodity.csv'
-                return response
-            except:
-                return Response("ERROR: Cannot return csv_data")
-        return Response(serializer.errors, status=400)
+
+            # Return CSV
+            csv_data = complete_df.to_csv(index=False)
+            response = HttpResponse(csv_data, content_type="text/csv")
+            response['Content-Disposition'] = 'attachment; filename=TotalCommodity.csv'
+            return response
+
+        except Exception as e:
+            logger.error(f"Error in Commodity_total: {e}")
+            return Response("ERROR: Cannot return csv_data", status=500)
 ###########################################################################################
 class Data_Option(APIView):
-    serializer_class = s.OptionSerializer #just to make swagger happy - useless line
+    serializer_class = s.OptionSerializer  # for Swagger display
+
     @extend_schema(
-        description="Populates data choices based on keyword recieved",
-        request=s.OptionSerializer(),
+        description="Populates data choices based on keyword received (GET method)",
+        parameters=[
+            OpenApiParameter(
+                name='option',
+                description='Choose from: states, regions, commodities, foreign',
+                required=True,
+                type=str,
+            )
+        ],
+        responses={200: None},
     )
-    
+    def get(self, request):
+        logger.info("GET method called for Data_Option")
+        option = request.query_params.get("option")
+        return self._handle_option(option)
+
+    @extend_schema(
+        description="Populates data choices based on keyword received (POST method)",
+        request=s.OptionSerializer,
+        responses={200: None},
+    )
     def post(self, request):
+        logger.info("POST method called for Data_Option")
         serializer = s.OptionSerializer(data=request.data)
-        if serializer.is_valid():
-            choices = {
-                "states"     : "o_state", 
-                "regions"    : "o_faf", 
-                "commodities": "c",
-                "foreign"    : "fo",
-            }
-            if serializer.validated_data["option"] not in choices:
-                return Response({"error": f"Please choose from: {choices.keys()}"})
-            option = serializer.validated_data["option"]
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
+        option = serializer.validated_data["option"]
+        return self._handle_option(option)
+
+    def _handle_option(self, option):
+        choices = {
+            "states"     : "o_state",
+            "regions"    : "o_faf",
+            "commodities": "c",
+            "foreign"    : "fo",
+        }
+
+        if option not in choices:
+            return Response({"error": f"Please choose from: {list(choices.keys())}"}, status=400)
+
+        try:
             lookup = QueryTool()
-            data   = lookup.query(f"SELECT description FROM {choices[option]};")
+            data = lookup.query(f"SELECT description FROM {choices[option]};")
             return Response(data)
-        return Response(serializer.errors, status=400)
+        except Exception as e:
+            logger.error(f"Data_Option error: {e}")
+            return Response({"error": "Query failed"}, status=500)
 
 
 ##########################################################################################
@@ -747,25 +944,24 @@ class Foreign_Import_Tab(APIView):
 ###########################################################################################
 
 class Export_Mode_Details(APIView):
-    # serializer_class = s.OptionSerializer  # just to make swagger happy - useless line
-    # @extend_schema(
-    #     description="Populates data choices based on keyword recieved",
-    #     # request=s.OptionSerializer(),
-    # )
+    serializer_class = s.BarChartSerializer  # just to make Swagger happy
+
     @extend_schema(
         description=readfile('Rest_API/endpoint_desc/mode_details/desc.txt'),
         parameters=[
             OpenApiParameter(
                 name='timeframe',
                 description=readfile('Rest_API/endpoint_desc/mode_details/timeframe.txt'),
+                required=True,
+                type=str,
             ),
             OpenApiParameter(
                 name='flow',
                 description=readfile('Rest_API/endpoint_desc/mode_details/flow.txt'),
+                required=True,
+                type=str,
             ),
-
         ],
-
         examples=[
             OpenApiExample(
                 'Single Year Example',
@@ -777,29 +973,45 @@ class Export_Mode_Details(APIView):
                 value=e.barChartExample2,
                 media_type="application/json",
             ),
-            # OpenApiExample(
-            #     'Return Example',
-            #     value=e.importReturnExample,
-            #     media_type="application/json",
-            # )
-
         ],
+        responses={200: s.ImportsReturnSerializer(many=True)},
+    )
+    def get(self, request):
+        timeframe = request.query_params.get("timeframe")
+        flow = request.query_params.get("flow")
+
+        if timeframe:
+            try:
+                timeframe = ast.literal_eval(timeframe)
+            except Exception:
+                return Response({"error": "Invalid format for 'timeframe'. Use [year1, year2]."}, status=400)
+
+        return self._handle_mode_details(timeframe, flow)
+
+    @extend_schema(
+        description=readfile('Rest_API/endpoint_desc/mode_details/desc.txt'),
         request=s.BarChartSerializer(),
-        responses={
-            '200': s.ImportsReturnSerializer(many=True)
-        }
+        responses={200: s.ImportsReturnSerializer(many=True)},
     )
     def post(self, request):
         serializer = s.BarChartSerializer(data=request.data)
-        if serializer.is_valid():
-            data = Common(
-                serializer.validated_data['timeframe'],
-                serializer.validated_data['flow']
-            )
+        if not serializer.is_valid():
+            return Response(serializer.errors, status=400)
 
+        timeframe = serializer.validated_data["timeframe"]
+        flow = serializer.validated_data["flow"]
+        return self._handle_mode_details(timeframe, flow)
+
+    def _handle_mode_details(self, timeframe, flow):
+        if not timeframe or not flow:
+            return Response({"error": "Both 'timeframe' and 'flow' are required."}, status=400)
+
+        try:
+            data = Common(timeframe, flow)
             result = data.mode_details()
             return Response(result)
-        return Response(serializer.errors, status=400)
+        except Exception as e:
+            return Response({"error": str(e)}, status=500)
 ###########################################################################################
 
 class Bar_Chart_Details(APIView):

@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8000
 
 # Define environment variables for the MySQL connection
-ENV DB_HOST=172.19.0.1
+#ENV DB_HOST=172.19.0.1
 ENV DB_PORT=3306
 ENV DB_NAME=faf
 ENV DB_USER=fafuser

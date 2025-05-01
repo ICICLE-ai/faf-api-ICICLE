@@ -27,7 +27,8 @@ class QueryTool:
         self.engine = None 
         self.conn   = None
 
-        self.connection  = f"mysql+pymysql://{self.usr}:{self.psswrd}@localhost:3306/{self.db}"
+        # self.connection  = f"mysql+pymysql://{self.usr}:{self.psswrd}@localhost:3306/{self.db}"
+        self.connection = f"mysql+pymysql://{self.usr}:{self.psswrd}@{self.host}:3306/{self.db}"
 
 
     def query(self, string):
