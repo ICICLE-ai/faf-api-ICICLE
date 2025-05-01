@@ -26,7 +26,7 @@ class CommodityTotal:
         err = self._checkLocations()
         if err == False: return self._error("table")
 
-        if not self._checkTimeframe(): return self._error("time")
+        # if not self._checkTimeframe(): return self._error("time")
 
         
 

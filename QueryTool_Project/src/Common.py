@@ -27,7 +27,7 @@ class Common:
 
         self.table = self._checkLocations()
         if self.table == False: return False  # incorrect origin destination match
-        if not self._checkTimeframe(): return False  # incorrect times
+        # if not self._checkTimeframe(): return False  # incorrect times
         cols = []
 
         if self.table[:3] == "faf":
