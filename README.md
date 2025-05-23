@@ -45,7 +45,10 @@ If you would like the server to run on a specific port, use the following comman
 for example:
 ```python2 manage.py runserver 0.0.0.0:12121```
 
-The server should now be running. To test, go to http://127.0.0.1:8000/api/schema/swagger-ui/#/ where you should see the current endpoints. If you changed the port number, change the ```127.0.0.1:8000``` with the desired port.
+The server should now be running. 
+
+## Running Server
+The API can be accessed at https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
 
 For more information on implementing endpoints or editing the project in general: [Here](DEV_README.md)
 
