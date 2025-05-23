@@ -5,6 +5,7 @@
 As part of the NSF ICICLE AI Institute and in collaboration with the US Bureau of Transportation Statistics we developed an API for the Freight Analysis Framework dataset.  The API interfaces with a remote MySQL server where the data resides (called the FAF database as implemented in the `Data_Lookup.py` file located in the `src` folder at the root of the server). 
 
 The FAF database API was developed to achieve the following objectives:
+
 -   To prevent users from directly accessing the database, thereby safeguarding it against unauthorized modifications or manipulations.
 -   To facilitate future updates by allowing modifications to the lookup tables when new data is added, rather than altering the physical queries. This approach will support automation in future development efforts.
 
@@ -20,6 +21,7 @@ The API can be accessed through https://fafserver.pods.icicleai.tapis.io/api/sch
 ## Data
 
 The API accesses the following version of the FAF dataset:
+
 Most recent:  <fill this in>
 
 ## Setting Up Your Own Server
