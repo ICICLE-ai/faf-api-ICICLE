@@ -1,8 +1,8 @@
 # FAF-API Server
 
-## A Server built from Django designed to give users an API that delivers information about the FAF dataset
+## An API for the US Bureau of Transportation Statistics Freight Analysis Framework dataset
 
-This server is designed to interface with a remote MySQL server and access the FAF database, as implemented in the `Data_Lookup.py` file located in the `src` folder at the root of the server. The retrieved values are then provided via endpoints defined in the `urls.py` and `views.py` files, both of which are housed within the `Rest_API` application. These endpoints interact with classes located at the base of the `src` directory, which are responsible for constructing queries sent to the database using the `faf_mapping.py` and `state_mapping.py` files.
+As part of the NSF ICICLE AI Institute and in collaboration with the US Bureau of Transportation Statistics we developed an API for the Freight Analysis Framework dataset.  The API interfaces with a remote MySQL server where the data resides (called the FAF database as implemented in the `Data_Lookup.py` file located in the `src` folder at the root of the server). The retrieved values are then provided via endpoints defined in the `urls.py` and `views.py` files, both of which are housed within the `Rest_API` application. These endpoints interact with classes located at the base of the `src` directory, which are responsible for constructing queries sent to the database using the `faf_mapping.py` and `state_mapping.py` files.
 
 This method of querying the FAF database was developed to achieve the following objectives:
 
