@@ -1,4 +1,4 @@
-# FAF-API Server
+# FAF-API-ICICLE
 
 ## API for the US Bureau of Transportation Statistics Freight Analysis Framework dataset
 
