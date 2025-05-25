@@ -3,6 +3,7 @@ import json
 import pandas as pd
 import logging
 import os
+from sqlalchemy.exc import SQLAlchemyError
 
 logger = logging.getLogger('src.Data_Lookup')
 class QueryTool:
@@ -29,6 +30,14 @@ class QueryTool:
 
         # self.connection  = f"mysql+pymysql://{self.usr}:{self.psswrd}@localhost:3306/{self.db}"
         self.connection = f"mysql+pymysql://{self.usr}:{self.psswrd}@{self.host}:3306/{self.db}"
+
+        try:
+            self.engine = create_engine(self.connection)
+            self.conn = self.engine.connect()
+            print("✅ Successfully connected to the database.")
+        except SQLAlchemyError as e:
+            print("❌ Failed to connect to the database.")
+            print(f"Error: {e}")
 
 
     def query(self, string):

@@ -22,7 +22,7 @@ The API can be accessed through https://fafserver.pods.icicleai.tapis.io/api/sch
 
 The API accesses the following version of the FAF dataset:
 
-Most recent:  <fill this in>
+Most recent: 2023-12-18
 
 ## Setting Up Your Own Server
 The retrieved values are then provided via endpoints defined in the `urls.py` and `views.py` files, both of which are housed within the `Rest_API` application. These endpoints interact with classes located at the base of the `src` directory, which are responsible for constructing queries sent to the database using the `faf_mapping.py` and `state_mapping.py` files.

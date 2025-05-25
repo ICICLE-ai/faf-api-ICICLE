@@ -1,4 +1,4 @@
 There are two options to put in this parameter:
 
-* faf : uses the faf tables I.E. regional
+* region : uses the region tables I.E. regional
 * state: uses the state tables I.E. state
