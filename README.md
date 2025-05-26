@@ -57,8 +57,6 @@ for example:
 
 After this final step, the server should now be running. 
 
-For more information on implementing endpoints or editing the project in general: [Here](DEV_README.md)
-
 ## Thanks
 Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF API as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
 
