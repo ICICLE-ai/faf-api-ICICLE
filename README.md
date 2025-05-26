@@ -16,7 +16,7 @@ Data-->Urls-->views-->src/Classes-->Data_Lookup-->MySQL-->view-->User;
 
 ## Accessing the API 
 
-The API can be accessed through https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
+The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
 
 ## Data
 
@@ -55,7 +55,7 @@ If you would like the server to run on a specific port, use the following comman
 for example:
 ```python2 manage.py runserver 0.0.0.0:12121```
 
-The server should now be running. 
+After this final step, the server should now be running. 
 
 For more information on implementing endpoints or editing the project in general: [Here](DEV_README.md)
 
