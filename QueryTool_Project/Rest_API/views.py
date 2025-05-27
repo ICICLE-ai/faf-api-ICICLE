@@ -303,7 +303,7 @@ class Export_endpoint(APIView):
             OpenApiParameter(
                 name='destination',
                 description=readfile('Rest_API/endpoint_desc/exports/destination.txt'),
-                required=True,
+                required=False,
                 type=str
             ),
             OpenApiParameter(
@@ -331,7 +331,7 @@ class Export_endpoint(APIView):
             'origin': request.query_params.get('origin'),
             'timeframe': request.query_params.get('timeframe'),
             'commodity': request.query_params.get('commodity'),
-            'destination': request.query_params.get('destination'),
+            'destination': request.query_params.get('destination') or None,
             'transpotation': request.query_params.get('transpotation'),
             'flow': request.query_params.get('flow'),
         }
@@ -360,8 +360,10 @@ class Export_endpoint(APIView):
         return self.handle_export(serializer.validated_data)
 
     def handle_export(self, data):
-        if not all(data.values()):
-            return Response("Missing required parameters", status=400)
+        required_fields = ['origin', 'timeframe', 'commodity', 'transpotation', 'flow']
+        missing = [field for field in required_fields if not data.get(field)]
+        if missing:
+            return Response(f"Missing required parameters: {', '.join(missing)}", status=400)
 
         try:
             export_obj = Exports(
