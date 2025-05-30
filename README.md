@@ -13,17 +13,21 @@ The design of the FAF database API had the following objectives:
 graph LR;
 Data-->Urls-->views-->src/Classes-->Data_Lookup-->MySQL-->view-->User;
 ```
+**Tag:** Software
+---
 
 ## Accessing the API 
 
 The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
 
+---
 ## Data
 
 The API accesses the following version of the FAF dataset:
 
 Most recent: December 18, 2023.
 
+---
 ## Setting Up Your Own Server
 The retrieved values are then provided via endpoints defined in the `urls.py` and `views.py` files, both of which are housed within the `Rest_API` application. These endpoints interact with classes located at the base of the `src` directory, which are responsible for constructing queries sent to the database using the `faf_mapping.py` and `state_mapping.py` files.
 
@@ -57,9 +61,10 @@ for example:
 
 After this final step, the server should now be running. 
 
-## Thanks
+---
+## Acknowledgements
 Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF API as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
 
-
+---
 ## License
 FAF API Server is developed by Indiana University and distributed under the BSD 3-Clause License. See `LICENSE` for more details.
