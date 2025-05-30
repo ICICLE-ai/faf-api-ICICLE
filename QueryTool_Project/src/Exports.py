@@ -120,6 +120,8 @@ class Exports:
         if self.table == "state2":
             self.query += sm.state2["fr_orig"][1] + " "
             self.query += sm.state2["fr_inmode"][1] + " "
+            self.query += sm.state0["dms_dest"][1] + " "
+            self.query += sm.state0["sctg2"][1] + " "
 
         if self.table == "state3":
             self.query += sm.state3["fr_dest"][1] + " "
