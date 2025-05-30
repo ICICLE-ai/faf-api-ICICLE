@@ -10,6 +10,8 @@ state0 = {
 state2 = {
     "fr_orig"  : ["fo.description AS Foreign_Origin",   "JOIN fo ON fr_orig = fo.code"],
     "fr_inmode": ["fom.description AS Transportation","JOIN fom ON fr_inmode = fom.code"],
+    "dms_dest": ["df.description AS Domestic_Destination", "JOIN fdm df  ON dms_dest = df.code"],
+    "sctg2": ["c.description AS Commodity", "JOIN c ON sctg2 = c.code"],
 }
 
 state3 = {
