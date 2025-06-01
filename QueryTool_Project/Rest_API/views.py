@@ -330,7 +330,7 @@ class Export_endpoint(APIView):
         data = {
             'origin': request.query_params.get('origin'),
             'timeframe': request.query_params.get('timeframe'),
-            'commodity': request.query_params.get('commodity'),
+            'commodity': request.query_params.get('commodity')or None,
             'destination': request.query_params.get('destination') or None,
             'transpotation': request.query_params.get('transpotation'),
             'flow': request.query_params.get('flow'),
@@ -360,7 +360,7 @@ class Export_endpoint(APIView):
         return self.handle_export(serializer.validated_data)
 
     def handle_export(self, data):
-        required_fields = ['origin', 'timeframe', 'commodity', 'flow']
+        required_fields = ['origin', 'timeframe', 'flow']
         missing = [field for field in required_fields if not data.get(field)]
         if missing:
             return Response(f"Missing required parameters: {', '.join(missing)}", status=400)

@@ -58,6 +58,8 @@ class Exports:
         if self.table == "faf2":
             cols.append(metrics.faf2["fr_orig"][0])
             cols.append(metrics.faf2["fr_inmode"][0])
+            cols.append(metrics.faf2["dms_dest"][0])
+            cols.append(metrics.faf2["sctg2"][0])
 
         if self.table == "faf3":
             cols.append(metrics.faf3["fr_dest"][0])
@@ -110,6 +112,8 @@ class Exports:
         if self.table == "faf2":
             self.query += metrics.faf2["fr_orig"][1] + " "
             self.query += metrics.faf2["fr_inmode"][1] + " "
+            self.query += metrics.faf2["dms_dest"][1] + " "
+            self.query += metrics.faf2["sctg2"][1] + " "
 
         if self.table== "faf3":
             self.query += metrics.faf3["dms_orig"][1] + " "
@@ -141,6 +145,14 @@ class Exports:
             if self.transpotation:
                 self.query += f" AND m.description = '{self.transpotation}' "
 
+        if self.table == "faf2":
+            if self.origin:
+                self.query += f"{where} fo.description = '{self.origin}' "
+            if self.destination:
+                self.query += f" AND df.description = '{self.destination}' "
+            if self.transpotation:
+                self.query += f" AND fom.description = '{self.transpotation}' "
+
         if self.table == "state0" or self.table == "state1":
             if self.origin:
                 self.query += f"{where} os.description = '{self.origin}' "
@@ -156,6 +168,8 @@ class Exports:
                 self.query += f"{where} fd.description = '{self.destination}' "
             if self.origin:
                 self.query += f" AND of0.description = '{self.origin}' "
+            if self.transpotation:
+                self.query += f" AND fdm.description = '{self.transpotation}' "
 
         if self.table == "state3":
             if self.destination:
@@ -271,7 +285,8 @@ class Exports:
         """Checks the locations and sets table based on origin and destination""" 
         tool = QueryTool()
         ostate = tool.query("SELECT description FROM o_state;")
-        ofaf   = tool.query("SELECT description FROM o_faf;")        
+        ofaf   = tool.query("SELECT description FROM o_faf;")
+        dfaf = tool.query("SELECT description FROM d_faf;")
         fo     = tool.query("SELECT description FROM fo;")
         #retrive the table
         if any(o == self.origin for o in ostate['description']):
@@ -281,7 +296,8 @@ class Exports:
             return 'faf'
         if any(o == self.destination for o in ostate['description']):
             return 'state'
-
+        if any(o == self.destination for o in dfaf['description']):
+            return 'faf'
         #if any(o == self.origin for o in fo['description']):
         #    return 'state2'
 
