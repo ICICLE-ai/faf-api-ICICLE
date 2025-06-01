@@ -298,8 +298,8 @@ class Exports:
             return 'state'
         if any(o == self.destination for o in dfaf['description']):
             return 'faf'
-        #if any(o == self.origin for o in fo['description']):
-        #    return 'state2'
+        if any(o == self.origin for o in fo['description']):
+           return 'faf'
 
         return False
 
