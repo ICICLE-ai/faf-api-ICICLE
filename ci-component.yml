@@ -1,0 +1,28 @@
+- id: FAF-API:0.1.0
+  name: API access to the Freight Analysis Framework dataset
+  status: ProductionRelease
+  website: https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
+  description: REST APIs that provide access to freight transportation data from the US Freight Analysis Framework, using a MySQL database.
+  owner: Beth Plale
+  primaryThrust: core/AI4CI
+  sourceCodeUrl: https://github.com/Data-to-Insight-Center/faf-api-ICICLE
+  targetIcicleRelease: 2025-07
+  componentVersion: 0.1.0
+  licenseUrl: https://github.com/Data-to-Insight-Center/faf-api-ICICLE/blob/main/LICENSE
+  releaseNotesUrl:
+  doi:
+  citation: I. Gamage , S. Withana and B. Plale, FAF-API':' API access to the FAF
+  pypiPackage:
+  containerImage: https://hub.docker.com/u/iud2i
+  codeReviewConducted: true
+  testsWritten: true
+  securityReviewConducted: false
+  biasAssessmentConducted: false
+  usageDocumentationAvailable: true
+  usageDocumentationUrl: https://github.com/Data-to-Insight-Center/faf-api-ICICLE/blob/main/API_README.md
+  developerDocumentationAvailable: true
+  developerDocumentationUrl: https://github.com/Data-to-Insight-Center/faf-api-ICICLE/blob/main/DEV_README.md
+  trainingTutorialsAvailable: true
+  trainingTutorialsUrl: https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
+  usageMetricsCollected: false
+  publicAccess: true
