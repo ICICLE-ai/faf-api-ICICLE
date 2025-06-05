@@ -18,15 +18,15 @@ Most recent: December 18, 2023.
 ---
 ## How to Use
 
-For a complete overview of how to use the API, please refer to the [API_README.md](./API_README.md) file located in the same directory.
-
-That file provides a detailed explanation of each endpoint, including:
+For a complete overview of how to use the API, please refer to the [API_README.md](./API_README.md) file located in the same directory. This file provides a detailed explanation of each endpoint, including:
 - Required input parameters
 - Returned data
 - A description of the endpoint's functionality
 - Example requests demonstrating the expected input format
 
-**Note:** This API requires all attributes to be sent in **JSON** format.  The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
+**Note:** This API requires all attributes to be sent in **JSON** format.  
+
+The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
 
 ---
 ## Setting Up Your Own Server
