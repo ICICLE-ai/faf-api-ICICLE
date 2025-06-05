@@ -13,7 +13,7 @@ The API accesses the following version of the FAF dataset:
 
 Most recent: December 18, 2023.
 
-**Tag:** Software, SmartFoodsheds
+**Tag:** Smart-Foodsheds
 
 ---
 ## How to Use
@@ -24,7 +24,7 @@ For a complete overview of how to use the API, please refer to the [API_README.m
 - A description of the endpoint's functionality
 - Example requests demonstrating the expected input format
 
-**Note:** This API requires all attributes to be sent in **JSON** format.  
+**Note:** All POST request bodies must be formatted as **JSON**. For GET requests, parameters should be passed as query strings. 
 
 The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
 
