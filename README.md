@@ -63,6 +63,20 @@ for example:
 After this final step, the server should now be running. 
 
 ---
+## How to Use
+
+For a complete overview of how to use the API, please refer to the [API_README.md](./API_README.md) file located in the same directory.
+
+That file provides a detailed explanation of each endpoint, including:
+- Required input parameters
+- Returned data
+- A description of the endpoint's functionality
+- Example requests demonstrating the expected input format
+
+**Note:** This API requires all attributes to be sent in **JSON** format.
+
+
+---
 ## Acknowledgements
 Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF API as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
 
