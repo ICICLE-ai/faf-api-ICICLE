@@ -13,10 +13,10 @@ The design of the FAF database API had the following objectives:
 graph LR;
 Data-->Urls-->views-->src/Classes-->Data_Lookup-->MySQL-->view-->User;
 ```
-**Tag:** Software
+**Tag:** Software, SmartFoodsheds
 
 ---
-
+#How To
 ## Accessing the API 
 
 The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
