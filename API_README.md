@@ -1,16 +1,15 @@
 # API Endpoint Description
-**Version: 0.0.3**
+**Version: 0.1.0**
 
 This API is designed to retrieve information from the Freight Analysis Framework (FAF) dataset, which was created by the Federal Highway Administration (FHWA) to illustrate freight movement in the United States.
 
-The following section provides a detailed overview of each endpoint, including the required input parameters, the data returned, and a description of the endpoint's functionality. Each endpoint is accompanied by an example demonstrating the expected format of the input data. Please note that this API requires all attributes to be sent in a JSON format.
+The following section provides a detailed overview of each endpoint, including the required input parameters, the data returned, and a description of the endpoint's functionality. Each endpoint is accompanied by an example demonstrating the expected format of the input data. All POST request bodies must be formatted as **JSON**. For GET requests, parameters should be passed as query strings.
 
 # Endpoints
 
 * [get_table_data](#get_table_data)      
-* [point_to_point](#point_to_point)      
-* [domestic_exports](#domestic_exports)  
-* [domestic_imports](#domestic_imports)  
+* [point_to_point](#point_to_point)
+* [exports_imports_details](#exports_imports_details)  
 * [import_export_sum](#import_export_sum)
 * [commodity_total](#commodity_total) 
 * [data_option](#data_option)
@@ -76,21 +75,32 @@ exportSingleExample = {
 }
 ```
 
-## domestic_imports/
+## exports_imports_details/
 This endpoint takes in a region or state with a year or year frame and returns all imported commodities from that area. This only applies to domestic-based trade. The endpoint returns the commodity type, the transportation type, the area the commodity was sent to, and the year's ton and value.
 
 ### attributes:
 * origin(str): Specific location being used
-* timeframe(list of int): can either be a single year, or a range between two years
+* timeframe(list of int): can either be a single year, or a range between two years (e.g., [2017], [2017,2025])
+* commodity (str): Type of good being transported (e.g., "Coal")   
+* destination (str): Specific location goods are being sent to  
+* transpotation (str): Mode of transport used (e.g., "Truck", "Rail", "Water")  
+* flow (str): Nature of the shipment (e.g., "domestic", "foreign-Import", "foreign-Export")  
 
 ### return:
 returns a csv file that can be downloaded.
 
 ``` python
 #example data input
-importExample = {
-    "origin"   :"all",
-    "timeframe":[2018,2025],
+exports_imports_details_Example ={
+  "origin": "Indiana",
+  "commodity": "Animal feed",
+  "destination": "Alaska",
+  "transpotation": "Truck",
+  "flow": "domestic",
+  "timeframe": [
+    2018,
+    2025
+  ]
 }
 ```
 
@@ -98,8 +108,10 @@ importExample = {
 This endpoint takes in an origin named and a year/year frame and calculates the sum of each resource imported and exported from the said area. It returns data by giving the area’s name, the resource, whether it was imported or exported, and the summation of said resource based on year. Currently, this only works for domestic imports and outports.
 
 ### attributes:
-* place(str): Specific location being used
-* timeframe(list of int): can either be a single year, or a range between two years
+* origin(str): Specific location being used
+* timeframe(list of int): can either be a single year, or a range between two years (e.g., [2017], [2017,2025]) 
+* destination (str): Specific location goods are being sent to
+* flow (str): Nature of the shipment (e.g., "domestic", "foreign-Import", "foreign-Export")  
 
 ### return:
 returns a csv file that can be downloaded.
@@ -107,8 +119,13 @@ returns a csv file that can be downloaded.
 ``` python
 #example data input
 imp_exp_Example = {
-    "origin"    :"Texas",
-    "timeframe":[2017, 2020],
+  "origin": "Indiana",
+  "timeframe": [
+    2017,
+    2020
+  ],
+  "destination": "",
+  "flow": "domestic"
 }
 ```
 
@@ -165,5 +182,5 @@ There was a proposal to extend the import and export endpoints to include produc
 One proposed idea is to use JSON format for transmitting data when the volume is relatively small. JSON is the standard data format for RESTful APIs and is highly compatible with most programming languages. Its flexibility makes it particularly suitable for small datasets due to its ability to handle hierarchical structures, preserve data types, and support nested relationships. Furthermore, JSON's human-readable format and wide compatibility with various libraries and languages enhance its effectiveness for data interchange. Given these advantages, incorporating JSON as an option for transmitting smaller data quantities would be beneficial.
 
 # Versioning
-### V0.0.3
+### V0.1.0
 This marks the release of the first full version of the API, introducing the following endpoints: `data_option`, `domestic_exports`, `domestic_imports`, `get_table_data`, `import_export_sum`, and `point_to_point`.
