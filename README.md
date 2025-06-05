@@ -9,6 +9,10 @@ The design of the FAF database API had the following objectives:
 -   Prevent users from directly accessing the database, thereby safeguarding it against unauthorized modifications or manipulations.
 -   Facilitate future updates by allowing modifications to the lookup tables when new data is added, rather than altering the physical queries. This approach will support automation in future development efforts.
 
+The API accesses the following version of the FAF dataset:
+
+Most recent: December 18, 2023.
+
 ```mermaid
 graph LR;
 Data-->Urls-->views-->src/Classes-->Data_Lookup-->MySQL-->view-->User;
@@ -16,17 +20,17 @@ Data-->Urls-->views-->src/Classes-->Data_Lookup-->MySQL-->view-->User;
 **Tag:** Software, SmartFoodsheds
 
 ---
-#How To
-## Accessing the API 
+## How to Use
 
-The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
+For a complete overview of how to use the API, please refer to the [API_README.md](./API_README.md) file located in the same directory.
 
----
-## Data
+That file provides a detailed explanation of each endpoint, including:
+- Required input parameters
+- Returned data
+- A description of the endpoint's functionality
+- Example requests demonstrating the expected input format
 
-The API accesses the following version of the FAF dataset:
-
-Most recent: December 18, 2023.
+**Note:** This API requires all attributes to be sent in **JSON** format.  The Swagger UI to the API is here https://fafserver.pods.icicleai.tapis.io/api/schema/swagger-ui/#/
 
 ---
 ## Setting Up Your Own Server
@@ -61,20 +65,6 @@ for example:
 ```python2 manage.py runserver 0.0.0.0:12121```
 
 After this final step, the server should now be running. 
-
----
-## How to Use
-
-For a complete overview of how to use the API, please refer to the [API_README.md](./API_README.md) file located in the same directory.
-
-That file provides a detailed explanation of each endpoint, including:
-- Required input parameters
-- Returned data
-- A description of the endpoint's functionality
-- Example requests demonstrating the expected input format
-
-**Note:** This API requires all attributes to be sent in **JSON** format.
-
 
 ---
 ## Acknowledgements
