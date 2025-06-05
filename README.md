@@ -13,10 +13,6 @@ The API accesses the following version of the FAF dataset:
 
 Most recent: December 18, 2023.
 
-```mermaid
-graph LR;
-Data-->Urls-->views-->src/Classes-->Data_Lookup-->MySQL-->view-->User;
-```
 **Tag:** Software, SmartFoodsheds
 
 ---
