@@ -13,7 +13,7 @@ The API accesses the following version of the FAF dataset:
 
 Most recent: December 18, 2023.
 
-**Tag:** Smart-Foodsheds
+**Tag:** Smart-Foodsheds, Food-Access
 
 ---
 ## How to Use
@@ -63,9 +63,13 @@ for example:
 After this final step, the server should now be running. 
 
 ---
+## License
+FAF API Server is developed by Indiana University and distributed under the BSD 3-Clause License. See `LICENSE` for more details.
+---
+
 ## Acknowledgements
 Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF API as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
 
 ---
-## License
-FAF API Server is developed by Indiana University and distributed under the BSD 3-Clause License. See `LICENSE` for more details.
+## References
+Freight Analysis Framework, Bureau of Transportation Statistics https://www.bts.gov/faf
