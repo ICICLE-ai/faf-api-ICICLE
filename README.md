@@ -16,7 +16,7 @@ Most recent: December 18, 2023.
 **Tag:** Smart-Foodsheds, Food-Access
 
 ---
-## How to Use
+# How-to Guides
 
 For a complete overview of how to use the API, please refer to the [API_README.md](./API_README.md) file located in the same directory. This file provides a detailed explanation of each endpoint, including:
 - Required input parameters
@@ -72,7 +72,7 @@ FAF API Server is developed by Indiana University and distributed under the BSD 
 ---
 
 ## Acknowledgements
-Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF API as part of the NSF AI ICICLE Institute. Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
+Thanks to colleagues at Texas Advanced Computing Center (TACC) who are hosting the FAF API as part of the NSF AI ICICLE Institute (OAC 2112606). Thanks to the US Bureau of Transportation Statistics Freight Analysis Framework for guidance.
 
 ---
 ## References
