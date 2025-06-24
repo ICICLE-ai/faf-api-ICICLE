@@ -46,7 +46,7 @@ To activate the virtual environment:
 
 After activating the environment, proceed by cloning this repository into the virtual environment.
 
-The dependencies for the server are listed in the `requirements.txt` file, with all versions kept up to date. The server is currently using Python version 3.8.10, but any Python version up to 3.12.3 is compatible. To install the dependencies, use the following command in the root directory of the server:
+The dependencies for the server are listed in the `QueryTool_Project/requirements.txt` file, with all versions kept up to date. The server is currently using Python version 3.8.10, but any Python version up to 3.12.3 is compatible. To install the dependencies, use the following command in the root directory of the server:
 ```pip install -r requirements.txt```
 
 To run the server, ensure that the Python virtual environment is activated and all dependencies listed in `requirements.txt` are installed. Once these steps are completed, navigate to the root directory of the server and execute the following command:
@@ -61,6 +61,10 @@ for example:
 ```python2 manage.py runserver 0.0.0.0:12121```
 
 After this final step, the server should now be running. 
+
+For local deployment, once the server is running, you can access the API documentation by visiting:
+``` http://localhost:port_number/api/schema/swagger-ui/# ```
+Replace PORT with the port number you're using (e.g., 12121).
 
 ---
 ## License
