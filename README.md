@@ -62,6 +62,10 @@ for example:
 
 After this final step, the server should now be running. 
 
+For local deployment, once the server is running, you can access the API documentation by visiting:
+``` http://localhost:port_number/api/schema/swagger-ui/# ```
+Replace PORT with the port number you're using (e.g., 12121).
+
 ---
 ## License
 FAF API Server is developed by Indiana University and distributed under the BSD 3-Clause License. See `LICENSE` for more details.
